@@ -1,0 +1,484 @@
+@import '../tokens.css';
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.iconButton:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--color-primary-5);
+  outline-offset: 2px;
+}
+
+.iconButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- Sizes (square) --- */
+.size1 {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.size2 {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+}
+
+.size3 {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+}
+
+.size1 svg {
+  width: 14px;
+  height: 14px;
+}
+
+.size2 svg {
+  width: 16px;
+  height: 16px;
+}
+
+.size3 svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Radius --- */
+.radiusSm {
+  border-radius: var(--radius-sm);
+}
+
+.radiusMd {
+  border-radius: var(--radius-md);
+}
+
+.radiusLg {
+  border-radius: var(--radius-lg);
+}
+
+.radiusFull {
+  border-radius: var(--radius-full);
+}
+
+/* --- Solid --- */
+.solid.primary {
+  background-color: var(--color-primary-5);
+  color: #fff;
+}
+
+.solid.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-6);
+}
+
+.solid.neutral {
+  background-color: var(--color-neutral-6);
+  color: #fff;
+}
+
+.solid.neutral:hover:not(:disabled) {
+  background-color: var(--color-neutral-7);
+}
+
+.solid.danger {
+  background-color: var(--color-danger-5);
+  color: #fff;
+}
+
+.solid.danger:hover:not(:disabled) {
+  background-color: var(--color-danger-6);
+}
+
+.solid.success {
+  background-color: var(--color-success-5);
+  color: #fff;
+}
+
+.solid.success:hover:not(:disabled) {
+  background-color: var(--color-success-6);
+}
+
+.solid.warning {
+  background-color: var(--color-warning-5);
+  color: hsl(38, 80%, 10%);
+}
+
+.solid.warning:hover:not(:disabled) {
+  background-color: var(--color-warning-6);
+}
+
+/* --- Soft --- */
+.soft.primary {
+  background-color: var(--color-primary-1);
+  color: var(--color-primary-6);
+}
+
+.soft.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-2);
+}
+
+.soft.neutral {
+  background-color: var(--color-neutral-1);
+  color: var(--color-neutral-6);
+}
+
+.soft.neutral:hover:not(:disabled) {
+  background-color: var(--color-neutral-2);
+}
+
+.soft.danger {
+  background-color: var(--color-danger-1);
+  color: var(--color-danger-6);
+}
+
+.soft.danger:hover:not(:disabled) {
+  background-color: var(--color-danger-2);
+}
+
+.soft.success {
+  background-color: var(--color-success-1);
+  color: var(--color-success-6);
+}
+
+.soft.success:hover:not(:disabled) {
+  background-color: var(--color-success-2);
+}
+
+.soft.warning {
+  background-color: var(--color-warning-1);
+  color: var(--color-warning-7);
+}
+
+.soft.warning:hover:not(:disabled) {
+  background-color: var(--color-warning-2);
+}
+
+/* --- Outline --- */
+.outline {
+  background-color: transparent;
+}
+
+.outline.primary {
+  border-color: var(--color-primary-4);
+  color: var(--color-primary-5);
+}
+
+.outline.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-1);
+}
+
+.outline.neutral {
+  border-color: var(--color-neutral-3);
+  color: var(--surface-text);
+}
+
+.outline.neutral:hover:not(:disabled) {
+  background-color: var(--color-neutral-1);
+}
+
+.outline.danger {
+  border-color: var(--color-danger-4);
+  color: var(--color-danger-5);
+}
+
+.outline.danger:hover:not(:disabled) {
+  background-color: var(--color-danger-1);
+}
+
+.outline.success {
+  border-color: var(--color-success-4);
+  color: var(--color-success-5);
+}
+
+.outline.success:hover:not(:disabled) {
+  background-color: var(--color-success-1);
+}
+
+.outline.warning {
+  border-color: var(--color-warning-4);
+  color: var(--color-warning-6);
+}
+
+.outline.warning:hover:not(:disabled) {
+  background-color: var(--color-warning-1);
+}
+
+/* --- Ghost --- */
+.ghost {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.ghost.primary {
+  color: var(--color-primary-5);
+}
+
+.ghost.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-1);
+}
+
+.ghost.neutral {
+  color: var(--surface-text-muted);
+}
+
+.ghost.neutral:hover:not(:disabled) {
+  background-color: var(--color-neutral-1);
+  color: var(--surface-text);
+}
+
+.ghost.danger {
+  color: var(--color-danger-5);
+}
+
+.ghost.danger:hover:not(:disabled) {
+  background-color: var(--color-danger-1);
+}
+
+.ghost.success {
+  color: var(--color-success-5);
+}
+
+.ghost.success:hover:not(:disabled) {
+  background-color: var(--color-success-1);
+}
+
+.ghost.warning {
+  color: var(--color-warning-6);
+}
+
+.ghost.warning:hover:not(:disabled) {
+  background-color: var(--color-warning-1);
+}
+
+/* --- Loading --- */
+.loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.loadingContent {
+  opacity: 0;
+}
+
+.spinnerWrapper {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==============================
+   Dark mode soft
+   ============================== */
+
+:root[data-theme="dark"] .soft.primary,
+:root:not([data-theme]) .soft.primary {
+  background-color: hsla(230, 70%, 56%, 0.12);
+  color: var(--color-primary-3);
+}
+
+:root[data-theme="dark"] .soft.primary:hover:not(:disabled),
+:root:not([data-theme]) .soft.primary:hover:not(:disabled) {
+  background-color: hsla(230, 70%, 56%, 0.2);
+}
+
+:root[data-theme="dark"] .soft.neutral,
+:root:not([data-theme]) .soft.neutral {
+  background-color: hsla(220, 14%, 50%, 0.1);
+  color: var(--color-neutral-3);
+}
+
+:root[data-theme="dark"] .soft.neutral:hover:not(:disabled),
+:root:not([data-theme]) .soft.neutral:hover:not(:disabled) {
+  background-color: hsla(220, 14%, 50%, 0.18);
+}
+
+:root[data-theme="dark"] .soft.danger,
+:root:not([data-theme]) .soft.danger {
+  background-color: hsla(0, 72%, 51%, 0.12);
+  color: var(--color-danger-3);
+}
+
+:root[data-theme="dark"] .soft.danger:hover:not(:disabled),
+:root:not([data-theme]) .soft.danger:hover:not(:disabled) {
+  background-color: hsla(0, 72%, 51%, 0.2);
+}
+
+:root[data-theme="dark"] .soft.success,
+:root:not([data-theme]) .soft.success {
+  background-color: hsla(142, 71%, 40%, 0.12);
+  color: var(--color-success-3);
+}
+
+:root[data-theme="dark"] .soft.success:hover:not(:disabled),
+:root:not([data-theme]) .soft.success:hover:not(:disabled) {
+  background-color: hsla(142, 71%, 40%, 0.2);
+}
+
+:root[data-theme="dark"] .soft.warning,
+:root:not([data-theme]) .soft.warning {
+  background-color: hsla(38, 92%, 50%, 0.12);
+  color: var(--color-warning-3);
+}
+
+:root[data-theme="dark"] .soft.warning:hover:not(:disabled),
+:root:not([data-theme]) .soft.warning:hover:not(:disabled) {
+  background-color: hsla(38, 92%, 50%, 0.2);
+}
+
+:root[data-theme="dark"] .outline.neutral,
+:root:not([data-theme]) .outline.neutral {
+  border-color: var(--color-neutral-5);
+  color: var(--color-neutral-3);
+}
+
+:root[data-theme="dark"] .ghost.neutral,
+:root:not([data-theme]) .ghost.neutral {
+  color: var(--color-neutral-3);
+}
+
+/* Light mode: override dark defaults back to light values */
+:root[data-theme="light"] .soft.primary {
+  background-color: var(--color-primary-1);
+  color: var(--color-primary-6);
+}
+
+:root[data-theme="light"] .soft.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-2);
+}
+
+:root[data-theme="light"] .soft.neutral {
+  background-color: var(--color-neutral-1);
+  color: var(--color-neutral-6);
+}
+
+:root[data-theme="light"] .soft.neutral:hover:not(:disabled) {
+  background-color: var(--color-neutral-2);
+}
+
+:root[data-theme="light"] .soft.danger {
+  background-color: var(--color-danger-1);
+  color: var(--color-danger-6);
+}
+
+:root[data-theme="light"] .soft.danger:hover:not(:disabled) {
+  background-color: var(--color-danger-2);
+}
+
+:root[data-theme="light"] .soft.success {
+  background-color: var(--color-success-1);
+  color: var(--color-success-6);
+}
+
+:root[data-theme="light"] .soft.success:hover:not(:disabled) {
+  background-color: var(--color-success-2);
+}
+
+:root[data-theme="light"] .soft.warning {
+  background-color: var(--color-warning-1);
+  color: var(--color-warning-7);
+}
+
+:root[data-theme="light"] .soft.warning:hover:not(:disabled) {
+  background-color: var(--color-warning-2);
+}
+
+:root[data-theme="light"] .outline.neutral {
+  border-color: var(--color-neutral-3);
+  color: var(--surface-text);
+}
+
+:root[data-theme="light"] .ghost.neutral {
+  color: var(--surface-text-muted);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .soft.primary {
+    background-color: var(--color-primary-1);
+    color: var(--color-primary-6);
+  }
+
+  :root:not([data-theme]) .soft.primary:hover:not(:disabled) {
+    background-color: var(--color-primary-2);
+  }
+
+  :root:not([data-theme]) .soft.neutral {
+    background-color: var(--color-neutral-1);
+    color: var(--color-neutral-6);
+  }
+
+  :root:not([data-theme]) .soft.neutral:hover:not(:disabled) {
+    background-color: var(--color-neutral-2);
+  }
+
+  :root:not([data-theme]) .soft.danger {
+    background-color: var(--color-danger-1);
+    color: var(--color-danger-6);
+  }
+
+  :root:not([data-theme]) .soft.danger:hover:not(:disabled) {
+    background-color: var(--color-danger-2);
+  }
+
+  :root:not([data-theme]) .soft.success {
+    background-color: var(--color-success-1);
+    color: var(--color-success-6);
+  }
+
+  :root:not([data-theme]) .soft.success:hover:not(:disabled) {
+    background-color: var(--color-success-2);
+  }
+
+  :root:not([data-theme]) .soft.warning {
+    background-color: var(--color-warning-1);
+    color: var(--color-warning-7);
+  }
+
+  :root:not([data-theme]) .soft.warning:hover:not(:disabled) {
+    background-color: var(--color-warning-2);
+  }
+
+  :root:not([data-theme]) .outline.neutral {
+    border-color: var(--color-neutral-3);
+    color: var(--surface-text);
+  }
+
+  :root:not([data-theme]) .ghost.neutral {
+    color: var(--surface-text-muted);
+  }
+}

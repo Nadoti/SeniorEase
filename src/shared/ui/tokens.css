@@ -1,0 +1,125 @@
+/* ==============================
+   Design Tokens — SeniorEase
+   ============================== */
+
+/* --- Dark mode (default) --- */
+:root {
+  /* --- Colors: Primary --- */
+  --color-primary-1: hsl(230, 80%, 96%);
+  --color-primary-2: hsl(230, 80%, 90%);
+  --color-primary-3: hsl(230, 75%, 82%);
+  --color-primary-4: hsl(230, 72%, 68%);
+  --color-primary-5: hsl(230, 70%, 56%);
+  --color-primary-6: hsl(230, 72%, 48%);
+  --color-primary-7: hsl(230, 75%, 40%);
+
+  /* --- Colors: Neutral --- */
+  --color-neutral-1: hsl(220, 14%, 96%);
+  --color-neutral-2: hsl(220, 14%, 90%);
+  --color-neutral-3: hsl(220, 12%, 80%);
+  --color-neutral-4: hsl(220, 10%, 60%);
+  --color-neutral-5: hsl(220, 10%, 42%);
+  --color-neutral-6: hsl(220, 12%, 28%);
+  --color-neutral-7: hsl(220, 14%, 18%);
+
+  /* --- Colors: Danger --- */
+  --color-danger-1: hsl(0, 86%, 96%);
+  --color-danger-2: hsl(0, 80%, 90%);
+  --color-danger-3: hsl(0, 75%, 80%);
+  --color-danger-4: hsl(0, 72%, 64%);
+  --color-danger-5: hsl(0, 72%, 51%);
+  --color-danger-6: hsl(0, 72%, 44%);
+  --color-danger-7: hsl(0, 72%, 36%);
+
+  /* --- Colors: Success --- */
+  --color-success-1: hsl(142, 72%, 95%);
+  --color-success-2: hsl(142, 68%, 88%);
+  --color-success-3: hsl(142, 64%, 76%);
+  --color-success-4: hsl(142, 60%, 56%);
+  --color-success-5: hsl(142, 71%, 40%);
+  --color-success-6: hsl(142, 72%, 34%);
+  --color-success-7: hsl(142, 75%, 26%);
+
+  /* --- Colors: Warning --- */
+  --color-warning-1: hsl(38, 100%, 96%);
+  --color-warning-2: hsl(38, 96%, 88%);
+  --color-warning-3: hsl(38, 92%, 76%);
+  --color-warning-4: hsl(38, 90%, 60%);
+  --color-warning-5: hsl(38, 92%, 50%);
+  --color-warning-6: hsl(38, 92%, 42%);
+  --color-warning-7: hsl(38, 94%, 32%);
+
+  /* --- Surfaces (Dark Mode defaults) --- */
+  --surface-bg: hsl(220, 14%, 10%);
+  --surface-1: hsl(220, 14%, 14%);
+  --surface-2: hsl(220, 14%, 18%);
+  --surface-3: hsl(220, 14%, 22%);
+  --surface-border: hsl(220, 14%, 24%);
+  --surface-text: hsl(220, 14%, 92%);
+  --surface-text-muted: hsl(220, 10%, 60%);
+
+  /* --- Typography --- */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-base: 1rem;
+
+  /* --- Spacing (base unit) --- */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 2rem;
+  --spacing-8: 2.5rem;
+  --spacing-9: 3rem;
+
+  /* --- Touch target mínimo (acessibilidade) --- */
+  --min-touch-target: 44px;
+
+  /* --- Radius --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.2);
+  --shadow-lg: 0 4px 16px hsla(0, 0%, 0%, 0.25);
+
+  /* --- Transitions --- */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+}
+
+/* --- Light mode: manual choice --- */
+:root[data-theme="light"] {
+  --surface-bg: hsl(0, 0%, 100%);
+  --surface-1: hsl(220, 14%, 97%);
+  --surface-2: hsl(220, 14%, 93%);
+  --surface-3: hsl(220, 14%, 88%);
+  --surface-border: hsl(220, 14%, 82%);
+  --surface-text: hsl(220, 14%, 12%);
+  --surface-text-muted: hsl(220, 10%, 46%);
+
+  --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+  --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.08);
+  --shadow-lg: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+}
+
+/* --- Light mode: auto (follows OS when no data-theme set) --- */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --surface-bg: hsl(0, 0%, 100%);
+    --surface-1: hsl(220, 14%, 97%);
+    --surface-2: hsl(220, 14%, 93%);
+    --surface-3: hsl(220, 14%, 88%);
+    --surface-border: hsl(220, 14%, 82%);
+    --surface-text: hsl(220, 14%, 12%);
+    --surface-text-muted: hsl(220, 10%, 46%);
+
+    --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+    --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.08);
+    --shadow-lg: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+  }
+}

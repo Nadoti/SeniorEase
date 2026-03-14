@@ -1,0 +1,452 @@
+@import '../tokens.css';
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1.5px solid transparent;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.linkButton:active {
+  transform: scale(0.97);
+}
+
+.linkButton:focus-visible {
+  outline: 2px solid var(--color-primary-5);
+  outline-offset: 2px;
+}
+
+/* --- Sizes --- */
+.size1 {
+  height: 1.75rem;
+  padding: 0 0.625rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.size2 {
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.8125rem;
+  border-radius: var(--radius-md);
+}
+
+.size3 {
+  height: 2.75rem;
+  padding: 0 1.25rem;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-md);
+}
+
+/* --- Radius --- */
+.radiusSm {
+  border-radius: var(--radius-sm);
+}
+
+.radiusMd {
+  border-radius: var(--radius-md);
+}
+
+.radiusLg {
+  border-radius: var(--radius-lg);
+}
+
+.radiusFull {
+  border-radius: var(--radius-full);
+}
+
+/* --- Full width --- */
+.fullWidth {
+  width: 100%;
+}
+
+/* --- Icon wrapper --- */
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* --- Solid --- */
+.solid.primary {
+  background-color: var(--color-primary-5);
+  color: #fff;
+}
+
+.solid.primary:hover {
+  background-color: var(--color-primary-6);
+}
+
+.solid.neutral {
+  background-color: var(--color-neutral-6);
+  color: #fff;
+}
+
+.solid.neutral:hover {
+  background-color: var(--color-neutral-7);
+}
+
+.solid.danger {
+  background-color: var(--color-danger-5);
+  color: #fff;
+}
+
+.solid.danger:hover {
+  background-color: var(--color-danger-6);
+}
+
+.solid.success {
+  background-color: var(--color-success-5);
+  color: #fff;
+}
+
+.solid.success:hover {
+  background-color: var(--color-success-6);
+}
+
+.solid.warning {
+  background-color: var(--color-warning-5);
+  color: hsl(38, 80%, 10%);
+}
+
+.solid.warning:hover {
+  background-color: var(--color-warning-6);
+}
+
+/* --- Soft --- */
+.soft.primary {
+  background-color: var(--color-primary-1);
+  color: var(--color-primary-6);
+}
+
+.soft.primary:hover {
+  background-color: var(--color-primary-2);
+}
+
+.soft.neutral {
+  background-color: var(--color-neutral-1);
+  color: var(--color-neutral-6);
+}
+
+.soft.neutral:hover {
+  background-color: var(--color-neutral-2);
+}
+
+.soft.danger {
+  background-color: var(--color-danger-1);
+  color: var(--color-danger-6);
+}
+
+.soft.danger:hover {
+  background-color: var(--color-danger-2);
+}
+
+.soft.success {
+  background-color: var(--color-success-1);
+  color: var(--color-success-6);
+}
+
+.soft.success:hover {
+  background-color: var(--color-success-2);
+}
+
+.soft.warning {
+  background-color: var(--color-warning-1);
+  color: var(--color-warning-7);
+}
+
+.soft.warning:hover {
+  background-color: var(--color-warning-2);
+}
+
+/* --- Outline --- */
+.outline {
+  background-color: transparent;
+}
+
+.outline.primary {
+  border-color: var(--color-primary-4);
+  color: var(--color-primary-5);
+}
+
+.outline.primary:hover {
+  background-color: var(--color-primary-1);
+}
+
+.outline.neutral {
+  border-color: var(--color-neutral-3);
+  color: var(--surface-text);
+}
+
+.outline.neutral:hover {
+  background-color: var(--color-neutral-1);
+}
+
+.outline.danger {
+  border-color: var(--color-danger-4);
+  color: var(--color-danger-5);
+}
+
+.outline.danger:hover {
+  background-color: var(--color-danger-1);
+}
+
+.outline.success {
+  border-color: var(--color-success-4);
+  color: var(--color-success-5);
+}
+
+.outline.success:hover {
+  background-color: var(--color-success-1);
+}
+
+.outline.warning {
+  border-color: var(--color-warning-4);
+  color: var(--color-warning-6);
+}
+
+.outline.warning:hover {
+  background-color: var(--color-warning-1);
+}
+
+/* --- Ghost --- */
+.ghost {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.ghost.primary {
+  color: var(--color-primary-5);
+}
+
+.ghost.primary:hover {
+  background-color: var(--color-primary-1);
+}
+
+.ghost.neutral {
+  color: var(--surface-text-muted);
+}
+
+.ghost.neutral:hover {
+  background-color: var(--color-neutral-1);
+  color: var(--surface-text);
+}
+
+.ghost.danger {
+  color: var(--color-danger-5);
+}
+
+.ghost.danger:hover {
+  background-color: var(--color-danger-1);
+}
+
+.ghost.success {
+  color: var(--color-success-5);
+}
+
+.ghost.success:hover {
+  background-color: var(--color-success-1);
+}
+
+.ghost.warning {
+  color: var(--color-warning-6);
+}
+
+.ghost.warning:hover {
+  background-color: var(--color-warning-1);
+}
+
+/* ==============================
+   Dark mode soft
+   ============================== */
+
+:root[data-theme="dark"] .soft.primary,
+:root:not([data-theme]) .soft.primary {
+  background-color: hsla(230, 70%, 56%, 0.12);
+  color: var(--color-primary-3);
+}
+
+:root[data-theme="dark"] .soft.primary:hover,
+:root:not([data-theme]) .soft.primary:hover {
+  background-color: hsla(230, 70%, 56%, 0.2);
+}
+
+:root[data-theme="dark"] .soft.neutral,
+:root:not([data-theme]) .soft.neutral {
+  background-color: hsla(220, 14%, 50%, 0.1);
+  color: var(--color-neutral-3);
+}
+
+:root[data-theme="dark"] .soft.neutral:hover,
+:root:not([data-theme]) .soft.neutral:hover {
+  background-color: hsla(220, 14%, 50%, 0.18);
+}
+
+:root[data-theme="dark"] .soft.danger,
+:root:not([data-theme]) .soft.danger {
+  background-color: hsla(0, 72%, 51%, 0.12);
+  color: var(--color-danger-3);
+}
+
+:root[data-theme="dark"] .soft.danger:hover,
+:root:not([data-theme]) .soft.danger:hover {
+  background-color: hsla(0, 72%, 51%, 0.2);
+}
+
+:root[data-theme="dark"] .soft.success,
+:root:not([data-theme]) .soft.success {
+  background-color: hsla(142, 71%, 40%, 0.12);
+  color: var(--color-success-3);
+}
+
+:root[data-theme="dark"] .soft.success:hover,
+:root:not([data-theme]) .soft.success:hover {
+  background-color: hsla(142, 71%, 40%, 0.2);
+}
+
+:root[data-theme="dark"] .soft.warning,
+:root:not([data-theme]) .soft.warning {
+  background-color: hsla(38, 92%, 50%, 0.12);
+  color: var(--color-warning-3);
+}
+
+:root[data-theme="dark"] .soft.warning:hover,
+:root:not([data-theme]) .soft.warning:hover {
+  background-color: hsla(38, 92%, 50%, 0.2);
+}
+
+:root[data-theme="dark"] .outline.neutral,
+:root:not([data-theme]) .outline.neutral {
+  border-color: var(--color-neutral-5);
+  color: var(--color-neutral-3);
+}
+
+:root[data-theme="dark"] .ghost.neutral,
+:root:not([data-theme]) .ghost.neutral {
+  color: var(--color-neutral-3);
+}
+
+/* Light mode: override dark defaults back to light values */
+:root[data-theme="light"] .soft.primary {
+  background-color: var(--color-primary-1);
+  color: var(--color-primary-6);
+}
+
+:root[data-theme="light"] .soft.primary:hover {
+  background-color: var(--color-primary-2);
+}
+
+:root[data-theme="light"] .soft.neutral {
+  background-color: var(--color-neutral-1);
+  color: var(--color-neutral-6);
+}
+
+:root[data-theme="light"] .soft.neutral:hover {
+  background-color: var(--color-neutral-2);
+}
+
+:root[data-theme="light"] .soft.danger {
+  background-color: var(--color-danger-1);
+  color: var(--color-danger-6);
+}
+
+:root[data-theme="light"] .soft.danger:hover {
+  background-color: var(--color-danger-2);
+}
+
+:root[data-theme="light"] .soft.success {
+  background-color: var(--color-success-1);
+  color: var(--color-success-6);
+}
+
+:root[data-theme="light"] .soft.success:hover {
+  background-color: var(--color-success-2);
+}
+
+:root[data-theme="light"] .soft.warning {
+  background-color: var(--color-warning-1);
+  color: var(--color-warning-7);
+}
+
+:root[data-theme="light"] .soft.warning:hover {
+  background-color: var(--color-warning-2);
+}
+
+:root[data-theme="light"] .outline.neutral {
+  border-color: var(--color-neutral-3);
+  color: var(--surface-text);
+}
+
+:root[data-theme="light"] .ghost.neutral {
+  color: var(--surface-text-muted);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .soft.primary {
+    background-color: var(--color-primary-1);
+    color: var(--color-primary-6);
+  }
+
+  :root:not([data-theme]) .soft.primary:hover {
+    background-color: var(--color-primary-2);
+  }
+
+  :root:not([data-theme]) .soft.neutral {
+    background-color: var(--color-neutral-1);
+    color: var(--color-neutral-6);
+  }
+
+  :root:not([data-theme]) .soft.neutral:hover {
+    background-color: var(--color-neutral-2);
+  }
+
+  :root:not([data-theme]) .soft.danger {
+    background-color: var(--color-danger-1);
+    color: var(--color-danger-6);
+  }
+
+  :root:not([data-theme]) .soft.danger:hover {
+    background-color: var(--color-danger-2);
+  }
+
+  :root:not([data-theme]) .soft.success {
+    background-color: var(--color-success-1);
+    color: var(--color-success-6);
+  }
+
+  :root:not([data-theme]) .soft.success:hover {
+    background-color: var(--color-success-2);
+  }
+
+  :root:not([data-theme]) .soft.warning {
+    background-color: var(--color-warning-1);
+    color: var(--color-warning-7);
+  }
+
+  :root:not([data-theme]) .soft.warning:hover {
+    background-color: var(--color-warning-2);
+  }
+
+  :root:not([data-theme]) .outline.neutral {
+    border-color: var(--color-neutral-3);
+    color: var(--surface-text);
+  }
+
+  :root:not([data-theme]) .ghost.neutral {
+    color: var(--surface-text-muted);
+  }
+}

@@ -1,0 +1,176 @@
+@import '../tokens.css';
+
+.card {
+  border-radius: var(--radius-lg);
+  transition:
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* --- Sizes --- */
+.size1 {
+  padding: 1rem;
+}
+
+.size2 {
+  padding: 1.5rem;
+}
+
+.size3 {
+  padding: 2rem;
+}
+
+/* --- Surface --- */
+.surface {
+  background-color: var(--surface-1);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Classic --- */
+.classic {
+  background-color: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Ghost --- */
+.ghost {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.ghost:hover {
+  background-color: var(--surface-1);
+}
+
+/* --- Interactive card (when used as a link / button) --- */
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.interactive.surface:hover {
+  background-color: var(--surface-2);
+}
+
+.interactive.classic:hover {
+  background-color: var(--surface-3);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- Colors --- */
+.primary {
+  background-color: #164880;
+  border-color: rgba(24, 57, 106, 0.2);
+}
+
+.neutral {
+  background-color: var(--color-neutral-1);
+  border-color: var(--color-neutral-3);
+}
+
+.danger {
+  background-color: var(--color-danger-1);
+  border-color: var(--color-danger-3);
+}
+
+.success {
+  background-color: #166534;
+  border-color: rgba(20, 83, 45, 0.2);
+}
+
+.warning {
+  background-color: var(--color-warning-1);
+  border-color: var(--color-warning-3);
+}
+
+/* ==============================
+   Dark mode colors
+   ============================== */
+
+:root[data-theme="dark"] .primary,
+:root:not([data-theme]) .primary {
+  background-color: hsla(230, 70%, 56%, 0.1);
+  border-color: hsla(230, 70%, 56%, 0.25);
+}
+
+:root[data-theme="dark"] .neutral,
+:root:not([data-theme]) .neutral {
+  background-color: hsla(220, 14%, 50%, 0.08);
+  border-color: hsla(220, 14%, 50%, 0.2);
+}
+
+:root[data-theme="dark"] .danger,
+:root:not([data-theme]) .danger {
+  background-color: hsla(0, 72%, 51%, 0.1);
+  border-color: hsla(0, 72%, 51%, 0.25);
+}
+
+:root[data-theme="dark"] .success,
+:root:not([data-theme]) .success {
+  background-color: hsla(142, 71%, 40%, 0.1);
+  border-color: hsla(142, 71%, 40%, 0.25);
+}
+
+:root[data-theme="dark"] .warning,
+:root:not([data-theme]) .warning {
+  background-color: hsla(38, 92%, 50%, 0.1);
+  border-color: hsla(38, 92%, 50%, 0.3);
+}
+
+/* Light mode overrides */
+:root[data-theme="light"] .primary {
+  background-color: var(--color-primary-1);
+  border-color: rgba(24, 57, 106, 0.2);
+}
+
+:root[data-theme="light"] .neutral {
+  background-color: var(--color-neutral-1);
+  border-color: var(--color-neutral-3);
+}
+
+:root[data-theme="light"] .danger {
+  background-color: var(--color-danger-1);
+  border-color: var(--color-danger-3);
+}
+
+:root[data-theme="light"] .success {
+  background-color: var(--color-success-1);
+  border-color: rgba(20, 83, 45, 0.2);
+}
+
+:root[data-theme="light"] .warning {
+  background-color: var(--color-warning-1);
+  border-color: var(--color-warning-3);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .primary {
+    background-color: var(--color-primary-1);
+    border-color: rgba(24, 57, 106, 0.2);
+  }
+
+  :root:not([data-theme]) .neutral {
+    background-color: var(--color-neutral-1);
+    border-color: var(--color-neutral-3);
+  }
+
+  :root:not([data-theme]) .danger {
+    background-color: var(--color-danger-1);
+    border-color: var(--color-danger-3);
+  }
+
+  :root:not([data-theme]) .success {
+    background-color: var(--color-success-1);
+    border-color: rgba(20, 83, 45, 0.2);
+  }
+
+  :root:not([data-theme]) .warning {
+    background-color: var(--color-warning-1);
+    border-color: var(--color-warning-3);
+  }
+}

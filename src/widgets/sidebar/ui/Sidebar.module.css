@@ -1,0 +1,180 @@
+.container {
+  width: 100%;
+  max-width: 300px;
+  background-color: #131D35;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-right: 1px solid #1E2D4A;
+  padding: 24px 0;
+  /* Removido padding horizontal para os itens pegarem largura total */
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 24px;
+}
+
+.logoIcon {
+  background: #2B8CE6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* Reduzido gap pq o padding fica no item */
+}
+
+.menuGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Menu Item Principal --- */
+.menuItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #9CA3AF;
+  padding: 12px 16px;
+  margin: 0 16px;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: calc(100% - 32px);
+  text-align: left;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.menuItem:hover {
+  color: #E5E7EB;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  flex: 1;
+}
+
+.chevron {
+  display: flex;
+  align-items: center;
+  color: #9CA3AF;
+}
+
+/* --- Estado Ativo (Configurações) --- */
+.menuItem.active {
+  background-color: rgba(24, 57, 106, 0.3);
+  /* #18396A com 30% opacidade */
+  color: #4EADFF;
+}
+
+.menuItem.active .icon,
+.menuItem.active .chevron {
+  color: #4EADFF;
+}
+
+/* Linha lateral de indicação de estado ativo */
+.activeIndicator {
+  position: absolute;
+  left: 2px;
+  /* Fica flutuando entre a borda da tela e o item (desgrudado do canto) */
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  background-color: #4EADFF;
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- Sub Menu (Accordion) --- */
+.subMenuContainer {
+  display: flex;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  padding-left: 52px;
+  /* Alinhamento visual da linha vertical com o ícone pai */
+}
+
+/* Linha vertical que acompanha os subitens */
+.verticalLine {
+  width: 2px;
+  background-color: #1E2D4A;
+  margin-right: 16px;
+  border-radius: 2px;
+}
+
+.subMenuItems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding-right: 24px;
+}
+
+.subMenuItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #9CA3AF;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+}
+
+.subIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subMenuItem:hover {
+  color: #E5E7EB;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.subMenuItem.subActive {
+  color: #4EADFF;
+  background-color: rgba(24, 57, 106, 0.2);
+}
+
+.subMenuItem.subActive .subIcon {
+  color: #4EADFF;
+}
+
+/* Opcional: uma bolinha ou indicador minúsculo pro subitem ativo */
+.subActiveIndicator {
+  position: absolute;
+  left: -21px;
+  /* Posiciona exatamente em cima da linha vertical */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #4EADFF;
+  box-shadow: 0 0 0 4px #131D35;
+  /* Falso "corte" na linha vertical */
+}

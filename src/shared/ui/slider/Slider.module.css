@@ -1,0 +1,305 @@
+@import '../tokens.css';
+
+/* --- Track (barra de fundo) --- */
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  user-select: none;
+  touch-action: none;
+}
+
+.track {
+  position: relative;
+  flex-grow: 1;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+/* --- Range (barra preenchida) --- */
+.range {
+  position: absolute;
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* --- Thumb (bolinha) --- */
+.thumb {
+  display: block;
+  position: absolute;
+  top: 50%;
+  border-radius: var(--radius-full);
+  background-color: #fff;
+  box-shadow:
+    0 1px 3px hsla(0, 0%, 0%, 0.15),
+    0 1px 2px hsla(0, 0%, 0%, 0.1);
+  cursor: grab;
+  transition: box-shadow var(--transition-fast);
+  transform: translate(-50%, -50%);
+}
+
+.thumb:hover {
+  box-shadow:
+    0 2px 6px hsla(0, 0%, 0%, 0.2),
+    0 1px 3px hsla(0, 0%, 0%, 0.15);
+}
+
+.thumb:active {
+  cursor: grabbing;
+}
+
+.thumb:focus-visible {
+  outline: 2px solid var(--color-primary-5);
+  outline-offset: 2px;
+}
+
+/* --- Hidden input --- */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- Disabled --- */
+.disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.disabled .thumb {
+  cursor: not-allowed;
+}
+
+/* --- Sizes --- */
+.size1 .track {
+  height: 4px;
+}
+
+.size1 .thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.size2 .track {
+  height: 6px;
+}
+
+.size2 .thumb {
+  width: 18px;
+  height: 18px;
+}
+
+.size3 .track {
+  height: 8px;
+}
+
+.size3 .thumb {
+  width: 22px;
+  height: 22px;
+}
+
+/* ==============================
+   Variant × Color
+   ============================== */
+
+/* --- Surface (default) --- */
+.surface .track {
+  background-color: var(--surface-border);
+}
+
+.surface.primary .range {
+  background-color: var(--color-primary-5);
+}
+
+.surface.neutral .range {
+  background-color: var(--color-neutral-5);
+}
+
+.surface.danger .range {
+  background-color: var(--color-danger-5);
+}
+
+.surface.success .range {
+  background-color: var(--color-success-5);
+}
+
+.surface.warning .range {
+  background-color: var(--color-warning-5);
+}
+
+/* --- Soft --- */
+.soft .track {
+  background-color: var(--color-neutral-2);
+}
+
+.soft.primary .range {
+  background-color: var(--color-primary-3);
+}
+
+.soft.neutral .range {
+  background-color: var(--color-neutral-4);
+}
+
+.soft.danger .range {
+  background-color: var(--color-danger-3);
+}
+
+.soft.success .range {
+  background-color: var(--color-success-3);
+}
+
+.soft.warning .range {
+  background-color: var(--color-warning-3);
+}
+
+/* Soft thumb color */
+.soft.primary .thumb {
+  background-color: var(--color-primary-5);
+}
+
+.soft.neutral .thumb {
+  background-color: var(--color-neutral-6);
+}
+
+.soft.danger .thumb {
+  background-color: var(--color-danger-5);
+}
+
+.soft.success .thumb {
+  background-color: var(--color-success-5);
+}
+
+.soft.warning .thumb {
+  background-color: var(--color-warning-5);
+}
+
+/* --- Classic --- */
+.classic .track {
+  background-color: var(--surface-3);
+  box-shadow: inset 0 1px 2px hsla(0, 0%, 0%, 0.1);
+}
+
+.classic.primary .range {
+  background-color: var(--color-primary-5);
+}
+
+.classic.neutral .range {
+  background-color: var(--color-neutral-5);
+}
+
+.classic.danger .range {
+  background-color: var(--color-danger-5);
+}
+
+.classic.success .range {
+  background-color: var(--color-success-5);
+}
+
+.classic.warning .range {
+  background-color: var(--color-warning-5);
+}
+
+/* ==============================
+   Dark mode
+   ============================== */
+
+:root[data-theme="dark"] .soft .track,
+:root:not([data-theme]) .soft .track {
+  background-color: hsla(220, 14%, 50%, 0.12);
+}
+
+:root[data-theme="dark"] .soft.primary .range,
+:root:not([data-theme]) .soft.primary .range {
+  background-color: hsla(230, 70%, 56%, 0.35);
+}
+
+:root[data-theme="dark"] .soft.danger .range,
+:root:not([data-theme]) .soft.danger .range {
+  background-color: hsla(0, 72%, 51%, 0.35);
+}
+
+:root[data-theme="dark"] .soft.success .range,
+:root:not([data-theme]) .soft.success .range {
+  background-color: hsla(142, 71%, 40%, 0.35);
+}
+
+:root[data-theme="dark"] .soft.warning .range,
+:root:not([data-theme]) .soft.warning .range {
+  background-color: hsla(38, 92%, 50%, 0.35);
+}
+
+:root[data-theme="dark"] .classic .track,
+:root:not([data-theme]) .classic .track {
+  background-color: var(--color-neutral-7);
+}
+
+:root[data-theme="dark"] .thumb,
+:root:not([data-theme]) .thumb {
+  background-color: #e8e8e8;
+}
+
+/* Light mode overrides */
+:root[data-theme="light"] .soft .track {
+  background-color: var(--color-neutral-2);
+}
+
+:root[data-theme="light"] .soft.primary .range {
+  background-color: var(--color-primary-3);
+}
+
+:root[data-theme="light"] .soft.danger .range {
+  background-color: var(--color-danger-3);
+}
+
+:root[data-theme="light"] .soft.success .range {
+  background-color: var(--color-success-3);
+}
+
+:root[data-theme="light"] .soft.warning .range {
+  background-color: var(--color-warning-3);
+}
+
+:root[data-theme="light"] .classic .track {
+  background-color: var(--surface-3);
+}
+
+:root[data-theme="light"] .thumb {
+  background-color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .soft .track {
+    background-color: var(--color-neutral-2);
+  }
+
+  :root:not([data-theme]) .soft.primary .range {
+    background-color: var(--color-primary-3);
+  }
+
+  :root:not([data-theme]) .soft.danger .range {
+    background-color: var(--color-danger-3);
+  }
+
+  :root:not([data-theme]) .soft.success .range {
+    background-color: var(--color-success-3);
+  }
+
+  :root:not([data-theme]) .soft.warning .range {
+    background-color: var(--color-warning-3);
+  }
+
+  :root:not([data-theme]) .classic .track {
+    background-color: var(--surface-3);
+  }
+
+  :root:not([data-theme]) .thumb {
+    background-color: #fff;
+  }
+}
