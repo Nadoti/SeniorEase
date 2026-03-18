@@ -106,6 +106,10 @@
   background-color: var(--color-warning-5);
 }
 
+.surface[data-state="checked"].info {
+  background-color: var(--color-info-5);
+}
+
 /* --- Soft --- */
 .soft {
   background-color: var(--color-neutral-2);
@@ -131,13 +135,17 @@
   background-color: var(--color-warning-2);
 }
 
+.soft[data-state="checked"].info {
+  background-color: hsla(209, 79%, 54%, 0.15);
+}
+
 /* Soft thumb color when checked */
 .soft[data-state="checked"].primary .thumb {
   background-color: var(--color-primary-5);
 }
 
 .soft[data-state="checked"].neutral .thumb {
-  background-color: var(--color-neutral-6);
+  /* background-color: var(--color-neutral-6); */
 }
 
 .soft[data-state="checked"].danger .thumb {
@@ -150,6 +158,10 @@
 
 .soft[data-state="checked"].warning .thumb {
   background-color: var(--color-warning-5);
+}
+
+.soft[data-state="checked"].info .thumb {
+  background-color: var(--color-info-5);
 }
 
 /* --- Classic --- */
@@ -178,6 +190,10 @@
   background-color: var(--color-warning-5);
 }
 
+.classic[data-state="checked"].info {
+  background-color: var(--color-info-5);
+}
+
 /* --- Hidden input for form support --- */
 .input {
   position: absolute;
@@ -198,6 +214,11 @@
 :root[data-theme="dark"] .switch,
 :root:not([data-theme]) .switch {
   background-color: var(--color-neutral-6);
+}
+
+:root[data-theme="dark"] .switch.surface[data-state="checked"].info,
+:root:not([data-theme]) .switch.surface[data-state="checked"].info {
+  background-color: var(--color-info-5);
 }
 
 :root[data-theme="dark"] .soft,
@@ -223,6 +244,11 @@
 :root[data-theme="dark"] .soft[data-state="checked"].warning,
 :root:not([data-theme]) .soft[data-state="checked"].warning {
   background-color: hsla(38, 92%, 50%, 0.25);
+}
+
+:root[data-theme="dark"] .soft[data-state="checked"].info,
+:root:not([data-theme]) .soft[data-state="checked"].info {
+  background-color: hsla(209, 79%, 54%, 0.25);
 }
 
 :root[data-theme="dark"] .classic,
@@ -255,6 +281,10 @@
   background-color: var(--color-warning-2);
 }
 
+:root[data-theme="light"] .soft[data-state="checked"].info {
+  background-color: hsla(209, 79%, 54%, 0.15);
+}
+
 :root[data-theme="light"] .classic {
   background-color: var(--surface-3);
 }
@@ -282,6 +312,10 @@
 
   :root:not([data-theme]) .soft[data-state="checked"].warning {
     background-color: var(--color-warning-2);
+  }
+
+  :root:not([data-theme]) .soft[data-state="checked"].info {
+    background-color: hsla(209, 79%, 54%, 0.15);
   }
 
   :root:not([data-theme]) .classic {

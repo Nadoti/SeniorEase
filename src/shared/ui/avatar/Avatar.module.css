@@ -1,0 +1,213 @@
+@import '../tokens.css';
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  overflow: hidden;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: var(--weight-medium, 500);
+}
+
+/* --- Sizes --- */
+.size1 {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.size2 {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.875rem;
+}
+
+.size3 {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+.size4 {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.size5 {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+}
+
+.size6 {
+  width: 5rem;
+  height: 5rem;
+  font-size: 2rem;
+}
+
+.size7 {
+  width: 6rem;
+  height: 6rem;
+  font-size: 2.5rem;
+}
+
+.size8 {
+  width: 8rem;
+  height: 8rem;
+  font-size: 3rem;
+}
+
+.size9 {
+  width: 10rem;
+  height: 10rem;
+  font-size: 4rem;
+}
+
+/* --- Radius --- */
+.radiusNone {
+  border-radius: 0;
+}
+
+.radiusSm {
+  border-radius: var(--radius-sm);
+}
+
+.radiusMd {
+  border-radius: var(--radius-md);
+}
+
+.radiusLg {
+  border-radius: var(--radius-lg);
+}
+
+.radiusFull {
+  border-radius: var(--radius-full);
+}
+
+/* --- Variants & Colors --- */
+
+/* Primary Soft (Requested specific colors) */
+.soft.primary {
+  background-color: rgba(24, 57, 106, 0.3);
+  /* Dark mode by default */
+  color: var(--color-primary-5);
+  /* Blue icon/text color */
+}
+
+/* Base Soft rules for other colors */
+.soft.neutral {
+  background-color: var(--surface-2);
+  color: var(--surface-text);
+}
+
+.soft.danger {
+  background-color: var(--color-danger-1);
+  color: var(--color-danger-5);
+}
+
+.soft.success {
+  background-color: var(--color-success-1);
+  color: var(--color-success-5);
+}
+
+.soft.warning {
+  background-color: var(--color-warning-1);
+  color: var(--color-warning-6);
+}
+
+.soft.info {
+  background-color: hsla(209, 79%, 54%, 0.15);
+  color: var(--color-info-5);
+}
+
+/* Solid Variants */
+.solid.primary {
+  background-color: var(--color-primary-5);
+  color: white;
+}
+
+.solid.neutral {
+  background-color: var(--color-neutral-6);
+  color: white;
+}
+
+.solid.danger {
+  background-color: var(--color-danger-5);
+  color: white;
+}
+
+.solid.success {
+  background-color: var(--color-success-5);
+  color: white;
+}
+
+.solid.warning {
+  background-color: var(--color-warning-5);
+  color: black;
+}
+
+.solid.info {
+  background-color: var(--color-info-5);
+  color: white;
+}
+
+/* Outline Variants */
+.outline {
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+
+.outline.primary {
+  color: var(--color-primary-5);
+}
+
+.outline.neutral {
+  color: var(--color-neutral-4);
+}
+
+.outline.danger {
+  color: var(--color-danger-5);
+}
+
+.outline.success {
+  color: var(--color-success-5);
+}
+
+.outline.warning {
+  color: var(--color-warning-5);
+}
+
+.outline.info {
+  color: var(--color-info-5);
+}
+
+
+/* --- Light mode overrides for the specific Primary Soft request --- */
+:root[data-theme="light"] .soft.primary {
+  background-color: #EFF8FF;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .soft.primary {
+    background-color: #EFF8FF;
+  }
+}

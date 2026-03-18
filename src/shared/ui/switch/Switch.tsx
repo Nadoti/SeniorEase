@@ -6,7 +6,7 @@ import styles from './Switch.module.css'
 
 export type SwitchVariant = 'surface' | 'soft' | 'classic'
 export type SwitchSize = '1' | '2' | '3'
-export type SwitchColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning'
+export type SwitchColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning' | 'info'
 
 export interface SwitchProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange' | 'value' | 'defaultValue'> {
   variant?: SwitchVariant

@@ -234,7 +234,7 @@
 }
 
 .ghost.primary:hover {
-  background-color: var(--color-primary-1);
+  text-decoration: underline;
 }
 
 .ghost.neutral {
@@ -242,7 +242,6 @@
 }
 
 .ghost.neutral:hover {
-  background-color: var(--color-neutral-1);
   color: var(--surface-text);
 }
 
@@ -251,7 +250,7 @@
 }
 
 .ghost.danger:hover {
-  background-color: var(--color-danger-1);
+  text-decoration: underline;
 }
 
 .ghost.success {
@@ -259,7 +258,7 @@
 }
 
 .ghost.success:hover {
-  background-color: var(--color-success-1);
+  text-decoration: underline;
 }
 
 .ghost.warning {
@@ -267,7 +266,7 @@
 }
 
 .ghost.warning:hover {
-  background-color: var(--color-warning-1);
+  text-decoration: underline;
 }
 
 /* ==============================

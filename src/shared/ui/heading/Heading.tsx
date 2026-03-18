@@ -6,7 +6,7 @@ import styles from './Heading.module.css'
 
 export type HeadingSize = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 export type HeadingWeight = 'light' | 'regular' | 'medium' | 'bold'
-export type HeadingColor = 'default' | 'muted' | 'primary' | 'danger' | 'success' | 'warning' | 'inherit'
+export type HeadingColor = 'default' | 'muted' | 'white' | 'primary' | 'danger' | 'success' | 'warning' | 'inherit'
 export type HeadingAlign = 'left' | 'center' | 'right'
 export type HeadingAs = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export type HeadingWrap = 'wrap' | 'nowrap' | 'pretty' | 'balance'
@@ -39,6 +39,7 @@ const weightMap: Record<HeadingWeight, string> = {
 const colorMap: Record<HeadingColor, string> = {
   default: styles.colorDefault,
   muted: styles.colorMuted,
+  white: styles.colorWhite,
   primary: styles.colorPrimary,
   danger: styles.colorDanger,
   success: styles.colorSuccess,

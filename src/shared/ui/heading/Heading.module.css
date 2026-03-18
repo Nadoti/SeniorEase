@@ -87,6 +87,10 @@
   color: var(--surface-text-muted);
 }
 
+.colorWhite {
+  color: var(--surface-text-white);
+}
+
 .colorPrimary {
   color: var(--color-primary-5);
 }

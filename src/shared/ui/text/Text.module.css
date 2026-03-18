@@ -81,6 +81,10 @@
   color: var(--surface-text-muted);
 }
 
+.colorWhite {
+  color: var(--surface-text-white);
+}
+
 .colorPrimary {
   color: var(--color-primary-5);
 }
@@ -143,6 +147,8 @@
 :root[data-theme="light"] .colorWarning {
   color: var(--color-warning-6);
 }
+
+
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) .colorPrimary {
