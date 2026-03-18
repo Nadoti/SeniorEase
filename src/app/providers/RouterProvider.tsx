@@ -5,9 +5,9 @@ import { MainLayout } from '@/widgets/layout';
 
 // Lazy load for pages (chunking strategy)
 const HomePage = lazy(() => import('@/pages/home').then(module => ({ default: module.HomePage })));
-const ProductsPage = lazy(() => import('@/pages/products').then(module => ({ default: module.ProductsPage })));
-const ProductDetailPage = lazy(() => import('@/pages/product-detail').then(module => ({ default: module.ProductDetailPage })));
-const CartPage = lazy(() => import('@/pages/cart').then(module => ({ default: module.CartPage })));
+const AppearancePage = lazy(() => import('@/pages/appearance').then(module => ({ default: module.AppearancePage })));
+// const ProductDetailPage = lazy(() => import('@/pages/product-detail').then(module => ({ default: module.ProductDetailPage })));
+// const CartPage = lazy(() => import('@/pages/cart').then(module => ({ default: module.CartPage })));
 const NotFoundPage = lazy(() => import('@/pages/not-found').then(module => ({ default: module.NotFoundPage })));
 
 const router = createBrowserRouter([
@@ -15,20 +15,12 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: '/',
+        path: '/dashboard/painel',
         element: <HomePage />,
       },
       {
-        path: '/products',
-        element: <ProductsPage />,
-      },
-      {
-        path: '/products/:id',
-        element: <ProductDetailPage />,
-      },
-      {
-        path: '/cart',
-        element: <CartPage />,
+        path: '/dashboard/configuracoes/aparencia',
+        element: <AppearancePage />,
       },
       {
         path: '*',

@@ -49,14 +49,18 @@
   --color-warning-6: hsl(38, 92%, 42%);
   --color-warning-7: hsl(38, 94%, 32%);
 
+  /* --- Colors: Info --- */
+  --color-info-5: hsl(209, 79%, 54%);
+
   /* --- Surfaces (Dark Mode defaults) --- */
   --surface-bg: hsl(220, 14%, 10%);
   --surface-1: hsl(220, 14%, 14%);
   --surface-2: hsl(220, 14%, 18%);
   --surface-3: hsl(220, 14%, 22%);
   --surface-border: hsl(220, 14%, 24%);
-  --surface-text: hsl(220, 14%, 92%);
+  --surface-text: hsl(218, 11%, 65%);
   --surface-text-muted: hsl(220, 10%, 60%);
+  --surface-text-white: hsl(0, 0%, 95%);
 
   /* --- Typography --- */
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -99,8 +103,9 @@
   --surface-2: hsl(220, 14%, 93%);
   --surface-3: hsl(220, 14%, 88%);
   --surface-border: hsl(220, 14%, 82%);
-  --surface-text: hsl(220, 14%, 12%);
+  --surface-text: hsl(215, 14%, 34%);
   --surface-text-muted: hsl(220, 10%, 46%);
+  --surface-text-white: hsl(221, 39%, 11%);
 
   --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.06);
   --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.08);
@@ -115,8 +120,9 @@
     --surface-2: hsl(220, 14%, 93%);
     --surface-3: hsl(220, 14%, 88%);
     --surface-border: hsl(220, 14%, 82%);
-    --surface-text: hsl(220, 14%, 12%);
+    --surface-text: hsl(215, 14%, 34%);
     --surface-text-muted: hsl(220, 10%, 46%);
+    --surface-text-white: hsl(221, 39%, 11%);
 
     --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.06);
     --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.08);

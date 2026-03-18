@@ -7,33 +7,31 @@ import styles from './Sidebar.module.css';
 
 const menuItems = [
   {
-    label: 'Home',
+    label: 'Painel Principal',
     icon: <LayoutDashboard size={20} />,
-    link: '/'
+    link: '/dashboard/painel'
   },
   {
     label: 'Configurações',
     icon: <SlidersHorizontal size={20} />,
-    link: '/settings',
+    link: '/dashboard/configuracoes',
     subItems: [
-      { label: 'Tipografia', icon: <Type size={16} />, link: '/settings/typography' },
-      { label: 'Espaçamento', icon: <Space size={16} />, link: '/settings/spacing' },
-      { label: 'Aparência', icon: <Palette size={16} />, link: '/settings/appearance' }
+      { label: 'Tipografia', icon: <Type size={16} />, link: '/dashboard/configuracoes/tipografia' },
+      { label: 'Espaçamento', icon: <Space size={16} />, link: '/dashboard/configuracoes/espacamento' },
+      { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia' }
     ]
   },
   {
     label: 'Minhas Tarefas',
     icon: <ListTodo size={20} />,
-    link: '/tasks'
+    link: '/dashboard/tasks'
   }
 ];
 
 export function Sidebar() {
   const location = useLocation();
-  // Estado para controlar quais menus estão abertos (accordion)
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
-    // Opcional: já começar aberto se a rota atual for filha dele
-    'Configurações': location.pathname.startsWith('/settings')
+    'Configurações': location.pathname.startsWith('/dashboard/configuracoes')
   });
 
   const toggleMenu = (label: string) => {
@@ -53,15 +51,13 @@ export function Sidebar() {
         {menuItems.map((item) => {
           const hasSubItems = !!item.subItems;
           const isOpen = openMenus[item.label];
-          // Verifica se o item principal ou algum dos filhos está ativo
-          const isActive = item.link === '/'
-            ? location.pathname === '/'
+          const isActive = item.link === '/dashboard'
+            ? location.pathname === '/dashboard'
             : location.pathname.startsWith(item.link || '');
 
           return (
             <div key={item.label} className={styles.menuGroup}>
               {hasSubItems ? (
-                // Renderiza como botão para abrir/fechar o accordion
                 <button
                   type="button"
                   onClick={() => toggleMenu(item.label)}
@@ -75,7 +71,6 @@ export function Sidebar() {
                   </span>
                 </button>
               ) : (
-                // Renderiza como Link direto
                 <Link
                   to={item.link!}
                   className={cx(styles.menuItem, isActive && styles.active)}
@@ -86,7 +81,6 @@ export function Sidebar() {
                 </Link>
               )}
 
-              {/* Renderiza os subitens se houver e estiver aberto, com animação */}
               <AnimatePresence initial={false}>
                 {hasSubItems && isOpen && (
                   <motion.div

@@ -1,6 +1,9 @@
 export { IconButton } from './icon-button'
 export type { IconButtonProps, IconButtonVariant, IconButtonSize, IconButtonColor, IconButtonRadius } from './icon-button'
 
+export { Avatar } from './avatar'
+export type { AvatarProps, AvatarVariant, AvatarSize, AvatarColor, AvatarRadius } from './avatar'
+
 export { LinkButton } from './link-button'
 export type { LinkButtonProps, LinkButtonVariant, LinkButtonSize, LinkButtonColor, LinkButtonRadius } from './link-button'
 
