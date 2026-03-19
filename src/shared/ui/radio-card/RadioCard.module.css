@@ -1,0 +1,174 @@
+@import '../tokens.css';
+
+.label {
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  user-select: none;
+  width: 100%;
+  transition: all var(--transition-fast);
+}
+
+.label.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Visually hidden radio input */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+  border-radius: inherit;
+}
+
+/* --- Sizes --- */
+.size1 .content {
+  padding: 0.75rem;
+}
+
+.size2 .content {
+  padding: 1rem;
+}
+
+.size3 .content {
+  padding: 1.5rem;
+}
+
+/* ==============================
+   Variants
+   ============================== */
+
+/* --- Surface --- */
+.surface .content {
+  background-color: var(--surface-1);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.surface:hover:not(.disabled) .content {
+  background-color: var(--surface-2);
+}
+
+/* Checked styling for Surface */
+.input:checked+.content {
+  background-color: var(--color-info-5);
+  /* Default fallback */
+  border-color: var(--color-info-5);
+}
+
+/* Primary Color Checked */
+.primary .input:checked+.content {
+  background-color: hsla(230, 70%, 56%, 0.08);
+  border-color: var(--color-primary-5);
+  box-shadow: 0 0 0 1px var(--color-primary-5);
+}
+
+/* Info Color Checked (Used heavily in this project) */
+.info .input:checked+.content {
+  background-color: hsla(209, 79%, 54%, 0.08);
+  /* Fundo com tom claro do seu azul 2B8CE6 */
+  border-color: var(--color-info-5);
+  box-shadow: 0 0 0 1px var(--color-info-5);
+}
+
+/* Neutral Color Checked */
+.neutral .input:checked+.content {
+  background-color: var(--surface-3);
+  border-color: var(--surface-text);
+  box-shadow: 0 0 0 1px var(--surface-text);
+}
+
+
+/* --- Classic --- */
+.classic .content {
+  background-color: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-md);
+}
+
+.classic:hover:not(.disabled) .content {
+  background-color: var(--surface-3);
+}
+
+.classic.info .input:checked+.content {
+  background-color: hsla(209, 79%, 54%, 0.1);
+  border-color: var(--color-info-5);
+  box-shadow: 0 0 0 1px var(--color-info-5);
+}
+
+
+/* --- Ghost --- */
+.ghost .content {
+  background-color: transparent;
+  border: 1px solid #31466f;
+  box-shadow: none;
+}
+
+.ghost:hover:not(.disabled) .content {
+  /* background-color: var(--surface-2); */
+}
+
+.ghost.info .input:checked+.content {
+  background-color: hsla(209, 79%, 54%, 0.08);
+  border-color: var(--color-info-5);
+  box-shadow: 0 0 0 1px var(--color-info-5);
+}
+
+
+/* --- Focus state --- */
+.label:focus-visible .content,
+.input:focus-visible+.content {
+  outline: 2px solid var(--color-primary-5);
+}
+
+/* ==============================
+   Dark Mode Adjustments
+   ============================== */
+
+:root[data-theme="dark"] .surface .content,
+:root:not([data-theme]) .surface .content {
+  background-color: var(--surface-1);
+}
+
+:root[data-theme="dark"] .info .input:checked+.content,
+:root:not([data-theme]) .info .input:checked+.content {
+  /* background-color: hsla(209, 79%, 54%, 0.15); */
+  background-color: transparent;
+  /* Um pouco mais visível no escuro */
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .info .input:checked+.content {
+    background-color: hsla(209, 79%, 54%, 0.05);
+  }
+
+  :root:not([data-theme]) .ghost .content {
+    border-color: #E2EEFF;
+  }
+}
+
+:root[data-theme="light"] .info .input:checked+.content {
+  background-color: hsla(209, 79%, 54%, 0.05);
+  /* Um pouco mais suave no claro */
+}
+
+:root[data-theme="light"] .ghost .content {
+  border-color: #E2EEFF;
+}
