@@ -53,6 +53,7 @@
   --color-info-5: hsl(209, 79%, 54%);
 
   /* --- Surfaces (Dark Mode defaults) --- */
+  --main-bg-color: hsl(221, 52%, 8%);
   --surface-bg: hsl(220, 14%, 10%);
   --surface-1: hsl(220, 14%, 14%);
   --surface-2: hsl(220, 14%, 18%);
@@ -98,6 +99,7 @@
 
 /* --- Light mode: manual choice --- */
 :root[data-theme="light"] {
+  --main-bg-color: hsl(214, 100%, 99%);
   --surface-bg: hsl(0, 0%, 100%);
   --surface-1: hsl(220, 14%, 97%);
   --surface-2: hsl(220, 14%, 93%);
@@ -115,6 +117,7 @@
 /* --- Light mode: auto (follows OS when no data-theme set) --- */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
+    --main-bg-color: hsl(214, 100%, 99%);
     --surface-bg: hsl(0, 0%, 100%);
     --surface-1: hsl(220, 14%, 97%);
     --surface-2: hsl(220, 14%, 93%);

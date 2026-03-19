@@ -1,0 +1,162 @@
+@import '@/shared/ui/tokens.css';
+
+.dockContainer {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  /* Espaço entre as duas docks */
+}
+
+/* --- Docks Base --- */
+.dock,
+.subDock {
+  display: flex;
+  align-items: flex-end;
+  /* Mantém a base alinhada para o efeito de crescimento (Mac OS style) */
+  gap: 0.25rem;
+  padding: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.dock {
+  background-color: transparent;
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
+}
+
+.subDockWrapper {
+  display: flex;
+  justify-content: center;
+  width: max-content;
+}
+
+.subDock {
+  /* Cores exatas requisitadas pelo usuário pro sub menu */
+  background-color: hsla(222, 47%, 14%, 0.7);
+  /* #131D35 70% opacity */
+  border: 1px solid hsla(212, 70%, 30%, 0.5);
+  /* #164880 50% opacity */
+  border-radius: 24px;
+}
+
+/* --- Dock Items --- */
+.dockItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 4.5rem;
+  height: 5rem;
+  /* Ajustado para acomodar o texto estático constante */
+  justify-content: flex-start;
+  padding-top: 0.75rem;
+  gap: 0.25rem;
+  border-radius: 1.25rem;
+  text-decoration: none;
+  color: #4B5563;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: bottom center;
+}
+
+/* Sub-dock tem os mesmos comportamentos agora. Mantido class para caso precise depois */
+.subDockItem {}
+
+/* Mac OS Dock Hover Effect na doca principal e sub-dock */
+.dockItem:not(.active):hover {
+  transform: scale(1) translateY(-0.5rem);
+  color: var(--surface-text-white);
+  z-index: 10;
+}
+
+/* --- Icones --- */
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* --- Labels (Truncadas e Estáticas) --- */
+.label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: inherit;
+  width: 100%;
+  text-align: center;
+  /* Truncar texto muito longo com as reticencias `...` */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.25rem;
+}
+
+/* --- Active State --- */
+.dockItem.active {
+  color: #2B8CE6;
+  /* Light mode active text? The user just said color for inactive. We will keep #fff for active, or maybe let's just make sure dark mode is handled */
+}
+
+/* Light mode text active is usually dark or brand color. The requested change was 'when not active'. Here we enforce #fff for active as before but make sure dark mode inactive is #D1D5DB */
+
+:global([data-theme="dark"]) .dockItem:not(.active) {
+  color: #D1D5DB;
+}
+
+.dockItem.active {
+  color: #fff;
+}
+
+.dockItem.active .iconWrapper {
+  background-color: var(--color-info-5);
+  /* Azul principal e vibrante para check #2B8CE6 (approx) */
+  color: white;
+  box-shadow: 0 4px 20px hsla(209, 79%, 54%, 0.4);
+}
+
+/* Fazer com que os itens do submenu tenham a borda tracejada ao redor se for pra simular? O usario pediu "o icone + o texto muda de cor", foi feito acima. */
+
+.activeIndicator {
+  position: absolute;
+  bottom: 0px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-info-5, #2B8CE6);
+  /* Azul vibrante */
+  box-shadow: 0 0 6px rgba(43, 140, 230, 0.6);
+}
+
+/* --- Keyboard Shortcut Badge --- */
+.shortcutBadge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: var(--surface-bg);
+  border-radius: 50%;
+  font-size: 0.55rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  transition: inherit;
+}

@@ -13,6 +13,9 @@ export type { CardProps, CardVariant, CardSize, CardColor } from './card'
 export { Badge } from './badge'
 export type { BadgeProps, BadgeVariant, BadgeSize, BadgeColor, BadgeRadius } from './badge'
 
+export { RadioCard } from './radio-card'
+export type { RadioCardProps, RadioCardVariant, RadioCardSize, RadioCardColor } from './radio-card'
+
 export { Text } from './text'
 export type { TextProps, TextSize, TextWeight, TextColor, TextAlign, TextAs } from './text'
 
