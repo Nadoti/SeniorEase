@@ -5,7 +5,7 @@ import styles from './Text.module.css'
 
 export type TextSize = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 export type TextWeight = 'light' | 'regular' | 'medium' | 'semibold' | 'bold'
-export type TextColor = 'default' | 'muted' | 'white' | 'primary' | 'danger' | 'success' | 'warning' | 'inherit'
+export type TextColor = 'default' | 'muted' | 'white' | 'primary' | 'danger' | 'success' | 'warning' | 'inherit' | 'lightGray'
 export type TextAlign = 'left' | 'center' | 'right'
 export type TextAs = 'p' | 'span' | 'label' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
@@ -42,6 +42,7 @@ const colorMap: Record<TextColor, string> = {
   success: styles.colorSuccess,
   warning: styles.colorWarning,
   inherit: styles.colorInherit,
+  lightGray: styles.colorLightGray,
 }
 
 const alignMap: Record<TextAlign, string> = {

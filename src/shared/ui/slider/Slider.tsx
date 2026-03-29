@@ -30,6 +30,12 @@ export interface SliderProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onCha
   name?: string
   disabled?: boolean
   'aria-label'?: string
+  /** Texto que aparece acima do slider */
+  label?: string
+  /** Unidade de medida (ex: px, em) */
+  unit?: string
+  /** Mostra os limites mínimo e máximo abaixo do slider */
+  showLimits?: boolean
 }
 
 const sizeClassMap: Record<SliderSize, string> = {
@@ -63,6 +69,9 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
       name,
       disabled = false,
       className,
+      label,
+      unit = '',
+      showLimits = false,
       ...rest
     },
     ref,
@@ -180,6 +189,16 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
 
     return (
       <div ref={ref} className={sliderClass} {...rest}>
+
+        {label && (
+          <div className={styles.header}>
+            <span className={styles.label}>{label}</span>
+            <span className={styles.valueBadge}>
+              {currentValue}{unit}
+            </span>
+          </div>
+        )}
+
         <div
           ref={trackRef}
           className={styles.track}
@@ -203,6 +222,13 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
             onKeyDown={handleKeyDown}
           />
         </div>
+
+        {showLimits && (
+          <div className={styles.footer}>
+            <span className={styles.limitText}>{min}{unit}</span>
+            <span className={styles.limitText}>{max}{unit}</span>
+          </div>
+        )}
 
         {name && (
           <input

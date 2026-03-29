@@ -1,0 +1,1 @@
+export { ColorFiltersPage } from './ui/ColorFilters';

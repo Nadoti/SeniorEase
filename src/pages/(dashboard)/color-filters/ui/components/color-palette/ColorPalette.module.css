@@ -1,0 +1,14 @@
+.colorPalette {
+  display: flex;
+  width: 100%;
+  height: 96px;
+  /* Altura solicitada */
+  border-radius: 12px;
+  /* Border radius solicitado */
+  overflow: hidden;
+}
+
+.colorSwatch {
+  flex: 1;
+  height: 100%;
+}

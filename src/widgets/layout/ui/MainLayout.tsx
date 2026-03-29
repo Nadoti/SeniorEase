@@ -6,7 +6,7 @@ import { FloatingSidebar } from '@/widgets/floating-sidebar';
 export function MainLayout() {
   return (
     <div className={styles.layout}>
-      <FloatingSidebar showShortcuts={false} />
+      <Sidebar />
       <main className={styles.main}>
         <Outlet />
       </main>

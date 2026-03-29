@@ -4,9 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { MainLayout } from '@/widgets/layout';
 
 // Lazy load for pages (chunking strategy)
-const HomePage = lazy(() => import('@/pages/home').then(module => ({ default: module.HomePage })));
-const AppearancePage = lazy(() => import('@/pages/appearance').then(module => ({ default: module.AppearancePage })));
-// const ProductDetailPage = lazy(() => import('@/pages/product-detail').then(module => ({ default: module.ProductDetailPage })));
+const HomePage = lazy(() => import('@/pages/(dashboard)/home').then(module => ({ default: module.HomePage })));
+const AppearancePage = lazy(() => import('@/pages/(dashboard)/appearance').then(module => ({ default: module.AppearancePage })));
+const TypographyPage = lazy(() => import('@/pages/(dashboard)/typography').then(module => ({ default: module.TypographyPage })));
+const ColorFiltersPage = lazy(() => import('@/pages/(dashboard)/color-filters').then(module => ({ default: module.ColorFiltersPage })));
 // const CartPage = lazy(() => import('@/pages/cart').then(module => ({ default: module.CartPage })));
 const NotFoundPage = lazy(() => import('@/pages/not-found').then(module => ({ default: module.NotFoundPage })));
 
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/configuracoes/aparencia',
         element: <AppearancePage />,
+      },
+      {
+        path: '/dashboard/configuracoes/tipografia',
+        element: <TypographyPage />,
+      },
+      {
+        path: '/dashboard/configuracoes/filtros-de-cor',
+        element: <ColorFiltersPage />,
       },
       {
         path: '*',
