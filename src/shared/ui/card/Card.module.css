@@ -45,6 +45,33 @@
   background-color: var(--surface-1);
 }
 
+/* --- Outline --- */
+.outline {
+  background-color: transparent;
+  border: 1px solid #1E2D4A;
+}
+
+.outline.primary {
+  border-color: hsla(230, 70%, 56%, 0.4);
+}
+
+.outline.info {
+  border-color: var(--color-info-5);
+}
+
+.outline.success {
+  border-color: hsla(142, 71%, 40%, 0.4);
+}
+
+.outline.warning {
+  border-color: hsla(38, 92%, 50%, 0.4);
+}
+
+.outline.danger {
+  border-color: hsla(0, 72%, 51%, 0.4);
+}
+
+
 /* --- Interactive card (when used as a link / button) --- */
 .interactive {
   cursor: pointer;
@@ -65,7 +92,7 @@
 
 /* --- Colors --- */
 .primary {
-  background-color: #164880;
+  background-color: #131D35;
   border-color: rgba(24, 57, 106, 0.2);
 }
 
@@ -92,6 +119,11 @@
 .info {
   background-color: var(--color-info-5);
   border-color: var(--color-info-5);
+}
+
+.dark {
+  background-color: #131D35;
+  border-color: #1E2D4A;
 }
 
 /* ==============================

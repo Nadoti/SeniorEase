@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Eye, LayoutDashboard, ListTodo, SlidersHorizontal, ChevronDown, ChevronUp, Type, Space, Palette } from 'lucide-react';
+import { Eye, LayoutDashboard, ListTodo, SlidersHorizontal, ChevronDown, ChevronUp, Type, Space, Palette, View } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cx } from '@/shared/lib';
 import styles from './Sidebar.module.css';
@@ -17,8 +17,8 @@ const menuItems = [
     link: '/dashboard/configuracoes',
     subItems: [
       { label: 'Tipografia', icon: <Type size={16} />, link: '/dashboard/configuracoes/tipografia' },
-      { label: 'Espaçamento', icon: <Space size={16} />, link: '/dashboard/configuracoes/espacamento' },
-      { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia' }
+      { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia' },
+      { label: 'Filtros de Cor', icon: <View size={16} />, link: '/dashboard/configuracoes/filtros-de-cor' },
     ]
   },
   {

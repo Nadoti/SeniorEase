@@ -4,17 +4,54 @@
 .slider {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
   user-select: none;
   touch-action: none;
+  gap: 0.75rem;
 }
 
 .track {
   position: relative;
-  flex-grow: 1;
+  width: 100%;
   border-radius: var(--radius-full);
   cursor: pointer;
+}
+
+/* --- Labeled Slider Additions --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--surface-text);
+}
+
+.valueBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4EADFF;
+  background-color: rgba(24, 57, 106, 0.3);
+  /* 18396A com 30% de transparencia */
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.limitText {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--surface-text-muted);
 }
 
 /* --- Range (barra preenchida) --- */

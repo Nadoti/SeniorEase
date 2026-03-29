@@ -1,0 +1,36 @@
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.headerCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.fontFamilyRadioContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.previewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

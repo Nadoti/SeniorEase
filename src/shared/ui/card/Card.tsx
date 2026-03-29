@@ -4,9 +4,9 @@ import type { HTMLAttributes, ReactElement } from 'react'
 import { cx } from '@/shared/lib'
 import styles from './Card.module.css'
 
-export type CardVariant = 'surface' | 'classic' | 'ghost'
+export type CardVariant = 'surface' | 'classic' | 'ghost' | 'outline'
 export type CardSize = '1' | '2' | '3'
-export type CardColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning' | 'info'
+export type CardColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning' | 'info' | 'dark'
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant

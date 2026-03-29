@@ -74,6 +74,10 @@
   font-weight: 500;
 }
 
+.weightSemiBold {
+  font-weight: 600;
+}
+
 .weightBold {
   font-weight: 700;
 }
