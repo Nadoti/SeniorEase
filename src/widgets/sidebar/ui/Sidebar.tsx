@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Eye, LayoutDashboard, ListTodo, SlidersHorizontal, ChevronDown, ChevronUp, Type, Space, Palette, View } from 'lucide-react';
+import { Eye, LayoutDashboard, ListTodo, SlidersHorizontal, ChevronDown, ChevronUp, Type, Space, Palette, View, Bell } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cx } from '@/shared/lib';
 import styles from './Sidebar.module.css';
@@ -25,6 +25,12 @@ const menuItems = [
     label: 'Minhas Tarefas',
     icon: <ListTodo size={20} />,
     link: '/dashboard/tasks'
+  },
+
+  {
+    label: 'Lembretes',
+    icon: <Bell size={20} />,
+    link: '/dashboard/lembretes'
   }
 ];
 
