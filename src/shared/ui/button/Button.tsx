@@ -15,6 +15,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: ButtonColor
   radius?: ButtonRadius
   loading?: boolean
+  loadingText?: string
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   fullWidth?: boolean
@@ -71,6 +72,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       color = 'primary',
       radius,
       loading = false,
+      loadingText,
       leftIcon,
       rightIcon,
       fullWidth = false,
@@ -108,12 +110,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
       >
         {loading && (
-          <span className={styles.spinnerWrapper} aria-hidden="true">
+          <span className={styles.spinnerWrapper} aria-hidden="true" style={loadingText ? { position: 'relative' } : undefined}>
             <Spinner size={spinnerSize} />
+            {loadingText && <span style={{ marginLeft: 'var(--space-2)' }}>{loadingText}</span>}
           </span>
         )}
 
-        <span className={loading ? styles.loadingContent : undefined}>
+        <span className={cx(styles.contentWrapper, loading && styles.loadingContent)} style={loadingText ? { display: 'none' } : undefined}>
           {leftIcon && (
             <span className={styles.iconWrapper} aria-hidden="true">
               {leftIcon}

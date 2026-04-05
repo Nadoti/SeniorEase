@@ -5,7 +5,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--space-2);
   border: 1.5px solid transparent;
   font-family: inherit;
   font-weight: 600;
@@ -41,21 +41,21 @@
 /* --- Sizes --- */
 .size1 {
   height: 1.75rem;
-  padding: 0 0.625rem;
+  padding: 0 var(--space-2);
   font-size: 0.75rem;
   border-radius: var(--radius-sm);
 }
 
 .size2 {
   height: 2.25rem;
-  padding: 0 1rem;
+  padding: 0 var(--space-4);
   font-size: 0.8125rem;
   border-radius: var(--radius-md);
 }
 
 .size3 {
   height: 2.75rem;
-  padding: 0 1.25rem;
+  padding: 0 var(--space-5);
   font-size: 0.9375rem;
   border-radius: var(--radius-md);
 }
@@ -310,6 +310,13 @@
 
 .loadingContent {
   opacity: 0;
+}
+
+.contentWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
 }
 
 .spinnerWrapper {

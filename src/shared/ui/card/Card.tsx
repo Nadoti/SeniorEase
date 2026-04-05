@@ -6,7 +6,7 @@ import styles from './Card.module.css'
 
 export type CardVariant = 'surface' | 'classic' | 'ghost' | 'outline'
 export type CardSize = '1' | '2' | '3'
-export type CardColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning' | 'info' | 'dark'
+export type CardColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning' | 'info' | 'dark' | 'deepDark'
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant

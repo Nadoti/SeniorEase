@@ -1,7 +1,7 @@
 .grid {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .radioLabel {
@@ -27,7 +27,7 @@
   width: 1px;
   height: 1px;
   padding: 0;
-  margin: -1px;
+  margin: var(--space-1);
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -35,11 +35,11 @@
 }
 
 .cardContent {
-  padding: 1.25rem;
+  padding: var(--space-5);
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .title {
@@ -62,12 +62,31 @@
 .radioLabel.checked {
   background-color: #6eade7;
   /* Equivalente a 18396A 20% */
-  border-color: #18396A;
+  border-color: #2B8CE6;
 }
 
-/* Quando selecionado, altera as cores do texto 131D35 diretamente como você pediu */
 .radioLabel.checked .title,
 .radioLabel.checked .description {
   color: #000000;
-  ;
+}
+
+/* --- LIGHT MODE RE-THEMINGS --- */
+:global([data-theme="light"]) .radioLabel {
+  border-color: #E2EEFF;
+  background-color: #FFFFFF;
+}
+
+:global([data-theme="light"]) .title,
+:global([data-theme="light"]) .description {
+  color: #111827;
+}
+
+:global([data-theme="light"]) .radioLabel.checked {
+  background-color: #EFF8FF;
+  border-color: #2B8CE6;
+}
+
+:global([data-theme="light"]) .radioLabel.checked .title,
+:global([data-theme="light"]) .radioLabel.checked .description {
+  color: #14569B;
 }

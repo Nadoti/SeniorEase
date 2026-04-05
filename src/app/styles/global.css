@@ -83,3 +83,37 @@ select,
 textarea {
   font: inherit;
 }
+
+/* ==============================
+   Typography Utility Classes
+   ============================== */
+.dynamic-text {
+  font-size: var(--dynamic-text-size, 1rem) !important;
+  font-weight: var(--dynamic-text-weight, 400) !important;
+  line-height: var(--dynamic-line-height, 1.5) !important;
+  letter-spacing: var(--dynamic-letter-spacing, 0em) !important;
+}
+
+.dynamic-heading {
+  font-size: var(--dynamic-text-size, 1.25rem) !important;
+  line-height: var(--dynamic-line-height, 1.5) !important;
+  letter-spacing: var(--dynamic-letter-spacing, 0em) !important;
+}
+
+/* ==============================
+   Focus Indicators override
+   ============================== */
+/* Focus Styles overrides per feature configuration */
+*:focus-visible {
+  outline: var(--focus-thickness, 2px) var(--focus-style, solid) var(--focus-color, var(--color-primary-5));
+  outline-offset: 4px;
+}
+
+/* Modo Narrador - Borda de indicação de leitura em andamento */
+.seniorease-narrator-highlight {
+  outline: var(--focus-thickness, 3px) dotted var(--color-warning-5) !important;
+  outline-offset: 4px !important;
+  background-color: hsla(38, 92%, 50%, 0.1) !important;
+  /* fundo levemente amarelo neon para rastreio */
+  transition: all 0.2s ease-in-out !important;
+}

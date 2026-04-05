@@ -1,21 +1,17 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import {
-  Eye,
   LayoutDashboard,
   ListTodo,
   SlidersHorizontal,
-  Bell,
-  Clock,
-  User,
   Type,
-  Space,
   Palette,
   Crosshair,
-  Activity,
-  EyeOff,
+  View,
   Volume2,
-  MousePointerClick
+  Bell,
+  Clock,
+  User
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cx } from '@/shared/lib';
@@ -23,15 +19,11 @@ import { cx } from '@/shared/lib';
 import styles from './FloatingSidebar.module.css';
 
 const subMenuItemsConfig = [
-  { label: 'Tipografia', icon: <Type size={16} />, link: '/dashboard/configuracoes/tipografia', shortcut: '1' },
-  { label: 'Espaçamento', icon: <Space size={16} />, link: '/dashboard/configuracoes/espacamento', shortcut: '2' },
-  { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia', shortcut: '3' },
-  { label: 'Feedback Tátil', icon: <MousePointerClick size={16} />, link: '/dashboard/configuracoes/feedback', shortcut: '4' },
-  { label: 'Indicadores', icon: <Crosshair size={16} />, link: '/dashboard/configuracoes/indicadores', shortcut: '5' },
-  { label: 'Alto Contraste', icon: <Eye size={16} />, link: '/dashboard/configuracoes/contraste', shortcut: '6' },
-  { label: 'Movimentação', icon: <Activity size={16} />, link: '/dashboard/configuracoes/movimentacao', shortcut: '7' },
-  { label: 'Filtros de Cor', icon: <EyeOff size={16} />, link: '/dashboard/configuracoes/filtros', shortcut: '8' },
-  { label: 'Texto para Voz', icon: <Volume2 size={16} />, link: '/dashboard/configuracoes/voz', shortcut: '9' }
+  { label: 'Tipografia', icon: <Type size={16} />, link: '/dashboard/configuracoes/tipografia', shortcut: '2' },
+  { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia', shortcut: '1' },
+  { label: 'Indicadores de Foco', icon: <Crosshair size={16} />, link: '/dashboard/configuracoes/indicadores-de-foco', shortcut: '3' },
+  { label: 'Filtros de Cor', icon: <View size={16} />, link: '/dashboard/configuracoes/filtros-de-cor', shortcut: '4' },
+  { label: 'Texto para Fala', icon: <Volume2 size={16} />, link: '/dashboard/configuracoes/texto-para-fala', shortcut: '5' }
 ];
 
 const menuItems = [
@@ -53,12 +45,6 @@ const menuItems = [
     icon: <ListTodo size={20} />,
     link: '/dashboard/tasks',
     shortcut: 'T'
-  },
-  {
-    label: 'Atividades',
-    icon: <Eye size={20} />,
-    link: '/dashboard/atividades',
-    shortcut: 'G'
   },
   {
     label: 'Lembretes',
