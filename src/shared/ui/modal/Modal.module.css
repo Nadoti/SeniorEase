@@ -1,0 +1,23 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.modalContent {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 450px;
+  background-color: var(--surface-primary-base, #111827);
+  /* fallback primary card basis */
+  border: 1px solid var(--surface-primary-border, #374151);
+  border-radius: var(--radius-lg, 0.75rem);
+  padding: var(--space-6, 1.5rem);
+  z-index: 101;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}

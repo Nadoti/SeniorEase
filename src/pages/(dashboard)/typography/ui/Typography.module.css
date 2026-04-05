@@ -1,36 +1,36 @@
 .header {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
 }
 
 .headerCard {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
 }
 
 .fontFamilyRadioContainer {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 .previewCard {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
 }
 
 .buttonContainer {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
 }

@@ -34,7 +34,7 @@
 }
 
 .success {
-  background-color: var(--color-success-3);
+  background-color: #166534;
 }
 
 .warning {
@@ -43,30 +43,30 @@
 
 /* --- Spacing --- */
 .spacingSm {
-  margin-block: 0.5rem;
+  margin-block: var(--space-2);
 }
 
 .spacingMd {
-  margin-block: 1rem;
+  margin-block: var(--space-4);
 }
 
 .spacingLg {
-  margin-block: 1.5rem;
+  margin-block: var(--space-6);
 }
 
 .vertical.spacingSm {
   margin-block: 0;
-  margin-inline: 0.5rem;
+  margin-inline: var(--space-2);
 }
 
 .vertical.spacingMd {
   margin-block: 0;
-  margin-inline: 1rem;
+  margin-inline: var(--space-4);
 }
 
 .vertical.spacingLg {
   margin-block: 0;
-  margin-inline: 1.5rem;
+  margin-inline: var(--space-6);
 }
 
 :root[data-theme="dark"] .muted,

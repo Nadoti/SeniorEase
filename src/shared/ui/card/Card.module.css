@@ -10,15 +10,15 @@
 
 /* --- Sizes --- */
 .size1 {
-  padding: 1rem;
+  padding: var(--space-4);
 }
 
 .size2 {
-  padding: 1.5rem;
+  padding: var(--space-6);
 }
 
 .size3 {
-  padding: 2rem;
+  padding: var(--space-8);
 }
 
 /* --- Surface --- */
@@ -108,7 +108,7 @@
 
 .success {
   background-color: #166534;
-  border-color: rgba(20, 83, 45, 0.2);
+  border-color: #166534;
 }
 
 .warning {
@@ -123,6 +123,11 @@
 
 .dark {
   background-color: #131D35;
+  border-color: #1E2D4A;
+}
+
+.deepDark {
+  background-color: #0B1120;
   border-color: #1E2D4A;
 }
 
@@ -151,7 +156,7 @@
 :root[data-theme="dark"] .success,
 :root:not([data-theme]) .success {
   background-color: hsla(142, 71%, 40%, 0.1);
-  border-color: hsla(142, 71%, 40%, 0.25);
+  border-color: #166534;
 }
 
 :root[data-theme="dark"] .warning,
@@ -178,7 +183,7 @@
 
 :root[data-theme="light"] .success {
   background-color: var(--color-success-1);
-  border-color: rgba(20, 83, 45, 0.2);
+  border-color: #166534;
 }
 
 :root[data-theme="light"] .warning {
@@ -204,7 +209,7 @@
 
   :root:not([data-theme]) .success {
     background-color: var(--color-success-1);
-    border-color: rgba(20, 83, 45, 0.2);
+    border-color: #166534;
   }
 
   :root:not([data-theme]) .warning {

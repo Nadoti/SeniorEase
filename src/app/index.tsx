@@ -6,9 +6,12 @@ import { AppRouterProvider } from './providers';
 import '@/shared/ui/tokens.css';
 import '@/shared/ui/accessibility.css';
 import './styles/global.css';
+import { RecoilRoot } from 'recoil';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppRouterProvider />
+    <RecoilRoot>
+      <AppRouterProvider />
+    </RecoilRoot>
   </StrictMode>,
 );

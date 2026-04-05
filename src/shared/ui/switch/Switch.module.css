@@ -6,11 +6,11 @@
   display: inline-flex;
   align-items: center;
   border: none;
-  padding: 2px;
+  padding: var(--space-1);
   cursor: pointer;
   user-select: none;
   flex-shrink: 0;
-  background-color: var(--color-neutral-3);
+  background-color: #E5E7EB;
   transition:
     background-color var(--transition-fast),
     box-shadow var(--transition-fast);
@@ -144,9 +144,7 @@
   background-color: var(--color-primary-5);
 }
 
-.soft[data-state="checked"].neutral .thumb {
-  /* background-color: var(--color-neutral-6); */
-}
+
 
 .soft[data-state="checked"].danger .thumb {
   background-color: var(--color-danger-5);
@@ -200,7 +198,7 @@
   width: 1px;
   height: 1px;
   padding: 0;
-  margin: -1px;
+  margin: var(--space-1);
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -211,8 +209,8 @@
    Dark mode soft adjustments
    ============================== */
 
-:root[data-theme="dark"] .switch,
-:root:not([data-theme]) .switch {
+:root[data-theme="dark"] .switch[data-state="unchecked"],
+:root:not([data-theme]) .switch[data-state="unchecked"] {
   background-color: var(--color-neutral-6);
 }
 
@@ -257,8 +255,8 @@
 }
 
 /* Light mode overrides */
-:root[data-theme="light"] .switch {
-  background-color: var(--color-neutral-3);
+:root[data-theme="light"] .switch[data-state="unchecked"] {
+  background-color: #E5E7EB;
 }
 
 :root[data-theme="light"] .soft {
@@ -290,8 +288,8 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme]) .switch {
-    background-color: var(--color-neutral-3);
+  :root:not([data-theme]) .switch[data-state="unchecked"] {
+    background-color: #E5E7EB;
   }
 
   :root:not([data-theme]) .soft {

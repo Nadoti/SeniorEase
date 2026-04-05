@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { typographyState } from '@/shared/model/typographyState';
 import styles from './FontFamilyRadio.module.css';
 
 const listFontFamilies = [
@@ -47,7 +48,17 @@ const listFontFamilies = [
 ];
 
 export function FontFamilyRadio() {
-  const [selectedFont, setSelectedFont] = useState('inter');
+  const [typography, setTypography] = useRecoilState(typographyState);
+
+  // Find which radio is selected by matching the standard fontFamily to the list
+  const selectedFont = listFontFamilies.find(f => f.fontFamily === typography.fontFamily)?.value || 'inter';
+
+  const setSelectedFont = (val: string) => {
+    const familyObj = listFontFamilies.find(f => f.value === val);
+    if (familyObj) {
+      setTypography((prev: any) => ({ ...prev, fontFamily: familyObj.fontFamily }));
+    }
+  };
 
   return (
     <div className={styles.grid}>
@@ -77,7 +88,7 @@ export function FontFamilyRadio() {
             />
 
             <div className={styles.cardContent}>
-              <h4 className={styles.title} style={{ fontFamily: font.fontFamily }}>
+              <h4 className={`${styles.title} dynamic-heading`} style={{ fontFamily: font.fontFamily }}>
                 {font.label}
               </h4>
               <p className={styles.description} style={{ fontFamily: font.fontFamily }}>

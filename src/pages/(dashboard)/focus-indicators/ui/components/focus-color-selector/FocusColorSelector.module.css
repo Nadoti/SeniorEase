@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.colorRow {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.colorCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+/* Tratamento de contraste leve para borda caso a cor seja muito clara */
+:root[data-theme="light"] .colorCircle {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.colorCircle:hover {
+  transform: scale(1.1);
+}
+
+.colorCircle.selected {
+  outline: 2px solid #4EADFF;
+  outline-offset: 2px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: var(--space-2);
+}

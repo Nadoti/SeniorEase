@@ -1,3 +1,6 @@
+export { Button } from './button'
+export type { ButtonProps, ButtonVariant, ButtonSize, ButtonColor, ButtonRadius } from './button'
+
 export { IconButton } from './icon-button'
 export type { IconButtonProps, IconButtonVariant, IconButtonSize, IconButtonColor, IconButtonRadius } from './icon-button'
 
@@ -30,3 +33,5 @@ export type { SwitchProps, SwitchVariant, SwitchSize, SwitchColor } from './swit
 
 export { Slider } from './slider'
 export type { SliderProps, SliderVariant, SliderSize, SliderColor } from './slider'
+
+export { Modal } from './modal'

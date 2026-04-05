@@ -1,0 +1,161 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-4);
+  max-width: 800px;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.timelineCard {
+  width: 100%;
+  padding: var(--space-6);
+  background-color: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.timelineHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.timelineHeaderIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #1E2D4A;
+  color: #4EADFF;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.timelineContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 0;
+}
+
+/* The vertical dashed/solid line */
+.timelineContainer::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 0;
+  left: 19px;
+  width: 2px;
+  background-color: #1F2937;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  gap: var(--space-4);
+  padding-bottom: var(--space-6);
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+/* Icon container covering the line */
+.iconWrapper {
+  position: relative;
+  z-index: 2;
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.iconOuter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: var(--surface-bg);
+  /* outer line matching timeline */
+  border: 1.5px solid #1F2937;
+}
+
+.iconInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid transparent;
+}
+
+/* Specific icon variations */
+.innerGreen {
+  color: #4ADE80;
+  border-color: #4ADE80;
+}
+
+.innerBlue {
+  color: #4EADFF;
+  border-color: #4EADFF;
+}
+
+/* Content bubble */
+.contentBlock {
+  flex: 1;
+  background-color: #0B1120;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.timeText {
+  color: #9CA3AF;
+  font-size: 0.8125rem;
+  margin-bottom: var(--space-1);
+}
+
+.statusText {
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.taskDesc {
+  color: #D1D5DB;
+  font-size: 0.875rem;
+  margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .headerTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}
