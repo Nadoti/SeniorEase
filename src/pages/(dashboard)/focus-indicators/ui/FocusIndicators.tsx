@@ -3,15 +3,10 @@ import { Crosshair } from "lucide-react";
 import styles from './FocusIndicators.module.css';
 import { FocusColorSelector } from "./components";
 import { Button } from "@/shared/ui/button";
-import { useRecoilState } from 'recoil';
-import { focusState } from '@/shared/model/focusState';
+import { useFocusIndicators } from '../model/useFocusIndicators';
 
 export function FocusIndicatorsPage() {
-  const [focus, setFocus] = useRecoilState(focusState);
-
-  const updateFocus = (key: keyof typeof focus, val: any) => {
-    setFocus(prev => ({ ...prev, [key]: val }));
-  };
+  const { focus, updateFocus } = useFocusIndicators();
 
   return (
     <section>
@@ -30,75 +25,19 @@ export function FocusIndicatorsPage() {
           <div className={styles.content}>
             <Text>Estilo do indicador</Text>
             <div className={styles.options}>
-              <RadioCard
-                name="focusStyle"
-                value="solid"
-                contentClassName={styles.navOption}
-                variant="ghost"
-                checked={focus.style === 'solid'}
-                onChange={() => updateFocus('style', 'solid')}
-              >
-                <div className={styles.navOptionHeader}>
-                  <Heading
-                    size="1"
-                    color="info"
-                  >
-                    Anel Sólido
-                  </Heading>
-                </div>
-              </RadioCard>
-              <RadioCard
-                name="focusStyle"
-                value="dashed"
-                contentClassName={styles.navOption}
-                variant="ghost"
-                checked={focus.style === 'dashed'}
-                onChange={() => updateFocus('style', 'dashed')}
-              >
-                <div className={styles.navOptionHeader}>
-                  <Heading
-                    size="1"
-                    color="info"
-                  >
-                    Contorno Tracejado
-                  </Heading>
-                </div>
-              </RadioCard>
-              <RadioCard
-                name="focusStyle"
-                value="underline"
-                contentClassName={styles.navOption}
-                variant="ghost"
-                checked={focus.style === 'underline'}
-                onChange={() => updateFocus('style', 'underline')}
-              >
-                <div className={styles.navOptionHeader}>
-                  <Heading
-                    size="1"
-                    color="info"
-                  >
-                    Sublinhado
-                  </Heading>
-                </div>
-              </RadioCard>
+              {(['solid', 'dashed', 'underline'] as const).map(style => (
+                <RadioCard key={style} name="focusStyle" value={style} contentClassName={styles.navOption} variant="ghost" checked={focus.style === style} onChange={() => updateFocus('style', style)}>
+                  <div className={styles.navOptionHeader}>
+                    <Heading size="1" color="info">{style === 'solid' ? 'Anel Sólido' : style === 'dashed' ? 'Contorno Tracejado' : 'Sublinhado'}</Heading>
+                  </div>
+                </RadioCard>
+              ))}
             </div>
 
             <FocusColorSelector />
 
             <div>
-              <Slider
-                label="Espessura da Linha"
-                unit="px"
-                showLimits={true}
-                min={1}
-                max={6}
-                step={1}
-                value={focus.thickness}
-                onValueChange={(val) => updateFocus('thickness', val)}
-                variant="surface"
-                color="primary"
-                size="2"
-              />
+              <Slider label="Espessura da Linha" unit="px" showLimits min={1} max={6} step={1} value={focus.thickness} onValueChange={(val) => updateFocus('thickness', val)} variant="surface" color="primary" size="2" />
             </div>
           </div>
         </Card>
@@ -118,4 +57,4 @@ export function FocusIndicatorsPage() {
       </div>
     </section>
   );
-} 
+}

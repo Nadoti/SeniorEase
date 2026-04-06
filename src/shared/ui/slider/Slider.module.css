@@ -282,6 +282,16 @@
   background-color: #e8e8e8;
 }
 
+:root[data-theme="dark"] .label,
+:root:not([data-theme]) .label {
+  color: #D1D5DB;
+}
+
+:root[data-theme="dark"] .surface .track,
+:root:not([data-theme]) .surface .track {
+  background-color: #374151;
+}
+
 /* Light mode overrides */
 :root[data-theme="light"] .soft .track {
   background-color: var(--color-neutral-2);

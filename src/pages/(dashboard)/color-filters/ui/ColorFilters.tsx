@@ -1,12 +1,19 @@
 import { Avatar, Card, Heading, RadioCard, Text } from "@/shared/ui";
 import styles from './ColorFilters.module.css';
 import { View } from "lucide-react";
-import { useRecoilState } from "recoil";
-import { colorFilterState } from '@/shared/model/colorFilterState';
+import { useColorFilters } from '../model/useColorFilters';
 import { ColorPalette } from "./components";
 
+const FILTERS = [
+  { value: 'none', label: 'Nenhum (Visão Normal)', desc: 'Cores originais sem alterações.' },
+  { value: 'protanopia', label: 'Protanopia', desc: 'Simula a dificuldade em distruinguir verde e vermelho, com vermelho atenuado.' },
+  { value: 'deuteranopia', label: 'Deuteranopia', desc: 'Simula a dificuldade padrão entre verde e vermelho onde verde enfraquece.' },
+  { value: 'tritanopia', label: 'Tritanopia', desc: 'Simula a anomalia atípica não enxergando azul nem suas misturas.' },
+  { value: 'achromatopsia', label: 'Acromatopsia', desc: 'Permite ver visualização puramente em tons de cinza ou Monocromática.' },
+] as const;
+
 export function ColorFiltersPage() {
-  const [colorFilter, setColorFilter] = useRecoilState(colorFilterState);
+  const { colorFilter, setColorFilter } = useColorFilters();
 
   return (
     <section>
@@ -23,101 +30,14 @@ export function ColorFiltersPage() {
           </div>
 
           <div className={styles.filters}>
-            <RadioCard
-              name="colorFilter"
-              value="none"
-              checked={colorFilter === 'none'}
-              onChange={() => setColorFilter('none')}
-              contentClassName={styles.navOption}
-              variant="ghost"
-            >
-              <div className={styles.navOptionHeader}>
-                <Heading
-                  size="1"
-                  color="info"
-                  style={colorFilter === 'none' ? { color: '#4EADFF' } : undefined}
-                >
-                  Nenhum (Visão Normal)
-                </Heading>
-              </div>
-              <Text size="2" color="muted">Cores originais sem alterações.</Text>
-            </RadioCard>
-            <RadioCard
-              name="colorFilter"
-              value="protanopia"
-              checked={colorFilter === 'protanopia'}
-              onChange={() => setColorFilter('protanopia')}
-              contentClassName={styles.navOption}
-              variant="ghost"
-            >
-              <div className={styles.navOptionHeader}>
-                <Heading
-                  size="1"
-                  color="info"
-                  style={colorFilter === 'protanopia' ? { color: '#4EADFF' } : undefined}
-                >
-                  Protanopia
-                </Heading>
-              </div>
-              <Text size="2" color="muted">Simula a dificuldade em distruinguir verde e vermelho, com vermelho atenuado.</Text>
-            </RadioCard>
-            <RadioCard
-              name="colorFilter"
-              value="deuteranopia"
-              checked={colorFilter === 'deuteranopia'}
-              onChange={() => setColorFilter('deuteranopia')}
-              contentClassName={styles.navOption}
-              variant="ghost"
-            >
-              <div className={styles.navOptionHeader}>
-                <Heading
-                  size="1"
-                  color="info"
-                  style={colorFilter === 'deuteranopia' ? { color: '#4EADFF' } : undefined}
-                >
-                  Deuteranopia
-                </Heading>
-              </div>
-              <Text size="2" color="muted">Simula a dificuldade padrão entre verde e vermelho onde verde enfraquece.</Text>
-            </RadioCard>
-            <RadioCard
-              name="colorFilter"
-              value="tritanopia"
-              checked={colorFilter === 'tritanopia'}
-              onChange={() => setColorFilter('tritanopia')}
-              contentClassName={styles.navOption}
-              variant="ghost"
-            >
-              <div className={styles.navOptionHeader}>
-                <Heading
-                  size="1"
-                  color="info"
-                  style={colorFilter === 'tritanopia' ? { color: '#4EADFF' } : undefined}
-                >
-                  Tritanopia
-                </Heading>
-              </div>
-              <Text size="2" color="muted">Simula a anomalia atípica não enxergando azul nem suas misturas.</Text>
-            </RadioCard>
-            <RadioCard
-              name="colorFilter"
-              value="achromatopsia"
-              checked={colorFilter === 'achromatopsia'}
-              onChange={() => setColorFilter('achromatopsia')}
-              contentClassName={styles.navOption}
-              variant="ghost"
-            >
-              <div className={styles.navOptionHeader}>
-                <Heading
-                  size="1"
-                  color="info"
-                  style={colorFilter === 'achromatopsia' ? { color: '#4EADFF' } : undefined}
-                >
-                  Acromatopsia
-                </Heading>
-              </div>
-              <Text size="2" color="muted">Permite ver visualização puramente em tons de cinza ou Monocromática.</Text>
-            </RadioCard>
+            {FILTERS.map(f => (
+              <RadioCard key={f.value} name="colorFilter" value={f.value} checked={colorFilter === f.value} onChange={() => setColorFilter(f.value)} contentClassName={styles.navOption} variant="ghost">
+                <div className={styles.navOptionHeader}>
+                  <Heading size="1" color="info" style={colorFilter === f.value ? { color: '#4EADFF' } : undefined}>{f.label}</Heading>
+                </div>
+                <Text size="2" color="muted">{f.desc}</Text>
+              </RadioCard>
+            ))}
           </div>
           <div>
             <Card variant="surface" color="dark">

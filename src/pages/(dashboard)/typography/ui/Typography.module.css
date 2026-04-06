@@ -34,3 +34,103 @@
   margin-top: var(--space-8);
   margin-bottom: var(--space-8);
 }
+
+/* --- Preview Outline Card --- */
+.previewOutlineCard {
+  border-color: #1E2D4A;
+}
+
+.previewLabel {
+  color: var(--surface-text-muted);
+}
+
+.previewCardInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.secondaryButton {
+  transition: all 0.2s ease;
+}
+
+.restoreButton {
+  color: #FFFFFF;
+}
+
+.exampleText {
+  color: var(--surface-text-muted);
+}
+
+.previewBodyText {
+  color: #D1D5DB;
+}
+
+/* --- Light Mode Overrides --- */
+:global([data-theme="light"]) .previewOutlineCard {
+  border-color: #E2EEFF;
+  background-color: #F8FBFF;
+}
+
+:global([data-theme="light"]) .previewLabel {
+  color: #6B7280;
+}
+
+:global([data-theme="light"]) .previewCardInner {
+  background-color: #FFFFFF;
+}
+
+:global([data-theme="light"]) .secondaryButton {
+  color: #14569B;
+  background-color: #EFF8FF;
+  border-color: #BFE2FE;
+}
+
+:global([data-theme="light"]) .restoreButton {
+  color: #4B5563;
+}
+
+:global([data-theme="light"]) .exampleText {
+  color: #6B7280;
+}
+
+:global([data-theme="light"]) .previewBodyText {
+  color: #374151;
+}
+
+/* --- Modal Layout --- */
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modalHeader {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.modalIconWrapper {
+  background-color: rgba(127, 29, 29, 0.3);
+  padding: var(--space-2);
+  border-radius: var(--radius-full);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.modalCancelButton {
+  color: #FFFFFF;
+}
+
+.modalDangerButton {
+  background-color: #7F1D1D;
+  color: #F87171;
+  border: 1px solid #991B1B;
+}

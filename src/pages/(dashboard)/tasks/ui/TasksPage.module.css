@@ -170,3 +170,51 @@
   background-color: rgba(239, 68, 68, 0.1);
   cursor: pointer;
 }
+
+/* --- Important button active state --- */
+.importantButtonActive {
+  background-color: #450a0a;
+  color: #EF4444;
+}
+
+/* --- Empty state --- */
+.emptyState {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* --- Modal --- */
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modalHeader {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.modalIconWrapper {
+  background-color: rgba(127, 29, 29, 0.3);
+  padding: var(--space-2);
+  border-radius: var(--radius-full);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.modalCancelButton {
+  color: #FFFFFF;
+}
+
+.modalDangerButton {
+  background-color: #7F1D1D;
+  color: #F87171;
+  border: 1px solid #991B1B;
+}

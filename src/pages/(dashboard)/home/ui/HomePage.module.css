@@ -80,3 +80,36 @@
   align-items: baseline;
   gap: var(--space-3);
 }
+
+/* --- Theme Highlight Card (blue "Escuro" card) --- */
+.themeHighlightCard {
+  background-color: #2B8CE6;
+  border-color: #2B8CE6;
+}
+
+.themeHighlightTitle {
+  color: #FFFFFF;
+}
+
+.themeHighlightSubtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Badge text color --- */
+.badgeText {
+  color: #4ADE80;
+}
+
+/* --- Light Mode Overrides --- */
+:global([data-theme="light"]) .cardAcessibilityContent {
+  border-bottom-color: #F3F4F6;
+}
+
+:global([data-theme="light"]) .subtitleText {
+  color: #6B7280;
+}
+
+/* Subtitle text default for dark */
+.subtitleText {
+  color: var(--surface-text);
+}

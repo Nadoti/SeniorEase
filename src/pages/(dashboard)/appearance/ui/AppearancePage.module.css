@@ -106,3 +106,41 @@
   font-size: 0.75rem;
   background-color: rgba(21, 128, 61, 0.1);
 }
+
+/* --- Layout helpers (replace inline styles) --- */
+.navCard {
+  margin-top: var(--space-8);
+}
+
+.sectionLabel {
+  margin-bottom: var(--space-4);
+}
+
+.keyboardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.keyboardTextCol {
+  flex: 1;
+}
+
+.shortcutText {
+  color: #4ADE80;
+}
+
+.shortcutsTitle {
+  color: #4ADE80;
+}
+
+/* --- Selected nav option text --- */
+.navOptionActiveText {
+  color: #4EADFF;
+}
+
+:global([data-theme="light"]) .navOptionActiveText {
+  color: #1A6FC2;
+}

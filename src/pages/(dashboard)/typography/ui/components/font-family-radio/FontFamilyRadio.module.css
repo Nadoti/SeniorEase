@@ -9,7 +9,7 @@
   cursor: pointer;
   border-radius: 12px;
   /* Compatível com o var(--radius-lg) que estava sendo usado */
-  border: 1px solid #31466f;
+  border: 1px solid #1E2D4A;
   background-color: transparent;
   transition: all 0.2s ease;
   outline: none;
@@ -60,14 +60,13 @@
    ESTADO SELECIONADO (CHECKED) 
    =============================== */
 .radioLabel.checked {
-  background-color: #6eade7;
-  /* Equivalente a 18396A 20% */
+  background-color: #112A4E;
   border-color: #2B8CE6;
 }
 
 .radioLabel.checked .title,
 .radioLabel.checked .description {
-  color: #000000;
+  color: #93D1FD;
 }
 
 /* --- LIGHT MODE RE-THEMINGS --- */
