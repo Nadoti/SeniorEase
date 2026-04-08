@@ -1,22 +1,7 @@
-import { atom } from 'recoil';
+import { atomWithStorage } from 'jotai/utils';
+import { atom } from 'jotai';
 
 export type ColorFilterMode = 'none' | 'protanopia' | 'deuteranopia' | 'tritanopia' | 'achromatopsia';
-
-const localStorageEffect = (key: string) => ({ setSelf, onSet }: any) => {
-  const savedValue = localStorage.getItem(key);
-  if (savedValue != null) {
-    setSelf(savedValue as ColorFilterMode);
-  }
-
-  onSet((newValue: ColorFilterMode, _: any, isReset: boolean) => {
-    if (isReset) {
-      localStorage.removeItem(key);
-    } else {
-      localStorage.setItem(key, newValue);
-      applyColorFilterToDOM(newValue);
-    }
-  });
-};
 
 export const applyColorFilterToDOM = (filter: ColorFilterMode) => {
   if (typeof document === 'undefined') return;
@@ -28,19 +13,13 @@ export const applyColorFilterToDOM = (filter: ColorFilterMode) => {
   }
 };
 
-export const colorFilterState = atom<ColorFilterMode>({
-  key: 'colorFilterState',
-  default: 'none',
-  effects: [
-    localStorageEffect('seniorease_colorFilter'),
-    () => {
-      // Setup inicial garantindo injeção do filtro css via url SVG
-      if (typeof window !== 'undefined') {
-        const savedValue = localStorage.getItem('seniorease_colorFilter') as ColorFilterMode;
-        if (savedValue) {
-          applyColorFilterToDOM(savedValue);
-        }
-      }
-    }
-  ],
-});
+const baseColorFilterState = atomWithStorage<ColorFilterMode>('seniorease_colorFilter', 'none');
+
+export const colorFilterState = atom(
+  (get) => get(baseColorFilterState),
+  (get, set, update: ColorFilterMode | ((prev: ColorFilterMode) => ColorFilterMode)) => {
+    const newValue = typeof update === 'function' ? update(get(baseColorFilterState)) : update;
+    set(baseColorFilterState, newValue);
+    applyColorFilterToDOM(newValue);
+  }
+);

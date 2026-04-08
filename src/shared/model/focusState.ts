@@ -1,4 +1,5 @@
-import { atom } from 'recoil';
+import { atomWithStorage } from 'jotai/utils';
+import { atom } from 'jotai';
 
 export type FocusStyleType = 'solid' | 'dashed' | 'underline';
 
@@ -8,40 +9,15 @@ export type FocusConfig = {
   thickness: number;
 };
 
-const DEFAULT_FOCUS: FocusConfig = {
+export const DEFAULT_FOCUS: FocusConfig = {
   style: 'solid',
   color: '#4EADFF',
   thickness: 4,
 };
 
-const localStorageEffect = (key: string) => ({ setSelf, onSet }: any) => {
-  if (typeof window !== 'undefined') {
-    const savedValue = localStorage.getItem(key);
-    if (savedValue != null) {
-      try {
-        const parsed = JSON.parse(savedValue);
-        setSelf(parsed);
-        applyFocusToRoot(parsed);
-      } catch (e) {
-        applyFocusToRoot(DEFAULT_FOCUS);
-      }
-    } else {
-      applyFocusToRoot(DEFAULT_FOCUS);
-    }
-
-    onSet((newValue: FocusConfig, _: any, isReset: boolean) => {
-      isReset
-        ? localStorage.removeItem(key)
-        : localStorage.setItem(key, JSON.stringify(newValue));
-      applyFocusToRoot(newValue);
-    });
-  }
-};
-
-const applyFocusToRoot = (config: FocusConfig) => {
+export const applyFocusToRoot = (config: FocusConfig) => {
   if (typeof window !== 'undefined') {
     const root = document.documentElement;
-
     root.style.setProperty('--focus-color', config.color);
     root.style.setProperty('--focus-thickness', `${config.thickness}px`);
 
@@ -57,10 +33,13 @@ const applyFocusToRoot = (config: FocusConfig) => {
   }
 };
 
-export const focusState = atom<FocusConfig>({
-  key: 'focusState',
-  default: DEFAULT_FOCUS,
-  effects: [
-    localStorageEffect('seniorease_focus'),
-  ]
-});
+const baseFocusState = atomWithStorage<FocusConfig>('seniorease_focus', DEFAULT_FOCUS);
+
+export const focusState = atom(
+  (get) => get(baseFocusState),
+  (get, set, update: FocusConfig | ((prev: FocusConfig) => FocusConfig)) => {
+    const newValue = typeof update === 'function' ? update(get(baseFocusState)) : update;
+    set(baseFocusState, newValue);
+    applyFocusToRoot(newValue);
+  }
+);

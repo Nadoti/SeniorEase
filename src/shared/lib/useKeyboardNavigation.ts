@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { keyboardNavState } from '@/shared/model/keyboardNavState';
 
 export function useKeyboardNavigation() {
-  const enabled = useRecoilValue(keyboardNavState);
+  const enabled = useAtomValue(keyboardNavState);
   const navigate = useNavigate();
   const location = useLocation();
 

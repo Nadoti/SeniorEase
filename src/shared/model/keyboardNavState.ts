@@ -1,19 +1,12 @@
-import { atom } from 'recoil';
+import { atomWithStorage } from 'jotai/utils';
+import { atom } from 'jotai';
 
-const isBrowser = typeof window !== 'undefined';
-const getKey = () => isBrowser ? localStorage.getItem('seniorease_keyboardNav') : null;
-const initialVal = getKey() !== null ? JSON.parse(getKey() as string) : true;
+const baseKeyboardNavState = atomWithStorage<boolean>('seniorease_keyboardNav', true);
 
-export const keyboardNavState = atom<boolean>({
-  key: 'keyboardNavState',
-  default: initialVal,
-  effects: [
-    ({ onSet }) => {
-      onSet(newValue => {
-        if (isBrowser) {
-          localStorage.setItem('seniorease_keyboardNav', JSON.stringify(newValue));
-        }
-      });
-    },
-  ],
-});
+export const keyboardNavState = atom(
+  (get) => get(baseKeyboardNavState),
+  (get, set, update: boolean | ((prev: boolean) => boolean)) => {
+    const newValue = typeof update === 'function' ? update(get(baseKeyboardNavState)) : update;
+    set(baseKeyboardNavState, newValue);
+  }
+);

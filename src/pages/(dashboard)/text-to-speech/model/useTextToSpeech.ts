@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai';
 import { ttsState } from '@/shared/model/ttsState';
 
 const TEXT_TO_READ = "Acessibilidade é a prática de tornar seus sites utilizáveis pelo maior número possível de pessoas. Tradicionalmente pensamos nisso como sendo sobre pessoas com deficiências, mas na verdade beneficia a todos.";
 
 export function useTextToSpeech() {
   const [audioState, setAudioState] = useState<'idle' | 'starting' | 'playing' | 'stopping'>('idle');
-  const [tts, setTts] = useRecoilState(ttsState);
+  const [tts, setTts] = useAtom(ttsState);
 
   const handleAudioAction = () => {
     if (audioState === 'idle') {

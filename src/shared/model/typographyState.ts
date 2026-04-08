@@ -1,4 +1,5 @@
-import { atom } from 'recoil';
+import { atomWithStorage } from 'jotai/utils';
+import { atom } from 'jotai';
 
 export type TypographyConfig = {
   fontFamily: string;
@@ -8,7 +9,7 @@ export type TypographyConfig = {
   letterSpacing: number;
 };
 
-const DEFAULT_TYPOGRAPHY: TypographyConfig = {
+export const DEFAULT_TYPOGRAPHY: TypographyConfig = {
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 400,
@@ -16,39 +17,10 @@ const DEFAULT_TYPOGRAPHY: TypographyConfig = {
   letterSpacing: 0,
 };
 
-// Atom effect that reads from localstorage and applies CSS variables on change
-const localStorageEffect = (key: string) => ({ setSelf, onSet }: any) => {
-  // Safe check for browser environment
-  if (typeof window !== 'undefined') {
-    const savedValue = localStorage.getItem(key);
-    if (savedValue != null) {
-      try {
-        const parsed = JSON.parse(savedValue);
-        setSelf(parsed);
-        applyTypographyToRoot(parsed); // Apply immediately on load
-      } catch (e) {
-        applyTypographyToRoot(DEFAULT_TYPOGRAPHY);
-      }
-    } else {
-      applyTypographyToRoot(DEFAULT_TYPOGRAPHY);
-    }
-
-    onSet((newValue: TypographyConfig, _: any, isReset: boolean) => {
-      isReset
-        ? localStorage.removeItem(key)
-        : localStorage.setItem(key, JSON.stringify(newValue));
-      applyTypographyToRoot(newValue);
-    });
-  }
-};
-
-const applyTypographyToRoot = (config: TypographyConfig) => {
+export const applyTypographyToRoot = (config: TypographyConfig) => {
   if (typeof window !== 'undefined') {
     const root = document.documentElement;
-    // Font Family goes to root CSS so it affects entire project
     root.style.setProperty('--font-family', `"${config.fontFamily}", system-ui, -apple-system, sans-serif`);
-    
-    // As per user request, size and weight apply dynamically but conditionally
     root.style.setProperty('--dynamic-text-size', `${config.fontSize}px`);
     root.style.setProperty('--dynamic-text-weight', `${config.fontWeight}`);
     root.style.setProperty('--dynamic-line-height', `${config.lineHeight}`);
@@ -56,10 +28,13 @@ const applyTypographyToRoot = (config: TypographyConfig) => {
   }
 };
 
-export const typographyState = atom<TypographyConfig>({
-  key: 'typographyState',
-  default: DEFAULT_TYPOGRAPHY,
-  effects: [
-    localStorageEffect('seniorease_typography'),
-  ]
-});
+const baseTypographyState = atomWithStorage<TypographyConfig>('seniorease_typography', DEFAULT_TYPOGRAPHY);
+
+export const typographyState = atom(
+  (get) => get(baseTypographyState),
+  (get, set, update: TypographyConfig | ((prev: TypographyConfig) => TypographyConfig)) => {
+    const newValue = typeof update === 'function' ? update(get(baseTypographyState)) : update;
+    set(baseTypographyState, newValue);
+    applyTypographyToRoot(newValue);
+  }
+);

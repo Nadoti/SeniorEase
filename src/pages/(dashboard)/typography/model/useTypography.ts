@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai';
 import { typographyState } from '@/shared/model/typographyState';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -12,7 +12,7 @@ const DEFAULT_TYPOGRAPHY = {
 };
 
 export function useTypography() {
-  const [typography, setTypography] = useRecoilState(typographyState);
+  const [typography, setTypography] = useAtom(typographyState);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
 
   const updateTypo = (key: string, val: number | string) => {

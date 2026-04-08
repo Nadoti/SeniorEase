@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { ttsState } from '@/shared/model/ttsState';
 
 export function useGlobalNarrator() {
-  const tts = useRecoilValue(ttsState);
+  const tts = useAtomValue(ttsState);
   const speakingRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -23,12 +23,10 @@ export function useGlobalNarrator() {
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
 
-      // Se clicar em um elemento marcado para ser ignorado (como botões que já têm sua própria lógica de áudio)
       if (target.closest('[data-narrator-ignore="true"]')) {
         return;
       }
 
-      // Evitar que cliques perdidos no background iniciem a leitura de toda a página empacotada
       const layoutTags = ['BODY', 'HTML', 'MAIN', 'NAV', 'ASIDE', 'SVG', 'PATH'];
       if (layoutTags.includes(target.tagName.toUpperCase())) {
         return;
@@ -36,10 +34,8 @@ export function useGlobalNarrator() {
 
       const textToRead = target.innerText?.trim() || target.textContent?.trim();
       
-      // Só vamos falar se tiver algum conteúdo real
       if (!textToRead) return;
 
-      // Cancela falação anterior se clicou num novo alvo
       window.speechSynthesis.cancel();
       clearHighlight();
 
@@ -61,11 +57,9 @@ export function useGlobalNarrator() {
         clearHighlight();
       };
 
-      // Inicia a locução oficial do elemento clicado
       window.speechSynthesis.speak(utterance);
     };
 
-    // Usar a fase de capture para pegar o evento o mais cedo possível antes que um React stopPropagation barre-o
     document.addEventListener('click', handleClick, { capture: true });
 
     return () => {

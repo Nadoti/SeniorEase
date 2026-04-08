@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai';
 import { useNavMode } from '@/shared/model/navModeState';
 import { keyboardNavState } from '@/shared/model/keyboardNavState';
 
@@ -9,7 +9,7 @@ export function useAppearance() {
   });
 
   const { navMode, setNavMode } = useNavMode();
-  const [keyboardNavEnabled, setKeyboardNavEnabled] = useRecoilState(keyboardNavState);
+  const [keyboardNavEnabled, setKeyboardNavEnabled] = useAtom(keyboardNavState);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

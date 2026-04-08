@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai';
 import { typographyState } from '@/shared/model/typographyState';
 import styles from './FontFamilyRadio.module.css';
 
@@ -48,9 +48,8 @@ const listFontFamilies = [
 ];
 
 export function FontFamilyRadio() {
-  const [typography, setTypography] = useRecoilState(typographyState);
+  const [typography, setTypography] = useAtom(typographyState);
 
-  // Find which radio is selected by matching the standard fontFamily to the list
   const selectedFont = listFontFamilies.find(f => f.fontFamily === typography.fontFamily)?.value || 'inter';
 
   const setSelectedFont = (val: string) => {

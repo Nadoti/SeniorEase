@@ -1,4 +1,5 @@
-import { atom } from 'recoil';
+import { atomWithStorage } from 'jotai/utils';
+import { atom } from 'jotai';
 
 export interface TTSState {
   enabled: boolean;
@@ -12,29 +13,12 @@ const defaultState: TTSState = {
   volume: 100,
 };
 
-const localStorageEffect = (key: string) => ({ setSelf, onSet }: any) => {
-  const savedValue = localStorage.getItem(key);
-  if (savedValue != null) {
-    try {
-      setSelf(JSON.parse(savedValue));
-    } catch (e) {
-      console.error('Error parsing TTS State from LocalStorage', e);
-    }
+const baseTtsState = atomWithStorage<TTSState>('seniorease_ttsSettings', defaultState);
+
+export const ttsState = atom(
+  (get) => get(baseTtsState),
+  (get, set, update: TTSState | ((prev: TTSState) => TTSState)) => {
+    const newValue = typeof update === 'function' ? update(get(baseTtsState)) : update;
+    set(baseTtsState, newValue);
   }
-
-  onSet((newValue: TTSState, _: any, isReset: boolean) => {
-    if (isReset) {
-      localStorage.removeItem(key);
-    } else {
-      localStorage.setItem(key, JSON.stringify(newValue));
-    }
-  });
-};
-
-export const ttsState = atom<TTSState>({
-  key: 'ttsState',
-  default: defaultState,
-  effects: [
-    localStorageEffect('seniorease_ttsSettings'),
-  ],
-});
+);

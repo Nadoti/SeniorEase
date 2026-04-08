@@ -2,23 +2,31 @@ import { useLocation, useOutlet } from 'react-router';
 import { Sidebar } from '@/widgets/sidebar';
 import { FloatingSidebar } from '@/widgets/floating-sidebar';
 import styles from './MainLayout.module.css';
-import { useRecoilValue } from 'recoil';
-import { typographyState } from '@/shared/model/typographyState';
-import { focusState } from '@/shared/model/focusState';
-import { colorFilterState } from '@/shared/model/colorFilterState';
+import { useAtomValue } from 'jotai';
+import { typographyState, applyTypographyToRoot } from '@/shared/model/typographyState';
+import { focusState, applyFocusToRoot } from '@/shared/model/focusState';
+import { colorFilterState, applyColorFilterToDOM } from '@/shared/model/colorFilterState';
 import { keyboardNavState } from '@/shared/model/keyboardNavState';
 import { useGlobalNarrator } from '@/shared/lib/useGlobalNarrator';
 import { useKeyboardNavigation } from '@/shared/lib/useKeyboardNavigation';
 import { useNavMode } from '@/shared/model/navModeState';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Toaster } from 'sonner';
+import { useEffect } from 'react';
 
 export function MainLayout() {
-  // Inicializadores globais
-  useRecoilValue(typographyState);
-  useRecoilValue(focusState);
-  useRecoilValue(colorFilterState);
-  const keyboardNavEnabled = useRecoilValue(keyboardNavState);
+  const typography = useAtomValue(typographyState);
+  const focus = useAtomValue(focusState);
+  const colorFilter = useAtomValue(colorFilterState);
+  const keyboardNavEnabled = useAtomValue(keyboardNavState);
+
+  // Inicializadores globais para garantir que o DOM esteja sincronizado com o localStorage no mount
+  useEffect(() => {
+    applyTypographyToRoot(typography);
+    applyFocusToRoot(focus);
+    applyColorFilterToDOM(colorFilter);
+  }, []);
+
   useGlobalNarrator();
   useKeyboardNavigation();
 
@@ -97,4 +105,3 @@ export function MainLayout() {
     </div>
   );
 }
-

@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai';
 import { focusState } from '@/shared/model/focusState';
 import styles from './FocusColorSelector.module.css';
 import { Text } from '@/shared/ui';
@@ -16,11 +16,10 @@ const FOCUS_COLORS = [
 ];
 
 export function FocusColorSelector() {
-  const [focus, setFocus] = useRecoilState(focusState);
+  const [focus, setFocus] = useAtom(focusState);
   const selectedColor = focus.color;
   const setSelectedColor = (val: string) => setFocus(prev => ({ ...prev, color: val }));
 
-  // Busca o nome da cor baseado no hex selecionado
   const selectedName = FOCUS_COLORS.find(c => c.hex === selectedColor)?.name || selectedColor;
 
   return (
