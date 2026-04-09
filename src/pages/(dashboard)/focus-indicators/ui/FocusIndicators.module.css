@@ -5,6 +5,7 @@
   margin-bottom: var(--space-4);
 }
 
+/* Layout principal */
 .contentCard {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -18,12 +19,14 @@
   margin-bottom: var(--space-6);
 }
 
+/* Conteúdo interno */
 .content {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
 
+/* Opções (radio cards) */
 .options {
   display: flex;
   gap: var(--space-3);
@@ -39,6 +42,7 @@
   padding: var(--space-6);
 }
 
+/* Área de teste */
 .cardHeaderTesting {
   display: flex;
   flex-direction: column;
@@ -51,4 +55,71 @@
   flex-direction: column;
   gap: var(--space-3);
   margin-bottom: var(--space-6);
+}
+
+/* Espaçamento entre blocos dentro dos cards */
+:global(.card) > * + * {
+  margin-top: var(--space-4);
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .header {
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  /* 🔥 quebra grid */
+  .contentCard {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .headerCard {
+    margin-bottom: var(--space-4);
+  }
+
+  /* opções viram coluna */
+  .options {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  /* padding menor nos cards de opção */
+  .navOptionHeader {
+    padding: var(--space-3);
+  }
+
+  /* área de teste mais confortável */
+  .cardHeaderTesting {
+    margin-bottom: var(--space-4);
+  }
+
+  .testingButtons {
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  /* botões full width (melhor toque) */
+  .testingButtons button {
+    width: 100%;
+  }
+}
+
+/* ========================= */
+/* 🧠 RESPIRO FINAL */
+/* ========================= */
+
+section {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-bottom: 100px;
+  }
 }

@@ -2,6 +2,19 @@
   margin-bottom: var(--space-6);
 }
 
+/* Layout principal */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.content > * {
+  width: 100%;
+}
+
+/* Header dos cards */
 .headerCard {
   display: flex;
   align-items: center;
@@ -9,33 +22,23 @@
   margin-bottom: var(--space-6);
 }
 
+/* Conteúdo interno */
 .fontFamilyRadioContainer {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
 
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
-}
-
-.previewCard {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  margin-top: var(--space-8);
-}
-
+/* Botões */
 .buttonContainer {
   display: flex;
   gap: var(--space-4);
   margin-top: var(--space-8);
   margin-bottom: var(--space-8);
+  flex-wrap: wrap;
 }
 
-/* --- Preview Outline Card --- */
+/* --- Preview --- */
 .previewOutlineCard {
   border-color: #1E2D4A;
 }
@@ -56,7 +59,7 @@
 }
 
 .restoreButton {
-  color: #FFFFFF;
+  color: var(--surface-text-white);
 }
 
 .exampleText {
@@ -64,73 +67,68 @@
 }
 
 .previewBodyText {
-  color: #D1D5DB;
+  color: var(--surface-text-white);
 }
 
-/* --- Light Mode Overrides --- */
-:global([data-theme="light"]) .previewOutlineCard {
-  border-color: #E2EEFF;
-  background-color: #F8FBFF;
-}
-
-:global([data-theme="light"]) .previewLabel {
-  color: #6B7280;
-}
-
-:global([data-theme="light"]) .previewCardInner {
-  background-color: #FFFFFF;
-}
-
-:global([data-theme="light"]) .secondaryButton {
-  color: #14569B;
-  background-color: #EFF8FF;
-  border-color: #BFE2FE;
-}
-
-:global([data-theme="light"]) .restoreButton {
-  color: #4B5563;
-}
-
-:global([data-theme="light"]) .exampleText {
-  color: #6B7280;
-}
-
-:global([data-theme="light"]) .previewBodyText {
-  color: #374151;
-}
-
-/* --- Modal Layout --- */
-.modalBody {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.modalHeader {
-  display: flex;
-  gap: var(--space-3);
-  align-items: center;
-}
-
-.modalIconWrapper {
-  background-color: rgba(127, 29, 29, 0.3);
-  padding: var(--space-2);
-  border-radius: var(--radius-full);
-}
-
-.modalActions {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-3);
+/* Espaçamento interno consistente */
+.content > * > * + * {
   margin-top: var(--space-4);
 }
 
-.modalCancelButton {
-  color: #FFFFFF;
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  /* 🔥 quebra grid principal */
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .header {
+    margin-bottom: var(--space-4);
+  }
+
+  .headerCard {
+    margin-bottom: var(--space-4);
+  }
+
+  /* Sliders e conteúdo mais compacto */
+  .fontFamilyRadioContainer {
+    gap: var(--space-3);
+  }
+
+  /* Botões melhor pra touch */
+  .buttonContainer {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .buttonContainer button {
+    width: 100%;
+  }
+
+  /* Preview mais confortável */
+  .previewCardInner {
+    margin-top: var(--space-4);
+  }
+
+  .previewBodyText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .exampleText {
+    font-size: 0.85rem;
+  }
 }
 
-.modalDangerButton {
-  background-color: #7F1D1D;
-  color: #F87171;
-  border: 1px solid #991B1B;
+/* ========================= */
+/* 🧠 RESPIRO FINAL */
+/* ========================= */
+
+section {
+  padding-bottom: 100px;
 }

@@ -12,7 +12,7 @@ export function TextToSpeechPage() {
     <section>
       <div className={styles.header}>
         <Heading color="white">Texto para Fala</Heading>
-        <Text color="default" size="4">Configure a leitura em voz alta do conteúdo da tela.</Text>
+        <Text color="default" size="4" className={styles.subtitle}>Configure a leitura em voz alta do conteúdo da tela.</Text>
       </div>
 
       <Card color="primary" className={styles.card}>

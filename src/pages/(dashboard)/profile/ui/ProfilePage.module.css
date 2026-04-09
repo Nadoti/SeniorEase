@@ -35,7 +35,7 @@
 
 /* Identificacao Card */
 .cardTitle {
-  color: #FFFFFF;
+  color: var(--surface-text-white);
   font-weight: 600;
   font-size: 1.125rem;
 }
@@ -47,7 +47,6 @@
   width: 64px;
   height: 64px;
   background-color: rgba(24, 57, 106, 0.3);
-  /* 18396A 30% */
   border-radius: 50%;
   color: #4EADFF;
 }
@@ -64,11 +63,12 @@
 }
 
 .customInput {
-  background-color: #0B1120;
+  width: 100%;
+  background-color: var(--surface-bg);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
-  color: #FFFFFF;
+  color: var(--surface-text-white);
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s;
@@ -84,6 +84,7 @@
   flex-direction: column;
 }
 
+/* Preferences */
 .preferencesList {
   display: flex;
   flex-direction: column;
@@ -96,6 +97,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--space-3);
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--surface-border);
 }
@@ -104,9 +106,21 @@
   border-bottom: none;
 }
 
+.preferenceLabel {
+  color: var(--surface-text);
+}
+
+.preferenceValueActive {
+  color: #4ADE80;
+}
+
+.preferenceValueInfo {
+  color: #60A5FA;
+}
+
+/* Security Card */
 .securityCard {
   background-color: rgba(153, 27, 27, 0.1);
-  /* light dark red */
   border: 1.5px solid rgba(153, 27, 27, 0.4);
   border-radius: var(--radius-md);
   padding: var(--space-4) var(--space-5);
@@ -134,38 +148,21 @@
   font-size: 0.875rem;
 }
 
-@media (max-width: 768px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- Heading --- */
-.pageTitle {
-  color: #FFFFFF;
-}
-
-/* --- Preference text colors --- */
-.preferenceLabel {
-  color: #E5E7EB;
-}
-
-.preferenceValueActive {
-  color: #4ADE80;
-}
-
-.preferenceValueInfo {
-  color: #60A5FA;
-}
-
-/* --- Destructive Button --- */
+/* Buttons */
 .dangerActionButton {
+  width: 100%;
+  justify-content: center;
   background-color: rgba(127, 29, 29, 0.3);
   color: #F87171;
   border: 1px solid #991B1B;
 }
 
-/* --- Modal --- */
+/* Heading */
+.pageTitle {
+  color: var(--surface-text-white);
+}
+
+/* Modal */
 .modalBody {
   display: flex;
   flex-direction: column;
@@ -192,11 +189,73 @@
 }
 
 .modalCancelButton {
-  color: #FFFFFF;
+  color: var(--surface-text-white);
 }
 
 .modalDangerButton {
   background-color: #7F1D1D;
   color: #F87171;
   border: 1px solid #991B1B;
+}
+
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: var(--space-3);
+    gap: var(--space-4);
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .leftColumn,
+  .rightColumn {
+    gap: var(--space-4);
+  }
+
+  .card {
+    padding: var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  /* Preferences mobile */
+  .preferenceItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .preferenceItem > div {
+    width: 100%;
+  }
+
+  /* Security card mobile */
+  .securityCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Modal mobile */
+  .modalActions {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .modalActions button {
+    width: 100%;
+  }
 }

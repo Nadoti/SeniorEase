@@ -4,12 +4,15 @@
   gap: var(--space-2);
 }
 
+/* 🔥 principal ajuste */
 .colorRow {
   display: flex;
   gap: var(--space-3);
   align-items: center;
+  flex-wrap: wrap; /* ESSENCIAL */
 }
 
+/* cada cor */
 .colorCircle {
   display: flex;
   align-items: center;
@@ -21,9 +24,10 @@
   cursor: pointer;
   transition: all 0.2s ease;
   padding: 0;
+  flex-shrink: 0; /* evita esmagar */
 }
 
-/* Tratamento de contraste leve para borda caso a cor seja muito clara */
+/* light mode */
 :root[data-theme="light"] .colorCircle {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -37,9 +41,30 @@
   outline-offset: 2px;
 }
 
+/* footer */
 .footer {
   display: flex;
   justify-content: flex-start;
   width: 100%;
   margin-top: var(--space-2);
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .colorRow {
+    gap: var(--space-2);
+  }
+
+  .colorCircle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer {
+    margin-top: var(--space-3);
+  }
 }
