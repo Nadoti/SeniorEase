@@ -11,6 +11,7 @@
   gap: var(--space-3);
 }
 
+/* Grid principal */
 .filters {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -19,8 +20,70 @@
   margin-bottom: var(--space-6);
 }
 
+/* Espaçamento interno do Card */
+.filters > * {
+  height: 100%;
+}
+
 .colorPaletteContainer {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+}
+
+/* Espaçamento entre blocos dentro do Card */
+:global(.card) > * + * {
+  margin-top: var(--space-4);
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .header {
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .titleFilters {
+    gap: var(--space-2);
+  }
+
+  /* 🔥 GRID vira coluna */
+  .filters {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  /* Melhor leitura dos cards */
+  .navOption {
+    padding: var(--space-3);
+  }
+
+  .navOptionHeader {
+    margin-bottom: var(--space-1);
+  }
+
+  /* Paleta mais confortável */
+  .colorPaletteContainer {
+    gap: var(--space-3);
+  }
+}
+
+/* ========================= */
+/* 🧠 RESPIRO FINAL */
+/* ========================= */
+
+section {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-bottom: 100px;
+  }
 }

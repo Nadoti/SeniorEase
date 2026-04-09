@@ -8,7 +8,6 @@
   display: flex;
   cursor: pointer;
   border-radius: 12px;
-  /* Compatível com o var(--radius-lg) que estava sendo usado */
   border: 1px solid #1E2D4A;
   background-color: transparent;
   transition: all 0.2s ease;
@@ -18,22 +17,19 @@
 
 .radioLabel:focus-visible {
   outline: 2px solid #2B8CE6;
-  /* Azul do projeto para foco acessível pelo Tab */
 }
 
-/* Visually hidden para garantir acessibilidade, sem perder leitura de tela */
+/* hidden input */
 .hiddenInput {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
   margin: var(--space-1);
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
 }
 
+/* conteúdo */
 .cardContent {
   padding: var(--space-5);
   width: 100%;
@@ -51,14 +47,11 @@
 
 .description {
   font-size: 1rem;
-  /* Uma cor mute padrão, que você pode substituir por var(--surface-text-muted) se desejar */
   color: #F3F4F6;
   margin: 0;
 }
 
-/* ===============================
-   ESTADO SELECIONADO (CHECKED) 
-   =============================== */
+/* selecionado */
 .radioLabel.checked {
   background-color: #112A4E;
   border-color: #2B8CE6;
@@ -69,7 +62,26 @@
   color: #93D1FD;
 }
 
-/* --- LIGHT MODE RE-THEMINGS --- */
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .cardContent {
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- LIGHT MODE --- */
 :global([data-theme="light"]) .radioLabel {
   border-color: #E2EEFF;
   background-color: #FFFFFF;

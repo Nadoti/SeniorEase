@@ -19,15 +19,39 @@ export function TasksPage() {
       </div>
 
       <Card variant="surface" className={styles.addTaskCard}>
-        <div className={styles.addTaskHeader}><Plus size={20} /><span>Adicionar nova tarefa</span></div>
+        <div className={styles.addTaskHeader}>
+          <Plus size={20} />
+          <span>Adicionar nova tarefa</span>
+        </div>
+
         <div className={styles.addTaskForm}>
           <div className={styles.inputWrapper}>
-            <input type="text" className={styles.input} placeholder="O que você precisa fazer hoje?" value={newTaskText} onChange={(e) => setNewTaskText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleAdd()} />
+            <input
+              type="text"
+              className={styles.input}
+              placeholder="O que você precisa fazer hoje?"
+              value={newTaskText}
+              onChange={(e) => setNewTaskText(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
+            />
           </div>
-          <Button variant={isNewTaskImportant ? "solid" : "soft"} color={isNewTaskImportant ? "danger" : "neutral"} size="2" onClick={() => setIsNewTaskImportant(!isNewTaskImportant)} title="Marcar como Importante" className={isNewTaskImportant ? styles.importantButtonActive : undefined}>
-            <AlertCircle size={18} />
-          </Button>
-          <Button onClick={handleAdd} color="primary" size="2">Adicionar</Button>
+
+          <div className={styles.addTaskActions}>
+            <Button
+              variant={isNewTaskImportant ? "solid" : "soft"}
+              color={isNewTaskImportant ? "danger" : "neutral"}
+              size="2"
+              onClick={() => setIsNewTaskImportant(!isNewTaskImportant)}
+              title="Marcar como Importante"
+              className={isNewTaskImportant ? styles.importantButtonActive : undefined}
+            >
+              <AlertCircle size={18} />
+            </Button>
+
+            <Button onClick={handleAdd} color="primary" size="2">
+              Adicionar
+            </Button>
+          </div>
         </div>
       </Card>
 

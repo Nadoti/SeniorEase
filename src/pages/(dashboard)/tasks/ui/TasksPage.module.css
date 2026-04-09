@@ -218,3 +218,45 @@
   color: #F87171;
   border: 1px solid #991B1B;
 }
+
+/* Melhor estrutura do form */
+.addTaskForm {
+  display: flex;
+  gap: var(--space-3);
+  align-items: stretch;
+}
+
+.inputWrapper {
+  flex: 1;
+}
+
+/* Novo wrapper dos botões */
+.addTaskActions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+/* Botão principal mais consistente */
+.addTaskActions button:last-child {
+  min-width: 110px;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .addTaskForm {
+    flex-direction: column;
+  }
+
+  .addTaskActions {
+    width: 100%;
+  }
+
+  .addTaskActions button {
+    flex: 1;
+  }
+}

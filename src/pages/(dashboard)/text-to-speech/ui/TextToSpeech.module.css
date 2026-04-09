@@ -4,6 +4,10 @@
   gap: var(--space-6);
 }
 
+/* Espaçamento automático entre elementos internos */
+.card > * + * {
+  margin-top: var(--space-4);
+}
 
 .header {
   display: flex;
@@ -21,6 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: var(--space-2);
 }
 
 .switchTextContent {
@@ -29,19 +34,22 @@
   gap: var(--space-1);
 }
 
-/* --- Section toggle states --- */
+/* --- Section states --- */
 .sectionEnabled {
   opacity: 1;
   pointer-events: auto;
+  margin-bottom: var(--space-3);
 }
 
 .sectionDisabled {
   opacity: 0.5;
   pointer-events: none;
+  margin-bottom: var(--space-3);
 }
 
 .sectionDisabledVisual {
   opacity: 0.5;
+  margin-top: var(--space-4);
 }
 
 /* --- Test Card --- */
@@ -62,4 +70,74 @@
 
 .testButton {
   min-width: 160px;
+}
+
+.subtitle {
+  padding-bottom: .5rem;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .header {
+    gap: var(--space-2);
+  }
+
+  .card {
+    gap: var(--space-4);
+  }
+
+  .titleCardContent {
+    gap: var(--space-2);
+  }
+
+  /* Switch vira vertical */
+  .switchContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  /* Sliders ocupam melhor o espaço */
+  .sectionEnabled,
+  .sectionDisabled {
+    width: 100%;
+  }
+
+  /* Test card mais confortável */
+  .testCard {
+    gap: var(--space-3);
+  }
+
+  .quoteText {
+    font-size: 0.9rem;
+  }
+
+  /* Botão full width */
+  .testButtonWrapper {
+    width: 100%;
+  }
+
+  .testButton {
+    width: 100%;
+    min-width: unset;
+    justify-content: center;
+  }
+}
+
+/* ========================= */
+/* 🧠 PAGE SPACING (ESSENCIAL) */
+/* ========================= */
+
+section {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-bottom: 100px;
+  }
 }
