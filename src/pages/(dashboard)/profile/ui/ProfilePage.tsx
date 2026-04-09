@@ -44,7 +44,7 @@ export function ProfilePage() {
                 <div key={pref.label} className={styles.preferenceItem}>
                   <div>
                     <Text className={styles.preferenceLabel}>{pref.label}</Text>
-                    <Text color="muted" size="1">{pref.desc}</Text>
+                    <Text color="white" size="1">{pref.desc}</Text>
                   </div>
                   <Text className={pref.cls}>{pref.value}</Text>
                 </div>

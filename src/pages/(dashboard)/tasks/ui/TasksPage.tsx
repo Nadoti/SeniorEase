@@ -39,7 +39,7 @@ export function TasksPage() {
         <Button variant="ghost" size="1">Hoje</Button>
       </div>
 
-      <div className={styles.taskList}>
+      <div color='primary' className={styles.taskList}>
         {tasks.map(task => (
           <div key={task.id} className={styles.taskItem}>
             <div className={styles.taskMainInfo}>

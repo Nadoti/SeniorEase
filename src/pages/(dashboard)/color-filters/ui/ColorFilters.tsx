@@ -40,7 +40,7 @@ export function ColorFiltersPage() {
             ))}
           </div>
           <div>
-            <Card variant="surface" color="dark">
+            <Card variant="surface" color="primary">
               <div className={styles.colorPaletteContainer}>
                 <Text size="2" color="white">Paleta de Cores de Teste.</Text>
                 <ColorPalette />

@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  color: #FFFFFF;
+  color: var(--surface-text-white);
   font-weight: 500;
   font-size: 1.125rem;
 }
@@ -44,7 +44,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #1E2D4A;
+  background-color: var(--surface-bg);
   color: #4EADFF;
   border-radius: var(--radius-md);
   flex-shrink: 0;
@@ -126,7 +126,7 @@
 /* Content bubble */
 .contentBlock {
   flex: 1;
-  background-color: #0B1120;
+  background-color: var(--surface-bg);
   border-radius: var(--radius-md);
   padding: var(--space-4);
   display: flex;
@@ -135,19 +135,19 @@
 }
 
 .timeText {
-  color: #9CA3AF;
+  color: var(--surface-text-white);
   font-size: 0.8125rem;
   margin-bottom: var(--space-1);
 }
 
 .statusText {
-  color: #FFFFFF;
+  color: var(--surface-text-white);
   font-weight: 500;
   font-size: 1rem;
 }
 
 .taskDesc {
-  color: #D1D5DB;
+  color: var(--surface-text);
   font-size: 0.875rem;
   margin-top: 2px;
 }
@@ -162,7 +162,7 @@
 
 /* --- Heading --- */
 .pageTitle {
-  color: #FFFFFF;
+  color: var(--surface-text-white);
 }
 
 /* --- Empty state --- */

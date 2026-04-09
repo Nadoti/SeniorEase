@@ -37,7 +37,7 @@ export function TextToSpeechPage() {
           <Slider label="Volume" unit="%" showLimits min={0} max={100} step={1} variant="surface" color="primary" size="2" value={tts.volume} onValueChange={(val) => updateTts('volume', Array.isArray(val) ? val[0] : val)} />
         </div>
         <div className={tts.enabled ? undefined : styles.sectionDisabledVisual}>
-          <Card color="deepDark" className={styles.testCard}>
+          <Card color="surface" className={styles.testCard}>
             <Heading size="1" color="white">Teste de audio</Heading>
             <Text color="muted" size="3" className={styles.quoteText}>
               &quot;{TEXT_TO_READ}&quot;
