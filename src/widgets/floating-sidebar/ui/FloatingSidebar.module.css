@@ -67,8 +67,7 @@
   transform-origin: bottom center;
 }
 
-/* Sub-dock tem os mesmos comportamentos agora. Mantido class para caso precise depois */
-.subDockItem {}
+
 
 /* Mac OS Dock Hover Effect na doca principal e sub-dock */
 .dockItem:not(.active):hover {
@@ -157,4 +156,32 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 5;
   transition: inherit;
+}
+
+/* ========================= */
+/* 🌞 LIGHT MODE OVERRIDES */
+/* ========================= */
+
+:global([data-theme="light"]) .subDock {
+  background-color: hsla(0, 0%, 100%, 0.75);
+  border: 1px solid var(--surface-border);
+}
+
+:global([data-theme="light"]) .dockItem.active {
+  color: var(--color-primary-5);
+}
+
+:global([data-theme="light"]) .dockItem.active .iconWrapper {
+  background-color: var(--color-primary-5);
+  box-shadow: 0 4px 20px var(--color-primary-alpha);
+}
+
+:global([data-theme="light"]) .activeIndicator {
+  background-color: var(--color-primary-5);
+  box-shadow: 0 0 6px var(--color-primary-alpha);
+}
+
+:global([data-theme="light"]) .shortcutBadge {
+  color: var(--surface-bg);
+  background-color: var(--surface-text);
 }

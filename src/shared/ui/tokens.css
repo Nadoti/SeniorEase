@@ -20,6 +20,10 @@
   /* 4. 93D1FD */
   --color-primary-6: hsl(205, 96%, 78%);
 
+  --color-info-5: hsl(208, 100%, 65%);
+  /* 4EADFF alias */
+  --color-info-1: hsla(208, 100%, 65%, 0.2);
+
   /* 5. 9CA3AF */
   --surface-text: hsl(218, 11%, 65%);
   --surface-text-muted: hsl(218, 11%, 65%);
@@ -115,6 +119,10 @@
   /* 4. 14569B */
   --color-primary-6: hsl(211, 77%, 34%);
 
+  --color-info-5: hsl(210, 76%, 43%);
+  /* 1A6FC2 alias */
+  --color-info-1: hsla(210, 76%, 43%, 0.2);
+
   /* 5. 4B5563 */
   --surface-text: hsl(215, 14%, 34%);
   --surface-text-muted: hsl(215, 14%, 34%);
@@ -166,6 +174,10 @@
 
     /* 4. 14569B */
     --color-primary-6: hsl(211, 77%, 34%);
+
+    --color-info-5: hsl(210, 76%, 43%);
+    /* 1A6FC2 alias */
+    --color-info-1: hsla(210, 76%, 43%, 0.2);
 
     /* 5. 4B5563 */
     --surface-text: hsl(215, 14%, 34%);

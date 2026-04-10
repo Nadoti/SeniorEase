@@ -37,15 +37,15 @@ export function AppearancePage() {
         <div className={styles.themeGrid}>
           <RadioCard name="navMode" value="lateral" checked={navMode === 'lateral'} onChange={() => setNavMode('lateral')} contentClassName={styles.navOption} variant="ghost">
             <div className={styles.navOptionHeader}>
-              <Avatar size="1" variant="soft" color="neutral" fallback={<PanelLeft size={20} color="#4EADFF" />} radius="sm" />
-              <Heading size="1" color="info" className={navMode === 'lateral' ? styles.navOptionActiveText : undefined}>Lateral</Heading>
+              <Avatar size="1" variant="soft" color="neutral" fallback={<PanelLeft size={20} className={navMode === 'lateral' ? styles.navOptionActiveIcon : styles.navOptionIcon} />} radius="sm" />
+              <Heading size="1" className={navMode === 'lateral' ? styles.navOptionActiveText : styles.navOptionText}>Lateral</Heading>
             </div>
             <Text size="2" color="muted">Menu fixo na lateral esquerda da tela</Text>
           </RadioCard>
           <RadioCard name="navMode" value="flutuante" checked={navMode === 'flutuante'} onChange={() => setNavMode('flutuante')} contentClassName={styles.navOption} variant="ghost">
             <div className={styles.navOptionHeader}>
-              <Avatar size="1" variant="soft" color="neutral" fallback={<MoreHorizontal size={20} color="#4EADFF" />} radius="sm" />
-              <Heading size="1" color="info" className={navMode === 'flutuante' ? styles.navOptionActiveText : undefined}>Flutuante</Heading>
+              <Avatar size="1" variant="soft" color="neutral" fallback={<MoreHorizontal size={20} className={navMode === 'flutuante' ? styles.navOptionActiveIcon : styles.navOptionIcon} />} radius="sm" />
+              <Heading size="1" className={navMode === 'flutuante' ? styles.navOptionActiveText : styles.navOptionText}>Flutuante</Heading>
             </div>
             <Text size="2" color="muted">Dock centralizado com ícones e nomes</Text>
           </RadioCard>

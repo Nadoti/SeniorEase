@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: var(--space-6);
   padding: var(--space-4);
-  max-width: 800px;
+  width: 100%;
 }
 
 .header {
@@ -33,6 +33,9 @@
 
 .inputWrapper {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
 .input {
@@ -46,9 +49,21 @@
   font-size: 1rem;
 }
 
-.input:focus {
+.input:focus,
+.inputSubtitle:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.inputSubtitle {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+  font-family: inherit;
+  font-size: 0.875rem;
 }
 
 .filters {
@@ -78,6 +93,10 @@
 
 .taskItem:hover {
   transform: translateY(-1px);
+}
+
+:global([data-theme="light"]) .taskItem {
+  border: 1px solid var(--surface-border);
 }
 
 .taskMainInfo {
@@ -161,7 +180,7 @@
 .deleteButton {
   color: #6B7280;
   border-radius: 50%;
-  padding: 4px;
+  padding: 10px;
   transition: all 0.2s;
 }
 

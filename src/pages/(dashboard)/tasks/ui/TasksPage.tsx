@@ -6,7 +6,7 @@ import { useTasks } from '../model/useTasks';
 
 export function TasksPage() {
   const {
-    tasks, newTaskText, setNewTaskText, filter, setFilter,
+    tasks, newTaskText, setNewTaskText, newTaskSubtitle, setNewTaskSubtitle, filter, setFilter,
     taskToDelete, setTaskToDelete, isNewTaskImportant, setIsNewTaskImportant,
     toggleTask, handleAdd, handleDeleteConfirm,
   } = useTasks();
@@ -32,6 +32,14 @@ export function TasksPage() {
               placeholder="O que você precisa fazer hoje?"
               value={newTaskText}
               onChange={(e) => setNewTaskText(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
+            />
+            <input
+              type="text"
+              className={styles.inputSubtitle}
+              placeholder="Detalhes adicionais (opcional)"
+              value={newTaskSubtitle}
+              onChange={(e) => setNewTaskSubtitle(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
             />
           </div>
@@ -79,7 +87,15 @@ export function TasksPage() {
               {task.important && (
                 <div className={styles.importantAlert}><AlertCircle size={16} /><span className={styles.importantAlertText}>Importante</span></div>
               )}
-              <Trash2 className={styles.deleteButton} size={20} onClick={() => setTaskToDelete(task.id)} />
+              <Button
+                variant="ghost"
+                color="danger"
+                size="3"
+                onClick={() => setTaskToDelete(task.id)}
+                title="Excluir tarefa"
+              >
+                <Trash2 size={18} />
+              </Button>
             </div>
           </div>
         ))}

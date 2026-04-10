@@ -138,10 +138,44 @@
 }
 
 /* --- Selected nav option text --- */
+.navOptionText {
+  color: var(--surface-text);
+  transition: color var(--transition-fast);
+}
+
+.navOptionIcon {
+  color: var(--surface-text);
+  transition: color var(--transition-fast);
+}
+
 .navOptionActiveText {
   color: #4EADFF;
 }
 
-:global([data-theme="light"]) .navOptionActiveText {
+.navOptionActiveIcon {
+  color: #4EADFF;
+}
+
+:global([data-theme="light"]) .navOptionText,
+:global([data-theme="light"]) .navOptionIcon {
+  color: var(--surface-text);
+}
+
+:global([data-theme="light"]) .navOptionActiveText,
+:global([data-theme="light"]) .navOptionActiveIcon {
   color: #1A6FC2;
+}
+
+:global([data-theme="light"]) .shortcutKey {
+  border-color: #86EFAC;
+  background-color: #DCFCE7;
+  color: #16A34A;
+}
+
+:global([data-theme="light"]) .shortcutText {
+  color: #16A34A;
+}
+
+:global([data-theme="light"]) .shortcutsTitle {
+  color: #16A34A;
 }

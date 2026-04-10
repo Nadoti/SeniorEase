@@ -1,21 +1,19 @@
-import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { NavModeProvider } from '@/shared/model/navModeState';
-
 import { MainLayout } from '@/widgets/layout';
 
-// Lazy load for pages (chunking strategy)
-const HomePage = lazy(() => import('@/pages/(dashboard)/home').then(module => ({ default: module.HomePage })));
-const AppearancePage = lazy(() => import('@/pages/(dashboard)/appearance').then(module => ({ default: module.AppearancePage })));
-const TypographyPage = lazy(() => import('@/pages/(dashboard)/typography').then(module => ({ default: module.TypographyPage })));
-const ColorFiltersPage = lazy(() => import('@/pages/(dashboard)/color-filters').then(module => ({ default: module.ColorFiltersPage })));
-const TextToSpeechPage = lazy(() => import('@/pages/(dashboard)/text-to-speech').then(module => ({ default: module.TextToSpeechPage })));
-const FocusIndicatorsPage = lazy(() => import('@/pages/(dashboard)/focus-indicators').then(module => ({ default: module.FocusIndicatorsPage })));
-const TasksPage = lazy(() => import('@/pages/(dashboard)/tasks').then(module => ({ default: module.TasksPage })));
-const RemindersPage = lazy(() => import('@/pages/(dashboard)/reminders').then(module => ({ default: module.RemindersPage })));
-const HistoryPage = lazy(() => import('@/pages/(dashboard)/history').then(module => ({ default: module.HistoryPage })));
-const ProfilePage = lazy(() => import('@/pages/(dashboard)/profile').then(module => ({ default: module.ProfilePage })));
-const NotFoundPage = lazy(() => import('@/pages/not-found').then(module => ({ default: module.NotFoundPage })));
+// Standard imports instead of lazy loading to prevent Suspense layout shifts and loading states
+import { HomePage } from '@/pages/(dashboard)/home';
+import { AppearancePage } from '@/pages/(dashboard)/appearance';
+import { TypographyPage } from '@/pages/(dashboard)/typography';
+import { ColorFiltersPage } from '@/pages/(dashboard)/color-filters';
+import { TextToSpeechPage } from '@/pages/(dashboard)/text-to-speech';
+import { FocusIndicatorsPage } from '@/pages/(dashboard)/focus-indicators';
+import { TasksPage } from '@/pages/(dashboard)/tasks';
+import { RemindersPage } from '@/pages/(dashboard)/reminders';
+import { HistoryPage } from '@/pages/(dashboard)/history';
+import { ProfilePage } from '@/pages/(dashboard)/profile';
+import { NotFoundPage } from '@/pages/not-found';
 
 const router = createBrowserRouter([
   {
@@ -69,20 +67,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-function PageFallback() {
-  return (
-    <div style={{ display: 'flex', justifyContent: 'center', padding: 'var(--space-8)' }}>
-      <span style={{ color: 'var(--surface-text-muted)' }}>Carregando...</span>
-    </div>
-  );
-}
-
 export function AppRouterProvider() {
   return (
-    <Suspense fallback={<PageFallback />}>
-      <NavModeProvider>
-        <RouterProvider router={router} />
-      </NavModeProvider>
-    </Suspense>
+    <NavModeProvider>
+      <RouterProvider router={router} />
+    </NavModeProvider>
   );
 }

@@ -183,7 +183,7 @@
 
 :root[data-theme="light"] .success {
   background-color: var(--color-success-1);
-  border-color: #166534;
+  border-color: hsla(142, 76%, 36%, 0.3);
 }
 
 :root[data-theme="light"] .warning {
@@ -209,7 +209,7 @@
 
   :root:not([data-theme]) .success {
     background-color: var(--color-success-1);
-    border-color: #166534;
+    border-color: hsla(142, 76%, 36%, 0.3);
   }
 
   :root:not([data-theme]) .warning {

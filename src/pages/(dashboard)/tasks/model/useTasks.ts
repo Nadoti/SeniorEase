@@ -18,6 +18,7 @@ const INITIAL_TASKS: Task[] = [
 export function useTasks() {
   const [tasks, setTasks] = useState<Task[]>(INITIAL_TASKS);
   const [newTaskText, setNewTaskText] = useState('');
+  const [newTaskSubtitle, setNewTaskSubtitle] = useState('');
   const [filter, setFilter] = useState<'Todos' | 'Pendentes' | 'Concluídas'>('Todos');
   const [taskToDelete, setTaskToDelete] = useState<string | null>(null);
   const [isNewTaskImportant, setIsNewTaskImportant] = useState(false);
@@ -32,8 +33,9 @@ export function useTasks() {
 
   const handleAdd = () => {
     if (!newTaskText.trim()) return;
-    setTasks([...tasks, { id: Date.now().toString(), title: newTaskText, completed: false, important: isNewTaskImportant }]);
+    setTasks([...tasks, { id: Date.now().toString(), title: newTaskText, subtitle: newTaskSubtitle.trim() || undefined, completed: false, important: isNewTaskImportant }]);
     setNewTaskText('');
+    setNewTaskSubtitle('');
     setIsNewTaskImportant(false);
     toast.success('Tarefa adicionada com sucesso');
   };
@@ -50,6 +52,8 @@ export function useTasks() {
     tasks: filteredTasks,
     newTaskText,
     setNewTaskText,
+    newTaskSubtitle,
+    setNewTaskSubtitle,
     filter,
     setFilter,
     taskToDelete,

@@ -1,7 +1,15 @@
 .layout {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   overflow: hidden;
+}
+
+.contentArea {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 .main {
@@ -9,4 +17,24 @@
   padding: var(--space-8) var(--space-12);
   overflow-y: auto;
   background-color: var(--main-bg-color);
+}
+
+.sidebarWrapper {
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .sidebarWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100 !important;
+    /* over main content */
+    transform: translateX(-100%);
+  }
+
+  .sidebarWrapper.mobileOpen {
+    transform: translateX(0);
+  }
 }
