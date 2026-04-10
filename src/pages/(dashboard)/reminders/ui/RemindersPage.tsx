@@ -3,14 +3,12 @@ import { Heading, Text, Button, Card, Switch, Separator, Modal } from '@/shared/
 import { Bell, Clock, Calendar, Trash2, Plus, AlertCircle } from 'lucide-react';
 import styles from './RemindersPage.module.css';
 import { useReminders } from '../model/useReminders';
-
 export function RemindersPage() {
   const {
     reminders, isFormOpen, isLoadingForm, reminderToDelete, setReminderToDelete,
     title, setTitle, time, setTime, isDaily, setIsDaily,
     handleOpenForm, handleCancel, handleSave, toggleActive, confirmDelete,
   } = useReminders();
-
   return (
     <div className={styles.container}>
       <div className={styles.headerTop}>
@@ -24,7 +22,6 @@ export function RemindersPage() {
           </Button>
         )}
       </div>
-
       <AnimatePresence>
         {isFormOpen && (
           <motion.div initial={{ opacity: 0, height: 0, scale: 0.95 }} animate={{ opacity: 1, height: 'auto', scale: 1 }} exit={{ opacity: 0, height: 0, scale: 0.95 }} transition={{ duration: 0.3 }} className={styles.animOverflow}>
@@ -46,7 +43,6 @@ export function RemindersPage() {
           </motion.div>
         )}
       </AnimatePresence>
-
       <div className={styles.list}>
         {reminders.map(item => (
           <div key={item.id} className={styles.reminderCard}>
@@ -66,7 +62,6 @@ export function RemindersPage() {
           </div>
         ))}
       </div>
-
       <Modal isOpen={!!reminderToDelete} onClose={() => setReminderToDelete(null)}>
         <div className={styles.modalBody}>
           <div className={styles.modalHeader}>

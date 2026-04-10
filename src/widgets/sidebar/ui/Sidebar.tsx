@@ -4,7 +4,6 @@ import { Eye, LayoutDashboard, ListTodo, SlidersHorizontal, ChevronDown, Chevron
 import { motion, AnimatePresence } from 'framer-motion';
 import { cx } from '@/shared/lib';
 import styles from './Sidebar.module.css';
-
 const menuItems = [
   {
     label: 'Painel Principal',
@@ -50,21 +49,17 @@ const menuItems = [
     shortcut: 'U'
   }
 ];
-
 interface SidebarProps {
   showShortcuts?: boolean;
 }
-
 export function Sidebar({ showShortcuts = false }: SidebarProps) {
   const location = useLocation();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     'Configurações': location.pathname.startsWith('/dashboard/configuracoes')
   });
-
   const toggleMenu = (label: string) => {
     setOpenMenus(prev => ({ ...prev, [label]: !prev[label] }));
   };
-
   return (
     <aside className={styles.container}>
       <div className={styles.logo}>
@@ -73,7 +68,6 @@ export function Sidebar({ showShortcuts = false }: SidebarProps) {
         </div>
         <span className={styles.logoText}>SeniorEase</span>
       </div>
-
       <nav className={styles.menu}>
         {menuItems.map((item) => {
           const hasSubItems = !!item.subItems;
@@ -81,7 +75,6 @@ export function Sidebar({ showShortcuts = false }: SidebarProps) {
           const isActive = item.link === '/dashboard'
             ? location.pathname === '/dashboard'
             : location.pathname.startsWith(item.link || '');
-
           return (
             <div key={item.label} className={styles.menuGroup}>
               {hasSubItems ? (
@@ -109,7 +102,6 @@ export function Sidebar({ showShortcuts = false }: SidebarProps) {
                   {showShortcuts && item.shortcut && <span className={styles.shortcutHint}>{item.shortcut}</span>}
                 </Link>
               )}
-
               <AnimatePresence initial={false}>
                 {hasSubItems && isOpen && (
                   <motion.div

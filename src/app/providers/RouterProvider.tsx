@@ -1,8 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { NavModeProvider } from '@/shared/model/navModeState';
 import { MainLayout } from '@/widgets/layout';
-
-// Standard imports instead of lazy loading to prevent Suspense layout shifts and loading states
 import { HomePage } from '@/pages/(dashboard)/home';
 import { AppearancePage } from '@/pages/(dashboard)/appearance';
 import { TypographyPage } from '@/pages/(dashboard)/typography';
@@ -14,7 +12,6 @@ import { RemindersPage } from '@/pages/(dashboard)/reminders';
 import { HistoryPage } from '@/pages/(dashboard)/history';
 import { ProfilePage } from '@/pages/(dashboard)/profile';
 import { NotFoundPage } from '@/pages/not-found';
-
 const router = createBrowserRouter([
   {
     element: <MainLayout />,
@@ -66,7 +63,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
 export function AppRouterProvider() {
   return (
     <NavModeProvider>

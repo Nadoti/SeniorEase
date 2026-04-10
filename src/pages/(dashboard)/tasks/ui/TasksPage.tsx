@@ -3,27 +3,23 @@ import { Plus, CheckCircle2, Circle, AlertCircle, Trash2 } from 'lucide-react';
 import { cx } from '@/shared/lib';
 import styles from './TasksPage.module.css';
 import { useTasks } from '../model/useTasks';
-
 export function TasksPage() {
   const {
     tasks, newTaskText, setNewTaskText, newTaskSubtitle, setNewTaskSubtitle, filter, setFilter,
     taskToDelete, setTaskToDelete, isNewTaskImportant, setIsNewTaskImportant,
     toggleTask, handleAdd, handleDeleteConfirm,
   } = useTasks();
-
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <Heading>Minhas Tarefas</Heading>
         <Text color="muted">Organize suas atividades diárias de forma simples e direta.</Text>
       </div>
-
       <Card variant="surface" className={styles.addTaskCard}>
         <div className={styles.addTaskHeader}>
           <Plus size={20} />
           <span>Adicionar nova tarefa</span>
         </div>
-
         <div className={styles.addTaskForm}>
           <div className={styles.inputWrapper}>
             <input
@@ -43,7 +39,6 @@ export function TasksPage() {
               onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
             />
           </div>
-
           <div className={styles.addTaskActions}>
             <Button
               variant={isNewTaskImportant ? "solid" : "soft"}
@@ -55,14 +50,12 @@ export function TasksPage() {
             >
               <AlertCircle size={18} />
             </Button>
-
             <Button onClick={handleAdd} color="primary" size="2">
               Adicionar
             </Button>
           </div>
         </div>
       </Card>
-
       <div className={styles.filters}>
         <Button variant={filter === 'Todos' ? 'solid' : 'soft'} onClick={() => setFilter('Todos')} size="1">Todos</Button>
         <Button variant={filter === 'Pendentes' ? 'solid' : 'soft'} onClick={() => setFilter('Pendentes')} size="1">Pendentes</Button>
@@ -70,7 +63,6 @@ export function TasksPage() {
         <Button variant="ghost" size="1">Importantes</Button>
         <Button variant="ghost" size="1">Hoje</Button>
       </div>
-
       <div color='primary' className={styles.taskList}>
         {tasks.map(task => (
           <div key={task.id} className={styles.taskItem}>
@@ -101,7 +93,6 @@ export function TasksPage() {
         ))}
         {tasks.length === 0 && <Text color="muted" className={styles.emptyState}>Nenhuma tarefa encontrada.</Text>}
       </div>
-
       <Modal isOpen={!!taskToDelete} onClose={() => setTaskToDelete(null)}>
         <div className={styles.modalBody}>
           <div className={styles.modalHeader}>

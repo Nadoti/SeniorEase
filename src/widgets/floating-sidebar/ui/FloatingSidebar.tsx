@@ -15,9 +15,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cx } from '@/shared/lib';
-
 import styles from './FloatingSidebar.module.css';
-
 const subMenuItemsConfig = [
   { label: 'Tipografia', icon: <Type size={16} />, link: '/dashboard/configuracoes/tipografia', shortcut: '2' },
   { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia', shortcut: '1' },
@@ -25,7 +23,6 @@ const subMenuItemsConfig = [
   { label: 'Filtros de Cor', icon: <View size={16} />, link: '/dashboard/configuracoes/filtros-de-cor', shortcut: '4' },
   { label: 'Texto para Fala', icon: <Volume2 size={16} />, link: '/dashboard/configuracoes/texto-para-fala', shortcut: '5' }
 ];
-
 const menuItems = [
   {
     label: 'Painel Principal',
@@ -65,17 +62,14 @@ const menuItems = [
     shortcut: 'U'
   }
 ];
-
 interface FloatingSidebarProps {
   showShortcuts?: boolean;
 }
-
 export function FloatingSidebar({ showShortcuts = false }: FloatingSidebarProps) {
   const location = useLocation();
   const [isConfigOpen, setIsConfigOpen] = useState(
     location.pathname.startsWith('/dashboard/configuracoes')
   );
-
   const handleItemClick = (e: React.MouseEvent, item: typeof menuItems[0]) => {
     if (item.hasSubMenu) {
       e.preventDefault();
@@ -84,11 +78,8 @@ export function FloatingSidebar({ showShortcuts = false }: FloatingSidebarProps)
       setIsConfigOpen(false);
     }
   };
-
   return (
     <div className={styles.dockContainer}>
-
-      {/* Sub menu de configurações flutuante estilo top-dock */}
       <AnimatePresence>
         {isConfigOpen && (
           <motion.div
@@ -128,14 +119,12 @@ export function FloatingSidebar({ showShortcuts = false }: FloatingSidebarProps)
           </motion.div>
         )}
       </AnimatePresence>
-
       <nav className={styles.dock}>
         <AnimatePresence>
           {menuItems.map((item) => {
             const isActive = item.link === '/dashboard/configuracoes'
               ? isConfigOpen || location.pathname.startsWith(item.link)
               : location.pathname.startsWith(item.link);
-
             return (
               <Link
                 key={item.label}
@@ -145,10 +134,8 @@ export function FloatingSidebar({ showShortcuts = false }: FloatingSidebarProps)
               >
                 <div className={styles.iconWrapper}>
                   {item.icon}
-                  {/* Atalho de Teclado Badge */}
                   {showShortcuts && <div className={styles.shortcutBadge}>{item.shortcut}</div>}
                 </div>
-
                 <span className={styles.label} title={item.label}>{item.label}</span>
               </Link>
             );

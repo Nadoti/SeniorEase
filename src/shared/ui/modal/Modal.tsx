@@ -1,13 +1,11 @@
 import type { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Modal.module.css';
-
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
 }
-
 export function Modal({ isOpen, onClose, children }: ModalProps) {
   return (
     <AnimatePresence>

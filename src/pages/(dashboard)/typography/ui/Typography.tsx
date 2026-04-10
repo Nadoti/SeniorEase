@@ -6,7 +6,6 @@ import { AlertCircle, Type } from 'lucide-react';
 import { Avatar } from '@/shared/ui';
 import { useTypography } from '../model/useTypography';
 import { FontFamilyRadio } from './components';
-
 export function TypographyPage() {
   const {
     typography,
@@ -15,14 +14,12 @@ export function TypographyPage() {
     setIsResetModalOpen,
     confirmResetDefaults,
   } = useTypography();
-
   return (
     <section style={{ paddingBottom: '64px' }}>
       <div className={styles.header}>
         <Heading>Tipografia</Heading>
         <Text className="dynamic-text">Personalize as fontes, tamanhos e espaçamentos de texto para melhorar a legibilidade.</Text>
       </div>
-
       <div className={styles.content}>
         <div>
           <Card color='primary'>
@@ -51,7 +48,6 @@ export function TypographyPage() {
             </Button>
           </div>
         </div>
-
         <div>
           <Card variant='outline' className={styles.previewOutlineCard}>
             <div className={styles.headerCard}>
@@ -75,7 +71,6 @@ export function TypographyPage() {
           </Card>
         </div>
       </div>
-
       <Modal isOpen={isResetModalOpen} onClose={() => setIsResetModalOpen(false)}>
         <div className={styles.modalBody}>
           <div className={styles.modalHeader}>

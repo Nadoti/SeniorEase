@@ -2,10 +2,8 @@ import { Avatar, Badge, Card, Heading, LinkButton, Switch, Text } from "@/shared
 import { CircleCheck, Palette, Sparkles, Type } from "lucide-react";
 import styles from './HomePage.module.css';
 import { useHome } from '../model/useHome';
-
 export function HomePage() {
   const { isDarkMode, setIsDarkMode } = useHome();
-
   return (
     <section className={styles.container}>
       <div className={styles.headerHome}>
@@ -34,7 +32,6 @@ export function HomePage() {
           <Text color="default" size="2" className={styles.subtitleText}>Indicadores de Foco</Text>
         </Card>
       </div>
-
       <div className={styles.cardAcessibilityContainer}>
         <Card color="primary">
           <div className={styles.headerCard}>
@@ -65,7 +62,6 @@ export function HomePage() {
             </div>
           </div>
         </Card>
-
         <Card color="primary">
           <div className={styles.headerCard}>
             <Avatar size="3" variant="soft" color="primary" radius="md" fallback={<CircleCheck color="#4EADFF" />} />

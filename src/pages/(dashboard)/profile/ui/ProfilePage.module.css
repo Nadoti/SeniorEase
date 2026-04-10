@@ -5,41 +5,33 @@
   padding: var(--space-4);
   width: 100%;
 }
-
 .headerText {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
-
 .layout {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
   gap: var(--space-6);
   align-items: flex-start;
 }
-
-/* Left Column */
 .leftColumn {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
 }
-
 .card {
   padding: var(--space-5);
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
 }
-
-/* Identificacao Card */
 .cardTitle {
   color: var(--surface-text-white);
   font-weight: 600;
   font-size: 1.125rem;
 }
-
 .userIconWrapper {
   display: flex;
   align-items: center;
@@ -50,18 +42,15 @@
   border-radius: 50%;
   color: #4EADFF;
 }
-
 .inputGroup {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
-
 .inputLabel {
   font-size: 0.875rem;
   color: var(--surface-text-muted);
 }
-
 .customInput {
   width: 100%;
   background-color: var(--surface-bg);
@@ -73,18 +62,13 @@
   outline: none;
   transition: border-color 0.2s;
 }
-
 .customInput:focus {
   border-color: var(--color-primary-5);
 }
-
-/* Right Column */
 .rightColumn {
   display: flex;
   flex-direction: column;
 }
-
-/* Preferences */
 .preferencesList {
   display: flex;
   flex-direction: column;
@@ -92,7 +76,6 @@
   margin-top: var(--space-2);
   margin-bottom: var(--space-4);
 }
-
 .preferenceItem {
   display: flex;
   justify-content: space-between;
@@ -101,15 +84,12 @@
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--surface-border);
 }
-
 .preferenceItem:last-child {
   border-bottom: none;
 }
-
 .preferenceLabel {
   color: var(--surface-text);
 }
-
 .preferenceValueActive {
   color: #4ADE80;
   background-color: rgba(74, 222, 128, 0.15);
@@ -117,7 +97,6 @@
   border-radius: var(--radius-full);
   font-weight: 500;
 }
-
 .preferenceValueInfo {
   color: #60A5FA;
   background-color: rgba(96, 165, 250, 0.15);
@@ -125,8 +104,6 @@
   border-radius: var(--radius-full);
   font-weight: 500;
 }
-
-/* Security Card */
 .securityCard {
   background-color: rgba(153, 27, 27, 0.1);
   border: 1.5px solid rgba(153, 27, 27, 0.4);
@@ -138,25 +115,20 @@
   gap: var(--space-4);
   margin-top: var(--space-2);
 }
-
 .securityText {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
 }
-
 .securityTitle {
   color: #F87171;
   font-weight: 600;
   font-size: 1rem;
 }
-
 .securityDesc {
   color: #FCA5A5;
   font-size: 0.875rem;
 }
-
-/* Buttons */
 .dangerActionButton {
   width: 100%;
   justify-content: center;
@@ -164,105 +136,77 @@
   color: #F87171;
   border: 1px solid #991B1B;
 }
-
-/* Heading */
 .pageTitle {
   color: var(--surface-text-white);
 }
-
-/* Modal */
 .modalBody {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
-
 .modalHeader {
   display: flex;
   gap: var(--space-3);
   align-items: center;
 }
-
 .modalIconWrapper {
   background-color: rgba(127, 29, 29, 0.3);
   padding: var(--space-2);
   border-radius: var(--radius-full);
 }
-
 .modalActions {
   display: flex;
   justify-content: flex-end;
   gap: var(--space-3);
   margin-top: var(--space-4);
 }
-
 .modalCancelButton {
   color: var(--surface-text-white);
 }
-
 .modalDangerButton {
   background-color: #7F1D1D;
   color: #F87171;
   border: 1px solid #991B1B;
 }
-
-/* ========================= */
-/* 📱 MOBILE RESPONSIVE */
-/* ========================= */
-
 @media (max-width: 768px) {
-
   .container {
     padding: var(--space-3);
     gap: var(--space-4);
   }
-
   .layout {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-
   .leftColumn,
   .rightColumn {
     gap: var(--space-4);
   }
-
   .card {
     padding: var(--space-4);
     gap: var(--space-4);
   }
-
   .pageTitle {
     font-size: 1.5rem;
   }
-
   .cardTitle {
     font-size: 1rem;
   }
-
-  /* Preferences mobile */
-  .preferenceItem {
+    .preferenceItem {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-2);
   }
-
   .preferenceItem>div {
     width: 100%;
   }
-
-  /* Security card mobile */
-  .securityCard {
+    .securityCard {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  /* Modal mobile */
-  .modalActions {
+    .modalActions {
     flex-direction: column-reverse;
     width: 100%;
   }
-
   .modalActions button {
     width: 100%;
   }

@@ -1,6 +1,5 @@
 import { atomWithStorage } from 'jotai/utils';
 import { atom } from 'jotai';
-
 export type TypographyConfig = {
   fontFamily: string;
   fontSize: number;
@@ -8,7 +7,6 @@ export type TypographyConfig = {
   lineHeight: number;
   letterSpacing: number;
 };
-
 export const DEFAULT_TYPOGRAPHY: TypographyConfig = {
   fontFamily: 'Inter',
   fontSize: 16,
@@ -16,7 +14,6 @@ export const DEFAULT_TYPOGRAPHY: TypographyConfig = {
   lineHeight: 1.5,
   letterSpacing: 0,
 };
-
 export const applyTypographyToRoot = (config: TypographyConfig) => {
   if (typeof window !== 'undefined') {
     const root = document.documentElement;
@@ -27,9 +24,7 @@ export const applyTypographyToRoot = (config: TypographyConfig) => {
     root.style.setProperty('--dynamic-letter-spacing', `${config.letterSpacing}em`);
   }
 };
-
 const baseTypographyState = atomWithStorage<TypographyConfig>('seniorease_typography', DEFAULT_TYPOGRAPHY);
-
 export const typographyState = atom(
   (get) => get(baseTypographyState),
   (get, set, update: TypographyConfig | ((prev: TypographyConfig) => TypographyConfig)) => {

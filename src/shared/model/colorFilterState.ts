@@ -1,8 +1,6 @@
 import { atomWithStorage } from 'jotai/utils';
 import { atom } from 'jotai';
-
 export type ColorFilterMode = 'none' | 'protanopia' | 'deuteranopia' | 'tritanopia' | 'achromatopsia';
-
 export const applyColorFilterToDOM = (filter: ColorFilterMode) => {
   if (typeof document === 'undefined') return;
   const root = document.documentElement;
@@ -12,9 +10,7 @@ export const applyColorFilterToDOM = (filter: ColorFilterMode) => {
     root.style.filter = `url(#seniorease-${filter})`;
   }
 };
-
 const baseColorFilterState = atomWithStorage<ColorFilterMode>('seniorease_colorFilter', 'none');
-
 export const colorFilterState = atom(
   (get) => get(baseColorFilterState),
   (get, set, update: ColorFilterMode | ((prev: ColorFilterMode) => ColorFilterMode)) => {

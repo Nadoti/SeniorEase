@@ -1,7 +1,6 @@
 import { useAtom } from 'jotai';
 import { typographyState } from '@/shared/model/typographyState';
 import styles from './FontFamilyRadio.module.css';
-
 const listFontFamilies = [
   {
     label: 'Inter (Padrão)',
@@ -46,24 +45,19 @@ const listFontFamilies = [
     value: 'georgia',
   },
 ];
-
 export function FontFamilyRadio() {
   const [typography, setTypography] = useAtom(typographyState);
-
   const selectedFont = listFontFamilies.find(f => f.fontFamily === typography.fontFamily)?.value || 'inter';
-
   const setSelectedFont = (val: string) => {
     const familyObj = listFontFamilies.find(f => f.value === val);
     if (familyObj) {
       setTypography((prev: any) => ({ ...prev, fontFamily: familyObj.fontFamily }));
     }
   };
-
   return (
     <div className={styles.grid}>
       {listFontFamilies.map((font) => {
         const isChecked = selectedFont === font.value;
-
         return (
           <label
             key={font.value}
@@ -85,7 +79,6 @@ export function FontFamilyRadio() {
               className={styles.hiddenInput}
               tabIndex={-1}
             />
-
             <div className={styles.cardContent}>
               <h4 className={`${styles.title} dynamic-heading`} style={{ fontFamily: font.fontFamily }}>
                 {font.label}

@@ -2,17 +2,14 @@ import { Avatar, Card, Heading, Text, RadioCard, Switch, Separator } from "@/sha
 import styles from './AppearancePage.module.css';
 import { Palette, Sun, Moon, Settings, PanelLeft, MoreHorizontal } from "lucide-react";
 import { useAppearance } from '../model/useAppearance';
-
 export function AppearancePage() {
   const { theme, setTheme, navMode, setNavMode, keyboardNavEnabled, setKeyboardNavEnabled } = useAppearance();
-
   return (
     <section>
       <div className={styles.header}>
         <Heading color="white">Aparência</Heading>
         <Text className="dynamic-text">Personalize o tema visual e o comportamento do menu flutuante.</Text>
       </div>
-
       <Card color="primary">
         <div className={styles.appearanceCardMain}>
           <Avatar size="3" variant="soft" color="primary" radius="md" fallback={<Palette color="#4EADFF" />} />
@@ -27,7 +24,6 @@ export function AppearancePage() {
           </RadioCard>
         </div>
       </Card>
-
       <Card color="primary" className={styles.navCard}>
         <div className={styles.appearanceCardMain}>
           <Avatar size="3" variant="soft" color="primary" radius="md" fallback={<Settings color="#4EADFF" />} />
@@ -50,7 +46,6 @@ export function AppearancePage() {
             <Text size="2" color="muted">Dock centralizado com ícones e nomes</Text>
           </RadioCard>
         </div>
-
         <div>
           <Card color="success">
             <Heading color="white" size="2">Navegaçao por Teclado</Heading>

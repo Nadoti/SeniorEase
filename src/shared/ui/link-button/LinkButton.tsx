@@ -1,15 +1,12 @@
 import { forwardRef } from 'react'
 import type { ReactNode } from 'react'
 import { Link, type LinkProps } from 'react-router'
-
 import { cx } from '@/shared/lib'
 import styles from './LinkButton.module.css'
-
 export type LinkButtonVariant = 'solid' | 'soft' | 'outline' | 'ghost'
 export type LinkButtonSize = '1' | '2' | '3'
 export type LinkButtonColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning'
 export type LinkButtonRadius = 'sm' | 'md' | 'lg' | 'full'
-
 export interface LinkButtonProps extends Omit<LinkProps, 'to'> {
   variant?: LinkButtonVariant
   size?: LinkButtonSize
@@ -20,22 +17,17 @@ export interface LinkButtonProps extends Omit<LinkProps, 'to'> {
   rightIcon?: ReactNode
   fullWidth?: boolean
 }
-
 const sizeClassMap: Record<LinkButtonSize, string> = {
   '1': styles.size1,
   '2': styles.size2,
   '3': styles.size3,
 }
-
 const radiusClassMap: Record<LinkButtonRadius, string> = {
   sm: styles.radiusSm,
   md: styles.radiusMd,
   lg: styles.radiusLg,
   full: styles.radiusFull,
 }
-
-
-
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
   (
     {
@@ -62,7 +54,6 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
       fullWidth && styles.fullWidth,
       className,
     )
-
     return (
       <Link ref={ref} to={href} className={linkClass} {...rest}>
         {leftIcon && (
@@ -80,5 +71,4 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
     )
   },
 )
-
 LinkButton.displayName = 'LinkButton'

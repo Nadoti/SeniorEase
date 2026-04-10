@@ -1,211 +1,101 @@
-/* ==============================
-   Design Tokens — SeniorEase
-   ============================== */
-
-/* --- Dark mode (default) --- */
 :root {
-  /* 2. 0B1120 */
-  --main-bg-color: hsl(223, 49%, 8%);
+    --main-bg-color: hsl(223, 49%, 8%);
   --surface-bg: hsl(223, 49%, 8%);
-
-  /* 1. 131D35 */
-  --surface-1: hsl(222, 47%, 14%);
+    --surface-1: hsl(222, 47%, 14%);
   --surface-2: hsl(222, 47%, 14%);
   --surface-3: hsl(222, 47%, 14%);
   --surface-border: hsl(222, 47%, 14%);
-
-  /* 3. 4EADFF */
-  --color-primary-5: hsl(208, 100%, 65%);
-
-  /* 4. 93D1FD */
-  --color-primary-6: hsl(205, 96%, 78%);
-
+    --color-primary-5: hsl(208, 100%, 65%);
+    --color-primary-6: hsl(205, 96%, 78%);
   --color-info-5: hsl(208, 100%, 65%);
-  /* 4EADFF alias */
-  --color-info-1: hsla(208, 100%, 65%, 0.2);
-
-  /* 5. 9CA3AF */
-  --surface-text: hsl(218, 11%, 65%);
+    --color-info-1: hsla(208, 100%, 65%, 0.2);
+    --surface-text: hsl(218, 11%, 65%);
   --surface-text-muted: hsl(218, 11%, 65%);
   --color-neutral-3: hsl(218, 11%, 65%);
-  /* Fallback used by UI */
-
-  /* 6. 1A6FC2-50% */
-  --color-primary-alpha: hsla(210, 76%, 43%, 0.5);
+    --color-primary-alpha: hsla(210, 76%, 43%, 0.5);
   --color-primary-1: hsla(210, 76%, 43%, 0.5);
-  /* Fallback used by UI for soft variant */
-
-  /* 7. 166534 */
-  --color-success-1: hsl(143, 64%, 24%);
-
-  /* 8. 14532D-20% */
-  --color-success-2: hsla(144, 61%, 20%, 0.2);
-
-  /* 9. 4ADE80 */
-  --color-success-5: hsl(142, 71%, 58%);
-
-  /* 10. 7F1D1D-20% */
-  --color-danger-1: hsla(0, 63%, 31%, 0.2);
-
-  /* 11. F87171 */
-  --color-danger-5: hsl(0, 90%, 71%);
-
-  /* --- Extra fallbacks mapped to new colors to not break UI --- */
-  --surface-text-white: hsl(0, 0%, 100%);
+    --color-success-1: hsl(143, 64%, 24%);
+    --color-success-2: hsla(144, 61%, 20%, 0.2);
+    --color-success-5: hsl(142, 71%, 58%);
+    --color-danger-1: hsla(0, 63%, 31%, 0.2);
+    --color-danger-5: hsl(0, 90%, 71%);
+    --surface-text-white: hsl(0, 0%, 100%);
   --color-neutral-1: hsla(218, 11%, 65%, 0.1);
   --color-warning-1: hsla(38, 92%, 50%, 0.1);
   --color-warning-3: hsla(38, 92%, 50%, 0.3);
   --color-warning-6: hsl(38, 92%, 50%);
-
-  /* --- Typography --- */
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-size-base: 1rem;
-
-  /* --- Spacing --- */
-  --space-1: 0.25rem;
-  /* 4px */
-  --space-2: 0.5rem;
-  /* 8px */
-  --space-3: 0.75rem;
-  /* 12px */
-  --space-4: 1rem;
-  /* 16px */
-  --space-5: 1.25rem;
-  /* 20px */
-  --space-6: 1.5rem;
-  /* 24px */
-  --space-7: 1.75rem;
-  /* 28px */
-  --space-8: 2rem;
-  /* 32px */
-  --space-9: 2.25rem;
-  /* 36px */
-  --space-10: 2.5rem;
-  /* 40px */
-  --space-12: 3rem;
-  /* 48px (~49px user requested) */
-
-  /* --- Radius --- */
-  --radius-sm: 0.375rem;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 1.75rem;
+    --space-8: 2rem;
+    --space-9: 2.25rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-full: 9999px;
-
-  /* --- Shadows --- */
-  --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.2);
+    --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.2);
   --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.2);
   --shadow-lg: 0 4px 16px hsla(0, 0%, 0%, 0.25);
-
-  /* --- Transitions --- */
-  --transition-fast: 0.15s ease;
+    --transition-fast: 0.15s ease;
   --transition-normal: 0.2s ease;
 }
-
-/* --- Light mode: manual choice --- */
 :root[data-theme="light"] {
-  /* 2. F8FBFF */
-  --main-bg-color: hsl(214, 100%, 99%);
+    --main-bg-color: hsl(214, 100%, 99%);
   --surface-bg: hsl(214, 100%, 99%);
-
-  /* 1. FFFFFF */
-  --surface-1: hsl(0, 0%, 100%);
+    --surface-1: hsl(0, 0%, 100%);
   --surface-2: hsl(0, 0%, 100%);
   --surface-3: hsl(0, 0%, 100%);
   --surface-border: hsl(215, 14%, 90%);
-
-  /* 3. 1A6FC2 */
-  --color-primary-5: hsl(210, 76%, 43%);
-
-  /* 4. 14569B */
-  --color-primary-6: hsl(211, 77%, 34%);
-
+    --color-primary-5: hsl(210, 76%, 43%);
+    --color-primary-6: hsl(211, 77%, 34%);
   --color-info-5: hsl(210, 76%, 43%);
-  /* 1A6FC2 alias */
-  --color-info-1: hsla(210, 76%, 43%, 0.2);
-
-  /* 5. 4B5563 */
-  --surface-text: hsl(215, 14%, 34%);
+    --color-info-1: hsla(210, 76%, 43%, 0.2);
+    --surface-text: hsl(215, 14%, 34%);
   --surface-text-muted: hsl(215, 14%, 34%);
   --color-neutral-3: hsl(215, 14%, 34%);
-
-  /* 6. 2B8CE6-50% */
-  --color-primary-alpha: hsla(209, 80%, 54%, 0.5);
+    --color-primary-alpha: hsla(209, 80%, 54%, 0.5);
   --color-primary-1: hsla(209, 80%, 54%, 0.5);
-
-  /* 7. DCFCE7 */
-  --color-success-1: hsl(141, 79%, 92%);
-
-  /* 8. F0FDF4 */
-  --color-success-2: hsl(138, 76%, 96%);
-
-  /* 9. 16A34A */
-  --color-success-5: hsl(142, 76%, 36%);
-
-  /* 10. FEF2F2 */
-  --color-danger-1: hsl(0, 86%, 97%);
-
-  /* 11. DC2626 */
-  --color-danger-5: hsl(0, 72%, 51%);
-
-  /* --- Extra fallbacks --- */
-  --surface-text-white: hsl(223, 49%, 8%);
-  /* Invertido para leitura sobre light mode */
-
+    --color-success-1: hsl(141, 79%, 92%);
+    --color-success-2: hsl(138, 76%, 96%);
+    --color-success-5: hsl(142, 76%, 36%);
+    --color-danger-1: hsl(0, 86%, 97%);
+    --color-danger-5: hsl(0, 72%, 51%);
+    --surface-text-white: hsl(223, 49%, 8%);
   --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.06);
   --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.08);
   --shadow-lg: 0 4px 16px hsla(0, 0%, 0%, 0.1);
 }
-
-/* --- Light mode: auto (follows OS when no data-theme set) --- */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
-    /* 2. F8FBFF */
-    --main-bg-color: hsl(214, 100%, 99%);
+        --main-bg-color: hsl(214, 100%, 99%);
     --surface-bg: hsl(214, 100%, 99%);
-
-    /* 1. FFFFFF */
-    --surface-1: hsl(0, 0%, 100%);
+        --surface-1: hsl(0, 0%, 100%);
     --surface-2: hsl(0, 0%, 100%);
     --surface-3: hsl(0, 0%, 100%);
     --surface-border: hsl(215, 14%, 90%);
-
-    /* 3. 1A6FC2 */
-    --color-primary-5: hsl(210, 76%, 43%);
-
-    /* 4. 14569B */
-    --color-primary-6: hsl(211, 77%, 34%);
-
+        --color-primary-5: hsl(210, 76%, 43%);
+        --color-primary-6: hsl(211, 77%, 34%);
     --color-info-5: hsl(210, 76%, 43%);
-    /* 1A6FC2 alias */
-    --color-info-1: hsla(210, 76%, 43%, 0.2);
-
-    /* 5. 4B5563 */
-    --surface-text: hsl(215, 14%, 34%);
+        --color-info-1: hsla(210, 76%, 43%, 0.2);
+        --surface-text: hsl(215, 14%, 34%);
     --surface-text-muted: hsl(215, 14%, 34%);
     --color-neutral-3: hsl(215, 14%, 34%);
-
-    /* 6. 2B8CE6-50% */
-    --color-primary-alpha: hsla(209, 80%, 54%, 0.5);
+        --color-primary-alpha: hsla(209, 80%, 54%, 0.5);
     --color-primary-1: hsla(209, 80%, 54%, 0.5);
-
-    /* 7. DCFCE7 */
-    --color-success-1: hsl(141, 79%, 92%);
-
-    /* 8. F0FDF4 */
-    --color-success-2: hsl(138, 76%, 96%);
-
-    /* 9. 16A34A */
-    --color-success-5: hsl(142, 76%, 36%);
-
-    /* 10. FEF2F2 */
-    --color-danger-1: hsl(0, 86%, 97%);
-
-    /* 11. DC2626 */
-    --color-danger-5: hsl(0, 72%, 51%);
-
-    /* --- Extra fallbacks --- */
-    --surface-text-white: hsl(223, 49%, 8%);
-
+        --color-success-1: hsl(141, 79%, 92%);
+        --color-success-2: hsl(138, 76%, 96%);
+        --color-success-5: hsl(142, 76%, 36%);
+        --color-danger-1: hsl(0, 86%, 97%);
+        --color-danger-5: hsl(0, 72%, 51%);
+        --surface-text-white: hsl(223, 49%, 8%);
     --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.06);
     --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.08);
     --shadow-lg: 0 4px 16px hsla(0, 0%, 0%, 0.1);

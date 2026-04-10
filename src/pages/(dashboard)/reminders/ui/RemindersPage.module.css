@@ -5,24 +5,20 @@
   padding: var(--space-4);
   width: 100%;
 }
-
 .headerTop {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-
 .headerText {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
-
 .formCard {
   width: 100%;
   margin-bottom: var(--space-2);
 }
-
 .formHeader {
   display: flex;
   align-items: center;
@@ -31,20 +27,17 @@
   font-weight: 500;
   margin-bottom: var(--space-4);
 }
-
 .inputGroup {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
 }
-
 .label {
   font-weight: 500;
   color: var(--surface-text-muted);
   font-size: 0.875rem;
 }
-
 .input {
   width: 100%;
   padding: 10px 14px;
@@ -54,46 +47,37 @@
   color: white;
   font-family: inherit;
 }
-
 .input:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
-
 .row {
   display: flex;
   align-items: center;
   gap: var(--space-4);
   margin-bottom: var(--space-6);
 }
-
 .formActions {
   display: flex;
   align-items: center;
   gap: var(--space-3);
 }
-
 .actionSave {
   flex: 3;
 }
-
 .actionCancel {
   flex: 1;
 }
-
-/* List */
 .list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
 }
-
 @media (max-width: 640px) {
   .list {
     grid-template-columns: 1fr;
   }
 }
-
 .reminderCard {
   width: 100%;
   padding: var(--space-5);
@@ -104,13 +88,11 @@
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-lg);
 }
-
 .reminderHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .timeWrapper {
   display: flex;
   align-items: center;
@@ -119,13 +101,11 @@
   font-weight: 600;
   font-size: 1.125rem;
 }
-
 .body {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
 }
-
 .footer {
   display: flex;
   align-items: center;
@@ -133,14 +113,12 @@
   margin-top: var(--space-2);
   color: #9CA3AF;
 }
-
 .repeatInfo {
   display: flex;
   align-items: center;
   gap: var(--space-2);
   font-size: 0.875rem;
 }
-
 .deleteButton {
   color: #6B7280;
   border-radius: 50%;
@@ -150,18 +128,14 @@
   align-items: center;
   justify-content: center;
 }
-
 .deleteButton:hover {
   background-color: rgba(239, 68, 68, 0.1);
   color: #ef4444;
   cursor: pointer;
 }
-
-/* --- Form layout helpers --- */
 .timeInputCol {
   flex: 1;
 }
-
 .repeatCol {
   display: flex;
   align-items: center;
@@ -170,42 +144,33 @@
   flex: 1;
   margin-left: 12px;
 }
-
-/* --- Animation overflow --- */
 .animOverflow {
   overflow: hidden;
 }
-
-/* --- Modal --- */
 .modalBody {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
-
 .modalHeader {
   display: flex;
   gap: var(--space-3);
   align-items: center;
 }
-
 .modalIconWrapper {
   background-color: rgba(127, 29, 29, 0.3);
   padding: var(--space-2);
   border-radius: var(--radius-full);
 }
-
 .modalActions {
   display: flex;
   justify-content: flex-end;
   gap: var(--space-3);
   margin-top: var(--space-4);
 }
-
 .modalCancelButton {
   color: #FFFFFF;
 }
-
 .modalDangerButton {
   background-color: #7F1D1D;
   color: #F87171;

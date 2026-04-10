@@ -1,7 +1,3 @@
-/* ==============================
-   CSS Reset & Base
-   ============================== */
-
 *,
 *::before,
 *::after {
@@ -9,49 +5,40 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
   font-family: var(--font-family, system-ui, Avenir, Helvetica, Arial, sans-serif);
   font-size: var(--font-size-base, 1rem);
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: dark;
   color: var(--surface-text);
   background-color: var(--surface-bg);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
 :root[data-theme="light"] {
   color-scheme: light;
 }
-
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
     color-scheme: light;
   }
 }
-
 body {
   min-width: 320px;
   min-height: 100vh;
 }
-
 a {
   font-weight: 500;
   color: var(--color-primary-5);
   text-decoration: inherit;
 }
-
 a:hover {
   color: var(--color-primary-6);
 }
-
 h1,
 h2,
 h3,
@@ -60,60 +47,43 @@ h5,
 h6 {
   text-wrap: balance;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
 p {
   text-wrap: pretty;
 }
-
 img,
 video,
 svg {
   display: block;
   max-width: 100%;
 }
-
 button,
 input,
 select,
 textarea {
   font: inherit;
 }
-
-/* ==============================
-   Typography Utility Classes
-   ============================== */
 .dynamic-text {
   font-size: var(--dynamic-text-size, 1rem) !important;
   font-weight: var(--dynamic-text-weight, 400) !important;
   line-height: var(--dynamic-line-height, 1.5) !important;
   letter-spacing: var(--dynamic-letter-spacing, 0em) !important;
 }
-
 .dynamic-heading {
   font-size: var(--dynamic-text-size, 1.25rem) !important;
   line-height: var(--dynamic-line-height, 1.5) !important;
   letter-spacing: var(--dynamic-letter-spacing, 0em) !important;
 }
-
-/* ==============================
-   Focus Indicators override
-   ============================== */
-/* Focus Styles overrides per feature configuration */
 *:focus-visible {
   outline: var(--focus-thickness, 2px) var(--focus-style, solid) var(--focus-color, var(--color-primary-5));
   outline-offset: 4px;
 }
-
-/* Modo Narrador - Borda de indicação de leitura em andamento */
 .seniorease-narrator-highlight {
   outline: var(--focus-thickness, 3px) dotted var(--color-warning-5) !important;
   outline-offset: 4px !important;
   background-color: hsla(38, 92%, 50%, 0.1) !important;
-  /* fundo levemente amarelo neon para rastreio */
-  transition: all 0.2s ease-in-out !important;
+    transition: all 0.2s ease-in-out !important;
 }

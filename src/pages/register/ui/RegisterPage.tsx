@@ -1,25 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from './RegisterPage.module.css';
-
 export function RegisterPage() {
   const [aceito, setAceito] = useState(false);
-
   return (
     <div className={styles.container}>
-      {/* Lado esquerdo — formulário */}
       <div className={styles.formSide}>
         <div className={styles.logo}>
           <div className={styles.logoIcon} />
           <span className={styles.logoNome}>SeniorEase</span>
         </div>
-
         <div className={styles.formContent}>
           <h1 className={styles.titulo}>Crie sua conta SeniorEase</h1>
           <p className={styles.subtitulo}>
             Configure acesso seguro a lembretes de medicamentos, consultas e atualizações familiares em um lugar acessível.
           </p>
-
           <div className={styles.campos}>
             <div className={styles.campo}>
               <label className={styles.label} htmlFor="nome">Nome completo</label>
@@ -30,7 +25,6 @@ export function RegisterPage() {
                 className={styles.input}
               />
             </div>
-
             <div className={styles.campo}>
               <label className={styles.label} htmlFor="email">Endereço de e-mail</label>
               <input
@@ -40,7 +34,6 @@ export function RegisterPage() {
                 className={styles.input}
               />
             </div>
-
             <div className={styles.campo}>
               <label className={styles.label} htmlFor="senha">Senha</label>
               <input
@@ -50,7 +43,6 @@ export function RegisterPage() {
                 className={styles.input}
               />
             </div>
-
             <div className={styles.campo}>
               <label className={styles.label} htmlFor="confirmarSenha">Confirmar senha</label>
               <input
@@ -60,11 +52,9 @@ export function RegisterPage() {
                 className={styles.input}
               />
             </div>
-
             <p className={styles.dicaSenha}>
               Use pelo menos 12 caracteres com uma mistura de letras, números e símbolos para maior proteção.
             </p>
-
             <label className={styles.checkLabel}>
               <input
                 type="checkbox"
@@ -74,7 +64,6 @@ export function RegisterPage() {
               />
               Concordo com os Termos de Serviço e Política de Privacidade, e quero receber atualizações acessíveis no meu e-mail.
             </label>
-
             <div className={styles.botoes}>
               <button type="button" className={styles.btnPrimario}>
                 Criar conta
@@ -84,7 +73,6 @@ export function RegisterPage() {
               </button>
             </div>
           </div>
-
           <p className={styles.rodape}>
             Já tem uma conta?{' '}
             <Link to="/entrar" className={styles.linkEntrar}>
@@ -93,11 +81,8 @@ export function RegisterPage() {
           </p>
         </div>
       </div>
-
-      {/* Lado direito — painel informativo */}
       <div className={styles.infoPainel}>
         <div className={styles.imagemPlaceholder} />
-
         <div className={styles.infoConteudo}>
           <span className={styles.infoTag}>Integração guiada</span>
           <h2 className={styles.infoTituloGrande}>
@@ -106,7 +91,6 @@ export function RegisterPage() {
           <p className={styles.infoDescricao}>
             O SeniorEase mantém as rotinas de saúde essenciais visíveis, legíveis e fáceis de compartilhar com cuidadores de confiança desde o primeiro dia.
           </p>
-
           <ul className={styles.infoLista}>
             <li>• Texto grande e alto contraste em todas as tarefas diárias</li>
             <li>• Lembretes compartilhados para familiares e cuidadores</li>

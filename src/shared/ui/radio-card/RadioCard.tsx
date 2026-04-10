@@ -1,34 +1,28 @@
 import { forwardRef } from 'react'
 import type { InputHTMLAttributes, ReactNode } from 'react'
-
 import { cx } from '@/shared/lib'
 import styles from './RadioCard.module.css'
-
 export type RadioCardVariant = 'surface' | 'classic' | 'ghost'
 export type RadioCardSize = '1' | '2' | '3'
 export type RadioCardColor = 'primary' | 'neutral' | 'info'
-
 export interface RadioCardProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   variant?: RadioCardVariant
   size?: RadioCardSize
   color?: RadioCardColor
   children: ReactNode
-  /* Container visual state custom class */
-  contentClassName?: string
+    contentClassName?: string
 }
-
 const sizeClassMap: Record<RadioCardSize, string> = {
   '1': styles.size1,
   '2': styles.size2,
   '3': styles.size3,
 }
-
 export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
   (
     {
       variant = 'surface',
       size = '2',
-      color = 'info', // default to info since user uses #2B8CE6 often for active states
+      color = 'info', 
       className,
       contentClassName,
       children,
@@ -45,7 +39,6 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
       disabled && styles.disabled,
       className,
     )
-
     return (
       <label
         className={radioClass}
@@ -58,7 +51,6 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
               input.click()
             }
           }
-          // Se o usuario passou onKeyDown no rest, ele é repassado pro input abaixo
         }}
       >
         <input
@@ -66,7 +58,7 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
           ref={ref}
           className={styles.input}
           disabled={disabled}
-          tabIndex={-1} // Evita duplo foco entre o label e o input
+          tabIndex={-1} 
           {...rest}
         />
         <div className={cx(styles.content, contentClassName)}>
@@ -76,5 +68,4 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
     )
   },
 )
-
 RadioCard.displayName = 'RadioCard'

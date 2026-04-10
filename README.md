@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# SeniorEase Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SeniorEase Web é um dashboard moderno e intuitivo, desenhado com foco total em **acessibilidade** (cores, modo claro/escuro, alto contraste, opções avançadas de tipografia e teclado). Feito na stack **React + TypeScript + Vite**.
 
-Currently, two official plugins are available:
+## Tecnologias Principais
+- React 19
+- Vite
+- TypeScript
+- CSS Modules (Design System próprio com variáveis de tema)
+- Jotai (Gerenciamento de Estado Global com localStorage)
+- React Router 7
+- Vitest & RTL (Testes)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Como Inicializar o Projeto Localmente
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Siga as instruções abaixo para rodar a aplicação em seu ambiente de desenvolvimento.
 
-## Expanding the ESLint configuration
+### 1. Pré-requisitos
+Certifique-se de ter o **Node.js** (versão 18+ recomendada) instalado na sua máquina.
+- Para verificar sua versão, execute: `node -v`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Instalar Dependências
+Abra o seu terminal na pasta raiz do projeto e instale todos os pacotes:
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 3. Rodar o Servidor de Desenvolvimento
+Para iniciar a interface localmente:
+```bash
+npm run dev
 ```
+Após executar, o terminal mostrará um endereço local, tipicamente `http://localhost:5173/`. Acesse-o no seu navegador e você entrará direto no SeniorEase!
+
+### 4. Executar os Testes Unitários
+O projeto conta com suítes de testes FSD automatizadas cobrindo hooks, interface e controle de side-effects. Para rodar:
+```bash
+npm run test
+```
+
+### 5. Compilar para Produção (Build)
+Para verificar a integridade da compilação e criar a versão otimizada da sua aplicação:
+```bash
+npm run build
+```
+
+---
+
+## Estrutura do Projeto
+O SeniorEase utiliza a arquitetura baseada nos princípios de FSD (Feature-Sliced Design), focando na separação de reponsabilidades (UI, Models, Shared Components, etc) e garantindo uma base escalável e flexível.

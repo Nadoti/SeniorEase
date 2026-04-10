@@ -9,16 +9,13 @@
   border-right: 1px solid #1E2D4A;
   padding: var(--space-6) 0;
   flex-shrink: 0;
-  /* Removido position: fixed, o Flexbox do MainLayout resolve isso nativamente agora */
-}
-
+  }
 .logo {
   display: flex;
   align-items: center;
   gap: var(--space-4);
   padding: 0 var(--space-6);
 }
-
 .logoIcon {
   background: #2B8CE6;
   display: flex;
@@ -27,20 +24,15 @@
   padding: var(--space-2);
   border-radius: 8px;
 }
-
 .menu {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  /* Reduzido gap pq o padding fica no item */
-}
-
+  }
 .menuGroup {
   display: flex;
   flex-direction: column;
 }
-
-/* --- Menu Item Principal --- */
 .menuItem {
   position: relative;
   display: flex;
@@ -60,69 +52,52 @@
   transition: all 0.2s ease;
   border-radius: 8px;
 }
-
 .menuItem:hover {
   color: #E5E7EB;
   background-color: rgba(255, 255, 255, 0.05);
 }
-
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .label {
   flex: 1;
 }
-
 .chevron {
   display: flex;
   align-items: center;
   color: var(--surface-text);
 }
-
-/* --- Estado Ativo (Configurações) --- */
 .menuItem.active {
   background-color: rgba(24, 57, 106, 0.3);
-  /* #18396A com 30% opacidade */
-  color: #4EADFF;
+    color: #4EADFF;
 }
-
 .menuItem.active .icon,
 .menuItem.active .chevron {
   color: #4EADFF;
 }
-
-/* Linha lateral de indicação de estado ativo */
 .activeIndicator {
   position: absolute;
   left: 2px;
-  /* Fica flutuando entre a borda da tela e o item (desgrudado do canto) */
-  top: 4px;
+    top: 4px;
   bottom: 4px;
   width: 4px;
   background-color: #4EADFF;
   border-radius: 0 4px 4px 0;
 }
-
-/* --- Sub Menu (Accordion) --- */
 .subMenuContainer {
   display: flex;
   margin-top: var(--space-1);
   margin-bottom: var(--space-2);
   padding-left: var(--space-12);
-  /* Alinhamento visual da linha vertical com o ícone pai */
-}
-
-/* Linha vertical que acompanha os subitens */
+  }
 .verticalLine {
   width: 2px;
   background-color: #1E2D4A;
   margin-right: var(--space-4);
   border-radius: 2px;
 }
-
 .subMenuItems {
   display: flex;
   flex-direction: column;
@@ -130,7 +105,6 @@
   flex: 1;
   padding-right: var(--space-6);
 }
-
 .subMenuItem {
   position: relative;
   display: flex;
@@ -143,42 +117,33 @@
   font-size: 0.9375rem;
   transition: all 0.2s ease;
 }
-
 .subIcon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .subMenuItem:hover {
   color: #E5E7EB;
   background-color: rgba(255, 255, 255, 0.05);
 }
-
 .subMenuItem.subActive {
   color: #4EADFF;
   background-color: rgba(24, 57, 106, 0.2);
 }
-
 .subMenuItem.subActive .subIcon {
   color: #4EADFF;
 }
-
-/* Opcional: uma bolinha ou indicador minúsculo pro subitem ativo */
 .subActiveIndicator {
   position: absolute;
   left: -21px;
-  /* Posiciona exatamente em cima da linha vertical */
-  top: 50%;
+    top: 50%;
   transform: translateY(-50%);
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background-color: #4EADFF;
   box-shadow: 0 0 0 4px #131D35;
-  /* Falso "corte" na linha vertical */
-}
-
+  }
 .shortcutHint {
   background-color: #1E2D4A;
   color: #6B7280;
@@ -191,50 +156,40 @@
   justify-content: center;
   min-width: 20px;
 }
-
-/* --- LIGHT MODE RE-THEMINGS --- */
 .logoText {
   color: white;
   font-weight: 600;
   font-size: 1.25rem;
 }
-
 :global([data-theme="light"]) .container {
   background-color: #FFFFFF;
   border-right-color: #E2EEFF;
 }
-
 :global([data-theme="light"]) .verticalLine {
   background-color: #E5E7EB;
 }
-
 :global([data-theme="light"]) .logoText {
   color: #111827;
 }
-
 :global([data-theme="light"]) .menuItem,
 :global([data-theme="light"]) .subMenuItem,
 :global([data-theme="light"]) .chevron {
   color: #4B5563;
 }
-
 :global([data-theme="light"]) .menuItem.active,
 :global([data-theme="light"]) .subMenuItem.subActive {
   background-color: #EFF8FF;
   color: #1A6FC2;
 }
-
 :global([data-theme="light"]) .menuItem.active .icon,
 :global([data-theme="light"]) .menuItem.active .chevron,
 :global([data-theme="light"]) .subMenuItem.subActive .subIcon {
   color: #1A6FC2;
 }
-
 :global([data-theme="light"]) .subActiveIndicator {
   background-color: #1A6FC2;
   box-shadow: 0 0 0 4px #FFFFFF;
 }
-
 :global([data-theme="light"]) .shortcutHint {
   color: #9CA3AF;
   background-color: #F3F4F6;

@@ -4,24 +4,20 @@ import styles from './FocusIndicators.module.css';
 import { FocusColorSelector } from "./components";
 import { Button } from "@/shared/ui/button";
 import { useFocusIndicators } from '../model/useFocusIndicators';
-
 export function FocusIndicatorsPage() {
   const { focus, updateFocus } = useFocusIndicators();
-
   return (
     <section>
       <div className={styles.header}>
         <Heading>Indicadores de Foco</Heading>
         <Text className="dynamic-text">Personalize como os elementos selecionados via teclado são destacados.</Text>
       </div>
-
       <div className={styles.contentCard}>
         <Card color="primary">
           <div className={styles.headerCard}>
             <Avatar size="3" variant="soft" color="primary" radius="md" fallback={<Crosshair color="#4EADFF" />} />
             <Heading size="1" color="white">Indicadores de Foco</Heading>
           </div>
-
           <div className={styles.content}>
             <Text>Estilo do indicador</Text>
             <div className={styles.options}>
@@ -33,9 +29,7 @@ export function FocusIndicatorsPage() {
                 </RadioCard>
               ))}
             </div>
-
             <FocusColorSelector />
-
             <div>
               <Slider label="Espessura da Linha" unit="px" showLimits min={1} max={6} step={1} value={focus.thickness} onValueChange={(val) => updateFocus('thickness', val)} variant="surface" color="primary" size="2" />
             </div>

@@ -1,49 +1,17 @@
-/* ======================================================
-   Accessibility Tokens — SeniorEase
-   
-   Controle dinâmico de:
-   • Tamanho da fonte (font-size-scale)
-   • Espaçamento entre elementos (spacing-scale)
-   • Área mínima de toque (min-touch-target)
-   • Contraste (high-contrast mode)
-   • Modo de interface (basic / advanced)
-   
-   Ativados via data-attributes no <html>:
-     data-font-size="normal | large | xlarge"
-     data-spacing="normal | comfortable | spacious"
-     data-contrast="normal | high"
-     data-mode="advanced | basic"
-   ====================================================== */
-
-/* ==============================
-   1. Font Size Levels
-   ============================== */
-
 :root {
   --font-size-scale: 1;
 }
-
-/* Grande — idoso com dificuldade leve de leitura */
 :root[data-font-size="large"] {
   --font-size-scale: 1.25;
   --font-size-base: 1.25rem;
 }
-
-/* Extra grande — idoso com dificuldade acentuada */
 :root[data-font-size="xlarge"] {
   --font-size-scale: 1.5;
   --font-size-base: 1.5rem;
 }
-
-/* ==============================
-   2. Spacing Levels
-   ============================== */
-
 :root {
   --spacing-scale: 1;
 }
-
-/* Confortável — mais respiro entre elementos */
 :root[data-spacing="comfortable"] {
   --spacing-scale: 1.25;
   --spacing-1: 0.3125rem;
@@ -57,8 +25,6 @@
   --spacing-9: 3.75rem;
   --min-touch-target: 52px;
 }
-
-/* Espaçoso — máximo de espaço, botões grandes */
 :root[data-spacing="spacious"] {
   --spacing-scale: 1.5;
   --spacing-1: 0.375rem;
@@ -72,11 +38,6 @@
   --spacing-9: 4.5rem;
   --min-touch-target: 64px;
 }
-
-/* ==============================
-   3. Alto Contraste
-   ============================== */
-
 :root[data-contrast="high"] {
   --surface-bg: #ffffff;
   --surface-1: #f5f5f5;
@@ -85,18 +46,14 @@
   --surface-border: #333333;
   --surface-text: #000000;
   --surface-text-muted: #1a1a1a;
-
   --color-primary-5: hsl(230, 90%, 35%);
   --color-danger-5: hsl(0, 100%, 35%);
   --color-success-5: hsl(142, 100%, 25%);
   --color-warning-5: hsl(38, 100%, 32%);
-
   --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.15);
   --shadow-md: 0 2px 8px hsla(0, 0%, 0%, 0.2);
   --shadow-lg: 0 4px 16px hsla(0, 0%, 0%, 0.25);
 }
-
-/* Alto contraste escuro: data-contrast="high" AND data-theme="dark" (ou auto dark) */
 :root[data-theme="dark"][data-contrast="high"],
 :root:not([data-theme])[data-contrast="high"] {
   --surface-bg: #000000;
@@ -106,13 +63,11 @@
   --surface-border: #cccccc;
   --surface-text: #ffffff;
   --surface-text-muted: #e0e0e0;
-
   --color-primary-5: hsl(230, 90%, 72%);
   --color-danger-5: hsl(0, 100%, 70%);
   --color-success-5: hsl(142, 90%, 60%);
   --color-warning-5: hsl(38, 100%, 65%);
 }
-
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme])[data-contrast="high"] {
     --surface-bg: #000000;
@@ -122,58 +77,32 @@
     --surface-border: #cccccc;
     --surface-text: #ffffff;
     --surface-text-muted: #e0e0e0;
-
     --color-primary-5: hsl(230, 90%, 72%);
     --color-danger-5: hsl(0, 100%, 70%);
     --color-success-5: hsl(142, 90%, 60%);
     --color-warning-5: hsl(38, 100%, 65%);
   }
 }
-
-/* ==============================
-   4. Modo Básico (simplificado)
-   Reduz complexidade visual
-   ============================== */
-
 :root[data-mode="basic"] {
-  /* Bordas mais grossas e visíveis */
-  --surface-border-width: 2px;
-
-  /* Transições desabilitadas para quem se confunde com animações */
-  --transition-fast: 0s;
+    --surface-border-width: 2px;
+    --transition-fast: 0s;
   --transition-normal: 0s;
-
-  /* Radius mais suave (menos "moderno", mais familiar) */
-  --radius-sm: 0.25rem;
+    --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
 }
-
-/* ==============================
-   5. Feedback Visual Reforçado
-   ============================== */
-
 :root[data-feedback="enhanced"] {
   --focus-ring-width: 3px;
   --focus-ring-offset: 3px;
   --focus-ring-color: hsl(230, 90%, 56%);
 }
-
 :root[data-feedback="enhanced"] *:focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color) !important;
   outline-offset: var(--focus-ring-offset) !important;
 }
-
-/* ==============================
-   6. Confirmação Extra
-   (ativado via JS, controlado por data-attribute
-   para estilização de modals de confirmação)
-   ============================== */
-
 :root {
   --confirm-required: 0;
 }
-
 :root[data-confirm="required"] {
   --confirm-required: 1;
 }

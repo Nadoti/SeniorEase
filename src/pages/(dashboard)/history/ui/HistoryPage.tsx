@@ -2,10 +2,8 @@ import { Heading, Text, Button, Card, Modal } from '@/shared/ui';
 import { Clock, Trash2, Check, Plus, AlertCircle } from 'lucide-react';
 import styles from './HistoryPage.module.css';
 import { useHistory } from '../model/useHistory';
-
 export function HistoryPage() {
   const { logs, isClearModalOpen, setIsClearModalOpen, handleClear, confirmClear } = useHistory();
-
   return (
     <div className={styles.container}>
       <div className={styles.headerTop}>
@@ -15,13 +13,11 @@ export function HistoryPage() {
         </div>
         <Button variant="outline" color="danger" leftIcon={<Trash2 size={18} />} onClick={handleClear}>Limpar histórico</Button>
       </div>
-
       <Card variant="surface" color='primary' className={styles.timelineCard}>
         <div className={styles.timelineHeader}>
           <div className={styles.timelineHeaderIcon}><Clock size={20} /></div>
           <span>Linha do tempo</span>
         </div>
-
         {logs.length > 0 ? (
           <div className={styles.timelineContainer}>
             {logs.map(log => (
@@ -45,7 +41,6 @@ export function HistoryPage() {
           <Text color="muted" align="center" className={styles.emptyState}>Nenhum histórico encontrado.</Text>
         )}
       </Card>
-
       <Modal isOpen={isClearModalOpen} onClose={() => setIsClearModalOpen(false)}>
         <div className={styles.modalBody}>
           <div className={styles.modalHeader}>

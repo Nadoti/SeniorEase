@@ -1,83 +1,62 @@
 @import '../tokens.css';
-
 .separator {
   border: none;
   flex-shrink: 0;
 }
-
-/* --- Orientation --- */
 .horizontal {
   width: 100%;
   height: 1px;
 }
-
 .vertical {
   width: 1px;
   align-self: stretch;
 }
-
-/* --- Color --- */
 .neutral {
   background-color: var(--surface-border);
 }
-
 .muted {
   background-color: var(--color-neutral-2);
 }
-
 .primary {
   background-color: var(--color-primary-3);
 }
-
 .danger {
   background-color: var(--color-danger-3);
 }
-
 .success {
   background-color: #166534;
 }
-
 .warning {
   background-color: var(--color-warning-3);
 }
-
-/* --- Spacing --- */
 .spacingSm {
   margin-block: var(--space-2);
 }
-
 .spacingMd {
   margin-block: var(--space-4);
 }
-
 .spacingLg {
   margin-block: var(--space-6);
 }
-
 .vertical.spacingSm {
   margin-block: 0;
   margin-inline: var(--space-2);
 }
-
 .vertical.spacingMd {
   margin-block: 0;
   margin-inline: var(--space-4);
 }
-
 .vertical.spacingLg {
   margin-block: 0;
   margin-inline: var(--space-6);
 }
-
 :root[data-theme="dark"] .muted,
 :root:not([data-theme]) .muted {
   background-color: var(--color-neutral-6);
 }
-
 :root[data-theme="light"] .muted {
   background-color: var(--color-neutral-2);
 }
-
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) .muted {
     background-color: var(--color-neutral-2);

@@ -1,25 +1,20 @@
 import { forwardRef } from 'react'
 import type { HTMLAttributes } from 'react'
-
 import { cx } from '@/shared/lib'
 import styles from './Separator.module.css'
-
 export type SeparatorOrientation = 'horizontal' | 'vertical'
 export type SeparatorColor = 'neutral' | 'muted' | 'primary' | 'danger' | 'success' | 'warning'
 export type SeparatorSpacing = 'sm' | 'md' | 'lg'
-
 export interface SeparatorProps extends HTMLAttributes<HTMLHRElement> {
   orientation?: SeparatorOrientation
   color?: SeparatorColor
   spacing?: SeparatorSpacing
 }
-
 const spacingClassMap: Record<SeparatorSpacing, string> = {
   sm: styles.spacingSm,
   md: styles.spacingMd,
   lg: styles.spacingLg,
 }
-
 export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(
   (
     {
@@ -38,7 +33,6 @@ export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(
       spacingClassMap[spacing],
       className,
     )
-
     return (
       <hr
         ref={ref}
@@ -50,5 +44,4 @@ export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(
     )
   },
 )
-
 Separator.displayName = 'Separator'

@@ -1,7 +1,6 @@
 .header {
   display: none;
-  /* hidden on desktop */
-  align-items: center;
+    align-items: center;
   justify-content: space-between;
   padding: var(--space-3) var(--space-4);
   background-color: #131D35;
@@ -10,7 +9,6 @@
   flex-shrink: 0;
   z-index: 20;
 }
-
 .logoArea {
   display: flex;
   align-items: center;
@@ -19,7 +17,6 @@
   font-weight: 600;
   font-size: 1.125rem;
 }
-
 .logoIconWrapper {
   background: #2B8CE6;
   display: flex;
@@ -28,37 +25,30 @@
   padding: 6px;
   border-radius: 8px;
 }
-
 .hamburgerButton {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #1E2D4A;
-  /* Fundo global solicitado pro icon */
-  color: #D1D5DB;
+    color: #D1D5DB;
   border: none;
   padding: 8px;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
 @media (max-width: 768px) {
   .header {
     display: flex;
   }
 }
-
-/* Light mode overrides */
 :global([data-theme="light"]) .header {
   background-color: #FFFFFF;
   border-bottom-color: #E2EEFF;
 }
-
 :global([data-theme="light"]) .logoArea {
   color: #111827;
 }
-
 :global([data-theme="light"]) .hamburgerButton {
   background-color: #EFF8FF;
   color: #1A6FC2;

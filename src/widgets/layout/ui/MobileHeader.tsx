@@ -1,11 +1,9 @@
 import { Eye, Menu, X } from 'lucide-react';
 import styles from './MobileHeader.module.css';
-
 interface MobileHeaderProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
 }
-
 export function MobileHeader({ isMenuOpen, toggleMenu }: MobileHeaderProps) {
   return (
     <header className={styles.header}>

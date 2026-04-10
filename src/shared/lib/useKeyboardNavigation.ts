@@ -2,15 +2,12 @@ import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { useAtomValue } from 'jotai';
 import { keyboardNavState } from '@/shared/model/keyboardNavState';
-
 export function useKeyboardNavigation() {
   const enabled = useAtomValue(keyboardNavState);
   const navigate = useNavigate();
   const location = useLocation();
-
   useEffect(() => {
     if (!enabled) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
       if (
@@ -20,11 +17,8 @@ export function useKeyboardNavigation() {
       ) {
         return;
       }
-
       if (e.ctrlKey || e.metaKey || e.altKey) return;
-
       const key = e.key.toLowerCase();
-
       switch (key) {
         case 'p':
           navigate('/dashboard/painel');
@@ -48,7 +42,6 @@ export function useKeyboardNavigation() {
           navigate('/dashboard/perfil');
           return;
       }
-
       if (location.pathname.startsWith('/dashboard/configuracoes')) {
         const numberNav: Record<string, string> = {
           '1': '/dashboard/configuracoes/aparencia',
@@ -57,13 +50,11 @@ export function useKeyboardNavigation() {
           '4': '/dashboard/configuracoes/filtros-de-cor',
           '5': '/dashboard/configuracoes/texto-para-fala',
         };
-
         if (numberNav[key]) {
           navigate(numberNav[key]);
         }
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [enabled, navigate, location.pathname]);

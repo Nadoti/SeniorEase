@@ -3,139 +3,99 @@
   flex-direction: column;
   gap: var(--space-6);
 }
-
-/* Espaçamento automático entre elementos internos */
 .card > * + * {
   margin-top: var(--space-4);
 }
-
 .header {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
-
 .titleCardContent {
   display: flex;
   align-items: center;
   gap: var(--space-3);
 }
-
 .switchContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-2);
 }
-
 .switchTextContent {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
 }
-
-/* --- Section states --- */
 .sectionEnabled {
   opacity: 1;
   pointer-events: auto;
   margin-bottom: var(--space-3);
 }
-
 .sectionDisabled {
   opacity: 0.5;
   pointer-events: none;
   margin-bottom: var(--space-3);
 }
-
 .sectionDisabledVisual {
   opacity: 0.5;
   margin-top: var(--space-4);
 }
-
-/* --- Test Card --- */
 .testCard {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
-
 .quoteText {
   font-style: italic;
   line-height: 1.6;
 }
-
 .testButtonWrapper {
   margin-top: var(--space-2);
 }
-
 .testButton {
   min-width: 160px;
 }
-
 .subtitle {
   padding-bottom: .5rem;
 }
-
-/* ========================= */
-/* 📱 MOBILE */
-/* ========================= */
-
 @media (max-width: 768px) {
-
   .header {
     gap: var(--space-2);
   }
-
   .card {
     gap: var(--space-4);
   }
-
   .titleCardContent {
     gap: var(--space-2);
   }
-
-  /* Switch vira vertical */
-  .switchContent {
+    .switchContent {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-3);
   }
-
-  /* Sliders ocupam melhor o espaço */
-  .sectionEnabled,
+    .sectionEnabled,
   .sectionDisabled {
     width: 100%;
   }
-
-  /* Test card mais confortável */
-  .testCard {
+    .testCard {
     gap: var(--space-3);
   }
-
   .quoteText {
     font-size: 0.9rem;
   }
-
-  /* Botão full width */
-  .testButtonWrapper {
+    .testButtonWrapper {
     width: 100%;
   }
-
   .testButton {
     width: 100%;
     min-width: unset;
     justify-content: center;
   }
 }
-
-/* ========================= */
-/* 🧠 PAGE SPACING (ESSENCIAL) */
-/* ========================= */
-
 section {
   padding-bottom: 80px;
 }
-
 @media (max-width: 768px) {
   section {
     padding-bottom: 100px;

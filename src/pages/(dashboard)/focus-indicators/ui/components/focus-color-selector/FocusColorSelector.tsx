@@ -3,7 +3,6 @@ import { focusState } from '@/shared/model/focusState';
 import styles from './FocusColorSelector.module.css';
 import { Text } from '@/shared/ui';
 import { Check } from 'lucide-react';
-
 const FOCUS_COLORS = [
   { hex: '#4EADFF', name: 'Azul Principal' },
   { hex: '#22C55E', name: 'Verde' },
@@ -14,14 +13,11 @@ const FOCUS_COLORS = [
   { hex: '#000000', name: 'Preto' },
   { hex: '#E1DCDC', name: 'Cinza Claro' },
 ];
-
 export function FocusColorSelector() {
   const [focus, setFocus] = useAtom(focusState);
   const selectedColor = focus.color;
   const setSelectedColor = (val: string) => setFocus(prev => ({ ...prev, color: val }));
-
   const selectedName = FOCUS_COLORS.find(c => c.hex === selectedColor)?.name || selectedColor;
-
   return (
     <div className={styles.container}>
       <Text color='white'>Cor do Foco</Text>

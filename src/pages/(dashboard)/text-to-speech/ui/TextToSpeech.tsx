@@ -3,24 +3,20 @@ import { Button } from "@/shared/ui/button/Button";
 import styles from './TextToSpeech.module.css';
 import { Volume2, FastForward, Square } from "lucide-react";
 import { useTextToSpeech } from '../model/useTextToSpeech';
-
 export function TextToSpeechPage() {
   const { tts, updateTts, handleAudioAction, getButtonProps, TEXT_TO_READ } = useTextToSpeech();
   const btnProps = getButtonProps();
-
   return (
     <section>
       <div className={styles.header}>
         <Heading color="white">Texto para Fala</Heading>
         <Text color="default" size="4" className={styles.subtitle}>Configure a leitura em voz alta do conteúdo da tela.</Text>
       </div>
-
       <Card color="primary" className={styles.card}>
         <div className={styles.titleCardContent}>
           <Avatar size="3" variant="soft" color="primary" radius="md" fallback={<Volume2 color="#4EADFF" />} />
           <Heading size="1" color="white">Configurações de Leitura</Heading>
         </div>
-
         <div className={styles.switchContent}>
           <div className={styles.switchTextContent}>
             <Text color="white" size="4">Habilitar Leitura de Tela</Text>
@@ -29,7 +25,6 @@ export function TextToSpeechPage() {
           <Switch size="3" checked={tts.enabled} onCheckedChange={(checked) => updateTts('enabled', checked)} />
         </div>
         <Separator />
-
         <div className={tts.enabled ? styles.sectionEnabled : styles.sectionDisabled}>
           <Slider label="Velocidade da fala" unit="x" showLimits min={0.5} max={2} step={0.1} variant="surface" color="primary" size="2" value={tts.rate} onValueChange={(val) => updateTts('rate', Array.isArray(val) ? val[0] : val)} />
         </div>

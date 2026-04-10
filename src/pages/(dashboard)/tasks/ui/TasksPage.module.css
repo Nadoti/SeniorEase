@@ -5,17 +5,14 @@
   padding: var(--space-4);
   width: 100%;
 }
-
 .header {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
-
 .addTaskCard {
   width: 100%;
 }
-
 .addTaskHeader {
   display: flex;
   align-items: center;
@@ -24,20 +21,17 @@
   color: var(--color-primary);
   font-weight: 600;
 }
-
 .addTaskForm {
   display: flex;
   gap: var(--space-4);
   align-items: center;
 }
-
 .inputWrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
-
 .input {
   width: 100%;
   padding: 12px 16px;
@@ -48,13 +42,11 @@
   font-family: inherit;
   font-size: 1rem;
 }
-
 .input:focus,
 .inputSubtitle:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
-
 .inputSubtitle {
   width: 100%;
   padding: 10px 16px;
@@ -65,20 +57,17 @@
   font-family: inherit;
   font-size: 0.875rem;
 }
-
 .filters {
   display: flex;
   gap: var(--space-2);
   flex-wrap: wrap;
   margin-block: var(--space-2);
 }
-
 .taskList {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
-
 .taskItem {
   border: 1px solid #1F2937;
   background-color: var(--main-bg-color);
@@ -90,29 +79,24 @@
   gap: var(--space-4);
   transition: transform 0.2s;
 }
-
 .taskItem:hover {
   transform: translateY(-1px);
 }
-
 :global([data-theme="light"]) .taskItem {
   border: 1px solid var(--surface-border);
 }
-
 .taskMainInfo {
   display: flex;
   align-items: flex-start;
   gap: var(--space-4);
   flex: 1;
 }
-
 .statusIconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2px;
 }
-
 .bolinha {
   color: #6B7280;
   border-radius: 50%;
@@ -120,47 +104,38 @@
   transition: all 0.2s;
   background-color: transparent;
 }
-
 .bolinha:hover {
   color: #4EADFF;
   background-color: rgb(19, 29, 53);
   cursor: pointer;
 }
-
 .checkIcon {
   color: #4ADE80;
-  /* verde sucesso */
-}
-
+  }
 .textContent {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
 .title {
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--surface-text);
   transition: color 0.2s;
 }
-
 .title.completed {
   text-decoration: line-through;
   color: #6B7280;
 }
-
 .subtitle {
   font-size: 0.875rem;
   color: #9CA3AF;
 }
-
 .taskActions {
   display: flex;
   align-items: center;
   gap: var(--space-3);
 }
-
 .importantAlert {
   display: flex;
   align-items: center;
@@ -171,110 +146,81 @@
   border-radius: var(--radius-full, 9999px);
   padding: 4px 12px;
 }
-
 .importantAlertText {
   font-size: 0.75rem;
   font-weight: 600;
 }
-
 .deleteButton {
   color: #6B7280;
   border-radius: 50%;
   padding: 10px;
   transition: all 0.2s;
 }
-
 .deleteButton:hover {
   color: #EF4444;
   background-color: rgba(239, 68, 68, 0.1);
   cursor: pointer;
 }
-
-/* --- Important button active state --- */
 .importantButtonActive {
   background-color: #450a0a;
   color: #EF4444;
 }
-
-/* --- Empty state --- */
 .emptyState {
   text-align: center;
   margin: 2rem 0;
 }
-
-/* --- Modal --- */
 .modalBody {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
-
 .modalHeader {
   display: flex;
   gap: var(--space-3);
   align-items: center;
 }
-
 .modalIconWrapper {
   background-color: rgba(127, 29, 29, 0.3);
   padding: var(--space-2);
   border-radius: var(--radius-full);
 }
-
 .modalActions {
   display: flex;
   justify-content: flex-end;
   gap: var(--space-3);
   margin-top: var(--space-4);
 }
-
 .modalCancelButton {
   color: #FFFFFF;
 }
-
 .modalDangerButton {
   background-color: #7F1D1D;
   color: #F87171;
   border: 1px solid #991B1B;
 }
-
-/* Melhor estrutura do form */
 .addTaskForm {
   display: flex;
   gap: var(--space-3);
   align-items: stretch;
 }
-
 .inputWrapper {
   flex: 1;
 }
-
-/* Novo wrapper dos botões */
 .addTaskActions {
   display: flex;
   gap: var(--space-2);
   align-items: center;
 }
-
-/* Botão principal mais consistente */
 .addTaskActions button:last-child {
   min-width: 110px;
 }
-
-/* ========================= */
-/* 📱 MOBILE */
-/* ========================= */
-
 @media (max-width: 768px) {
-
   .addTaskForm {
     flex-direction: column;
   }
-
   .addTaskActions {
     width: 100%;
   }
-
   .addTaskActions button {
     flex: 1;
   }

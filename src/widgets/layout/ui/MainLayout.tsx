@@ -15,28 +15,22 @@ import { useNavMode } from '@/shared/model/navModeState';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Toaster } from 'sonner';
 import { useEffect } from 'react';
-
 export function MainLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const typography = useAtomValue(typographyState);
   const focus = useAtomValue(focusState);
   const colorFilter = useAtomValue(colorFilterState);
   const keyboardNavEnabled = useAtomValue(keyboardNavState);
-
-  // Inicializadores globais para garantir que o DOM esteja sincronizado com o localStorage no mount
   useEffect(() => {
     applyTypographyToRoot(typography);
     applyFocusToRoot(focus);
     applyColorFilterToDOM(colorFilter);
   }, []);
-
   useGlobalNarrator();
   useKeyboardNavigation();
-
   const { navMode } = useNavMode();
   const location = useLocation();
   const outlet = useOutlet();
-
   return (
     <div className={styles.layout}>
       {navMode === 'lateral' && (
@@ -94,7 +88,6 @@ export function MainLayout() {
             </motion.div>
           </AnimatePresence>
         </main>
-
         <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
           <defs>
             <filter id="seniorease-protanopia">

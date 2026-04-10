@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: var(--space-4);
 }
-
 .radioLabel {
   display: flex;
   cursor: pointer;
@@ -14,12 +13,9 @@
   outline: none;
   width: 100%;
 }
-
 .radioLabel:focus-visible {
   outline: 2px solid #2B8CE6;
 }
-
-/* hidden input */
 .hiddenInput {
   position: absolute;
   width: 1px;
@@ -28,8 +24,6 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
-
-/* conteúdo */
 .cardContent {
   padding: var(--space-5);
   width: 100%;
@@ -37,66 +31,48 @@
   flex-direction: column;
   gap: var(--space-2);
 }
-
 .title {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
   color: #F3F4F6;
 }
-
 .description {
   font-size: 1rem;
   color: #F3F4F6;
   margin: 0;
 }
-
-/* selecionado */
 .radioLabel.checked {
   background-color: #112A4E;
   border-color: #2B8CE6;
 }
-
 .radioLabel.checked .title,
 .radioLabel.checked .description {
   color: #93D1FD;
 }
-
-/* ========================= */
-/* 📱 MOBILE */
-/* ========================= */
-
 @media (max-width: 768px) {
-
   .cardContent {
     padding: var(--space-4);
   }
-
   .title {
     font-size: 1.1rem;
   }
-
   .description {
     font-size: 0.9rem;
   }
 }
-
-/* --- LIGHT MODE --- */
 :global([data-theme="light"]) .radioLabel {
   border-color: #E2EEFF;
   background-color: #FFFFFF;
 }
-
 :global([data-theme="light"]) .title,
 :global([data-theme="light"]) .description {
   color: #111827;
 }
-
 :global([data-theme="light"]) .radioLabel.checked {
   background-color: #EFF8FF;
   border-color: #2B8CE6;
 }
-
 :global([data-theme="light"]) .radioLabel.checked .title,
 :global([data-theme="light"]) .radioLabel.checked .description {
   color: #14569B;

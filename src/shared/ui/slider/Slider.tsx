@@ -1,58 +1,40 @@
 import { forwardRef, useCallback, useRef, useState } from 'react'
 import type { HTMLAttributes, PointerEvent as ReactPointerEvent } from 'react'
-
 import { cx } from '@/shared/lib'
 import styles from './Slider.module.css'
-
 export type SliderVariant = 'surface' | 'soft' | 'classic'
 export type SliderSize = '1' | '2' | '3'
 export type SliderColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning'
-
 export interface SliderProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
   variant?: SliderVariant
   size?: SliderSize
   color?: SliderColor
-  /** Controlled value */
-  value?: number
-  /** Uncontrolled initial value */
-  defaultValue?: number
-  /** Minimum value */
-  min?: number
-  /** Maximum value */
-  max?: number
-  /** Step increment */
-  step?: number
-  /** Called when value changes */
-  onValueChange?: (value: number) => void
-  /** Called when user finishes dragging */
-  onValueCommit?: (value: number) => void
-  /** Name for hidden input (form support) */
-  name?: string
+    value?: number
+    defaultValue?: number
+    min?: number
+    max?: number
+    step?: number
+    onValueChange?: (value: number) => void
+    onValueCommit?: (value: number) => void
+    name?: string
   disabled?: boolean
   'aria-label'?: string
-  /** Texto que aparece acima do slider */
-  label?: string
-  /** Unidade de medida (ex: px, em) */
-  unit?: string
-  /** Mostra os limites mínimo e máximo abaixo do slider */
-  showLimits?: boolean
+    label?: string
+    unit?: string
+    showLimits?: boolean
 }
-
 const sizeClassMap: Record<SliderSize, string> = {
   '1': styles.size1,
   '2': styles.size2,
   '3': styles.size3,
 }
-
 function clamp(val: number, min: number, max: number) {
   return Math.min(Math.max(val, min), max)
 }
-
 function snapToStep(val: number, min: number, step: number) {
   const steps = Math.round((val - min) / step)
   return min + steps * step
 }
-
 export const Slider = forwardRef<HTMLDivElement, SliderProps>(
   (
     {
@@ -79,15 +61,12 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
     const isControlled = controlledValue !== undefined
     const [internalValue, setInternalValue] = useState(defaultValue ?? min)
     const currentValue = isControlled ? controlledValue : internalValue
-
     const trackRef = useRef<HTMLDivElement>(null)
     const isDragging = useRef(false)
-
     const getValueFromPosition = useCallback(
       (clientX: number) => {
         const track = trackRef.current
         if (!track) return currentValue
-
         const rect = track.getBoundingClientRect()
         const percent = clamp((clientX - rect.left) / rect.width, 0, 1)
         const raw = min + percent * (max - min)
@@ -95,7 +74,6 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
       },
       [currentValue, min, max, step],
     )
-
     const updateValue = useCallback(
       (newValue: number) => {
         if (!isControlled) {
@@ -105,45 +83,36 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
       },
       [isControlled, onValueChange],
     )
-
     const handlePointerDown = useCallback(
       (e: ReactPointerEvent) => {
         if (disabled) return
         e.preventDefault()
-
         isDragging.current = true
         const newValue = getValueFromPosition(e.clientX)
         updateValue(newValue)
-
         const target = e.currentTarget as HTMLElement
         target.setPointerCapture(e.pointerId)
       },
       [disabled, getValueFromPosition, updateValue],
     )
-
     const handlePointerMove = useCallback(
       (e: ReactPointerEvent) => {
         if (!isDragging.current || disabled) return
-
         const newValue = getValueFromPosition(e.clientX)
         updateValue(newValue)
       },
       [disabled, getValueFromPosition, updateValue],
     )
-
     const handlePointerUp = useCallback(() => {
       if (!isDragging.current) return
       isDragging.current = false
       onValueCommit?.(currentValue)
     }, [currentValue, onValueCommit])
-
     const handleKeyDown = useCallback(
       (e: React.KeyboardEvent) => {
         if (disabled) return
-
         let newValue = currentValue
         const bigStep = step * 10
-
         switch (e.key) {
           case 'ArrowRight':
           case 'ArrowUp':
@@ -168,16 +137,13 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
           default:
             return
         }
-
         e.preventDefault()
         updateValue(newValue)
         onValueCommit?.(newValue)
       },
       [disabled, currentValue, step, min, max, updateValue, onValueCommit],
     )
-
     const percent = ((currentValue - min) / (max - min)) * 100
-
     const sliderClass = cx(
       styles.slider,
       styles[variant],
@@ -186,10 +152,8 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
       disabled && styles.disabled,
       className,
     )
-
     return (
       <div ref={ref} className={sliderClass} {...rest}>
-
         {label && (
           <div className={styles.header}>
             <span className={styles.label}>{label}</span>
@@ -198,7 +162,6 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
             </span>
           </div>
         )}
-
         <div
           ref={trackRef}
           className={styles.track}
@@ -222,14 +185,12 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
             onKeyDown={handleKeyDown}
           />
         </div>
-
         {showLimits && (
           <div className={styles.footer}>
             <span className={styles.limitText}>{min}{unit}</span>
             <span className={styles.limitText}>{max}{unit}</span>
           </div>
         )}
-
         {name && (
           <input
             type="hidden"
@@ -242,5 +203,4 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
     )
   },
 )
-
 Slider.displayName = 'Slider'

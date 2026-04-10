@@ -1,35 +1,26 @@
 .header {
   margin-bottom: var(--space-6);
 }
-
-/* Layout principal */
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
   width: 100%;
 }
-
 .content > * {
   width: 100%;
 }
-
-/* Header dos cards */
 .headerCard {
   display: flex;
   align-items: center;
   gap: var(--space-3);
   margin-bottom: var(--space-6);
 }
-
-/* Conteúdo interno */
 .fontFamilyRadioContainer {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
-
-/* Botões */
 .buttonContainer {
   display: flex;
   gap: var(--space-4);
@@ -37,98 +28,65 @@
   margin-bottom: var(--space-8);
   flex-wrap: wrap;
 }
-
-/* --- Preview --- */
 .previewOutlineCard {
   border-color: #1E2D4A;
 }
-
 .previewLabel {
   color: var(--surface-text-muted);
 }
-
 .previewCardInner {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   margin-top: var(--space-8);
 }
-
 .secondaryButton {
   transition: all 0.2s ease;
 }
-
 .restoreButton {
   color: var(--surface-text-white);
 }
-
 .exampleText {
   color: var(--surface-text-muted);
 }
-
 .previewBodyText {
   color: var(--surface-text-white);
 }
-
-/* Espaçamento interno consistente */
 .content > * > * + * {
   margin-top: var(--space-4);
 }
-
-/* ========================= */
-/* 📱 MOBILE */
-/* ========================= */
-
 @media (max-width: 768px) {
-
-  /* 🔥 quebra grid principal */
-  .content {
+    .content {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-
   .header {
     margin-bottom: var(--space-4);
   }
-
   .headerCard {
     margin-bottom: var(--space-4);
   }
-
-  /* Sliders e conteúdo mais compacto */
-  .fontFamilyRadioContainer {
+    .fontFamilyRadioContainer {
     gap: var(--space-3);
   }
-
-  /* Botões melhor pra touch */
-  .buttonContainer {
+    .buttonContainer {
     flex-direction: column;
     gap: var(--space-2);
   }
-
   .buttonContainer button {
     width: 100%;
   }
-
-  /* Preview mais confortável */
-  .previewCardInner {
+    .previewCardInner {
     margin-top: var(--space-4);
   }
-
   .previewBodyText {
     font-size: 0.95rem;
     line-height: 1.5;
   }
-
   .exampleText {
     font-size: 0.85rem;
   }
 }
-
-/* ========================= */
-/* 🧠 RESPIRO FINAL */
-/* ========================= */
-
 section {
   padding-bottom: 100px;
 }

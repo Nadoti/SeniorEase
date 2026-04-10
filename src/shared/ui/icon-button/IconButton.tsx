@@ -1,14 +1,11 @@
 import { forwardRef, memo } from 'react'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-
 import { cx } from '@/shared/lib'
 import styles from './IconButton.module.css'
-
 export type IconButtonVariant = 'solid' | 'soft' | 'outline' | 'ghost'
 export type IconButtonSize = '1' | '2' | '3'
 export type IconButtonColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning'
 export type IconButtonRadius = 'sm' | 'md' | 'lg' | 'full'
-
 export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: IconButtonVariant
   size?: IconButtonSize
@@ -18,22 +15,17 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
   'aria-label': string
   children: ReactNode
 }
-
 const sizeClassMap: Record<IconButtonSize, string> = {
   '1': styles.size1,
   '2': styles.size2,
   '3': styles.size3,
 }
-
 const radiusClassMap: Record<IconButtonRadius, string> = {
   sm: styles.radiusSm,
   md: styles.radiusMd,
   lg: styles.radiusLg,
   full: styles.radiusFull,
 }
-
-
-
 const Spinner = memo(({ size = 16 }: { size?: number }) => (
   <svg
     className={styles.spinner}
@@ -47,9 +39,7 @@ const Spinner = memo(({ size = 16 }: { size?: number }) => (
     <path opacity="0.75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
   </svg>
 ))
-
 Spinner.displayName = 'Spinner'
-
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
@@ -67,7 +57,6 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     ref,
   ) => {
     const isDisabled = disabled || loading
-
     const buttonClass = cx(
       styles.iconButton,
       styles[variant],
@@ -77,9 +66,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       loading && styles.loading,
       className,
     )
-
     const spinnerSize = size === '1' ? 12 : size === '2' ? 14 : 18
-
     return (
       <button
         ref={ref}
@@ -102,5 +89,4 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     )
   },
 )
-
 IconButton.displayName = 'IconButton'

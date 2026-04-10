@@ -1,14 +1,12 @@
 import styles from './ColorPalette.module.css';
-
 const TEST_COLORS = [
-  '#EF4444', // Red
-  '#F97316', // Orange
-  '#FACC15', // Yellow
-  '#22C55E', // Green
-  '#3B82F6', // Blue
-  '#A855F7', // Purple
+  '#EF4444', 
+  '#F97316', 
+  '#FACC15', 
+  '#22C55E', 
+  '#3B82F6', 
+  '#A855F7', 
 ];
-
 export function ColorPalette() {
   return (
     <div className={styles.colorPalette}>

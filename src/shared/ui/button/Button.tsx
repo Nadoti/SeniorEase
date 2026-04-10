@@ -1,14 +1,11 @@
 import { forwardRef, memo } from 'react'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-
 import { cx } from '@/shared/lib'
 import styles from './Button.module.css'
-
 export type ButtonVariant = 'solid' | 'soft' | 'outline' | 'ghost'
 export type ButtonSize = '1' | '2' | '3'
 export type ButtonColor = 'primary' | 'neutral' | 'danger' | 'success' | 'warning'
 export type ButtonRadius = 'sm' | 'md' | 'lg' | 'full'
-
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
   size?: ButtonSize
@@ -20,23 +17,17 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   rightIcon?: ReactNode
   fullWidth?: boolean
 }
-
 const sizeClassMap: Record<ButtonSize, string> = {
   '1': styles.size1,
   '2': styles.size2,
   '3': styles.size3,
 }
-
 const radiusClassMap: Record<ButtonRadius, string> = {
   sm: styles.radiusSm,
   md: styles.radiusMd,
   lg: styles.radiusLg,
   full: styles.radiusFull,
 }
-
-
-
-
 const Spinner = memo(({ size = 16 }: { size?: number }) => (
   <svg
     className={styles.spinner}
@@ -61,9 +52,7 @@ const Spinner = memo(({ size = 16 }: { size?: number }) => (
     />
   </svg>
 ))
-
 Spinner.displayName = 'Spinner'
-
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -85,7 +74,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const isDisabled = disabled || loading
-
     const buttonClass = cx(
       styles.button,
       styles[variant],
@@ -96,9 +84,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading && styles.loading,
       className,
     )
-
     const spinnerSize = size === '1' ? 12 : size === '2' ? 14 : 18
-
     return (
       <button
         ref={ref}
@@ -115,7 +101,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {loadingText && <span style={{ marginLeft: 'var(--space-2)' }}>{loadingText}</span>}
           </span>
         )}
-
         <span className={cx(styles.contentWrapper, loading && styles.loadingContent)} style={loadingText ? { display: 'none' } : undefined}>
           {leftIcon && (
             <span className={styles.iconWrapper} aria-hidden="true">
@@ -133,5 +118,4 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     )
   },
 )
-
 Button.displayName = 'Button'

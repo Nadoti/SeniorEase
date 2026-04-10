@@ -1,5 +1,4 @@
 @import '../tokens.css';
-
 .badge {
   display: inline-flex;
   align-items: center;
@@ -12,257 +11,195 @@
   user-select: none;
   vertical-align: middle;
 }
-
-/* --- Sizes --- */
 .size1 {
   height: 1.25rem;
   padding: 0 var(--space-1);
   font-size: 0.6875rem;
   border-radius: var(--radius-full);
 }
-
 .size2 {
   height: 1.5rem;
   padding: 0 var(--space-2);
   font-size: 0.75rem;
   border-radius: var(--radius-full);
 }
-
 .size3 {
   height: 1.75rem;
   padding: 0 var(--space-2);
   font-size: 0.8125rem;
   border-radius: var(--radius-full);
 }
-
-/* --- Radius overrides --- */
 .radiusSm {
   border-radius: var(--radius-sm);
 }
-
 .radiusMd {
   border-radius: var(--radius-md);
 }
-
 .radiusLg {
   border-radius: var(--radius-lg);
 }
-
 .radiusFull {
   border-radius: var(--radius-full);
 }
-
-/* ==============================
-   Variant × Color
-   ============================== */
-
-/* --- Solid --- */
 .solid.primary {
   background-color: var(--color-primary-5);
   color: #fff;
 }
-
 .solid.neutral {
   background-color: var(--color-neutral-5);
   color: #fff;
 }
-
 .solid.danger {
   background-color: var(--color-danger-5);
   color: #fff;
 }
-
 .solid.success {
   background-color: var(--color-success-5);
   color: #fff;
 }
-
 .solid.warning {
   background-color: var(--color-warning-5);
   color: hsl(38, 80%, 10%);
 }
-
-/* --- Soft --- */
 .soft.primary {
   background-color: var(--color-primary-1);
   color: var(--color-primary-6);
 }
-
 .soft.neutral {
   background-color: var(--color-neutral-1);
   color: var(--color-neutral-6);
 }
-
 .soft.danger {
   background-color: var(--color-danger-1);
   color: var(--color-danger-6);
 }
-
 .soft.success {
   background-color: var(--color-success-1);
   color: var(--color-success-6);
 }
-
 .soft.warning {
   background-color: var(--color-warning-1);
   color: var(--color-warning-7);
 }
-
-/* --- Outline --- */
 .outline {
   background-color: transparent;
   border-width: 1.5px;
   border-style: solid;
 }
-
 .outline.primary {
   border-color: var(--color-primary-4);
   color: var(--color-primary-5);
 }
-
 .outline.neutral {
   border-color: var(--color-neutral-3);
   color: var(--surface-text);
 }
-
 .outline.danger {
   border-color: var(--color-danger-4);
   color: var(--color-danger-5);
 }
-
 .outline.success {
   border-color: var(--color-success-4);
   color: var(--color-success-5);
 }
-
 .outline.warning {
   border-color: var(--color-warning-4);
   color: var(--color-warning-6);
 }
-
-/* --- Surface --- */
 .surface {
   background-color: var(--surface-1);
   border: 1px solid var(--surface-border);
 }
-
 .surface.primary {
   color: var(--color-primary-5);
 }
-
 .surface.neutral {
   color: var(--surface-text);
 }
-
 .surface.danger {
   color: var(--color-danger-5);
 }
-
 .surface.success {
   color: var(--color-success-5);
 }
-
 .surface.warning {
   color: var(--color-warning-6);
 }
-
-/* ==============================
-   Dark mode soft
-   ============================== */
-
 :root[data-theme="dark"] .soft.primary,
 :root:not([data-theme]) .soft.primary {
   background-color: hsla(230, 70%, 56%, 0.12);
   color: var(--color-primary-3);
 }
-
 :root[data-theme="dark"] .soft.neutral,
 :root:not([data-theme]) .soft.neutral {
   background-color: hsla(220, 14%, 50%, 0.1);
   color: var(--color-neutral-3);
 }
-
 :root[data-theme="dark"] .soft.danger,
 :root:not([data-theme]) .soft.danger {
   background-color: hsla(0, 72%, 51%, 0.12);
   color: var(--color-danger-3);
 }
-
 :root[data-theme="dark"] .soft.success,
 :root:not([data-theme]) .soft.success {
   background-color: hsla(142, 71%, 40%, 0.12);
   color: var(--color-success-3);
 }
-
 :root[data-theme="dark"] .soft.warning,
 :root:not([data-theme]) .soft.warning {
   background-color: hsla(38, 92%, 50%, 0.12);
   color: var(--color-warning-3);
 }
-
 :root[data-theme="dark"] .outline.neutral,
 :root:not([data-theme]) .outline.neutral {
   border-color: var(--color-neutral-5);
   color: var(--color-neutral-3);
 }
-
-/* Light mode: override dark defaults back to light values */
 :root[data-theme="light"] .soft.primary {
   background-color: var(--color-primary-1);
   color: var(--color-primary-6);
 }
-
 :root[data-theme="light"] .soft.neutral {
   background-color: var(--color-neutral-1);
   color: var(--color-neutral-6);
 }
-
 :root[data-theme="light"] .soft.danger {
   background-color: var(--color-danger-1);
   color: var(--color-danger-6);
 }
-
 :root[data-theme="light"] .soft.success {
   background-color: var(--color-success-1);
   color: var(--color-success-6);
 }
-
 :root[data-theme="light"] .soft.warning {
   background-color: var(--color-warning-1);
   color: var(--color-warning-7);
 }
-
 :root[data-theme="light"] .outline.neutral {
   border-color: var(--color-neutral-3);
   color: var(--surface-text);
 }
-
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) .soft.primary {
     background-color: var(--color-primary-1);
     color: var(--color-primary-6);
   }
-
   :root:not([data-theme]) .soft.neutral {
     background-color: var(--color-neutral-1);
     color: var(--color-neutral-6);
   }
-
   :root:not([data-theme]) .soft.danger {
     background-color: var(--color-danger-1);
     color: var(--color-danger-6);
   }
-
   :root:not([data-theme]) .soft.success {
     background-color: var(--color-success-1);
     color: var(--color-success-6);
   }
-
   :root:not([data-theme]) .soft.warning {
     background-color: var(--color-warning-1);
     color: var(--color-warning-7);
   }
-
   :root:not([data-theme]) .outline.neutral {
     border-color: var(--color-neutral-3);
     color: var(--surface-text);

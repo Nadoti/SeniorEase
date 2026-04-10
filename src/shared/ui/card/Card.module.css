@@ -1,5 +1,4 @@
 @import '../tokens.css';
-
 .card {
   width: 100%;
   border-radius: var(--radius-lg);
@@ -7,211 +6,158 @@
     background-color var(--transition-fast),
     box-shadow var(--transition-fast);
 }
-
-/* --- Sizes --- */
 .size1 {
   padding: var(--space-4);
 }
-
 .size2 {
   padding: var(--space-6);
 }
-
 .size3 {
   padding: var(--space-8);
 }
-
-/* --- Surface --- */
 .surface {
   background-color: var(--surface-1);
   border: 1px solid var(--surface-border);
   box-shadow: var(--shadow-sm);
 }
-
-/* --- Classic --- */
 .classic {
   background-color: var(--surface-2);
   border: 1px solid var(--surface-border);
   box-shadow: var(--shadow-md);
 }
-
-/* --- Ghost --- */
 .ghost {
   background-color: transparent;
   border: 1px solid transparent;
 }
-
 .ghost:hover {
   background-color: var(--surface-1);
 }
-
-/* --- Outline --- */
 .outline {
   background-color: transparent;
   border: 1px solid #1E2D4A;
 }
-
 .outline.primary {
   border-color: hsla(230, 70%, 56%, 0.4);
 }
-
 .outline.info {
   border-color: var(--color-info-5);
 }
-
 .outline.success {
   border-color: hsla(142, 71%, 40%, 0.4);
 }
-
 .outline.warning {
   border-color: hsla(38, 92%, 50%, 0.4);
 }
-
 .outline.danger {
   border-color: hsla(0, 72%, 51%, 0.4);
 }
-
-
-/* --- Interactive card (when used as a link / button) --- */
 .interactive {
   cursor: pointer;
 }
-
 .interactive:hover {
   box-shadow: var(--shadow-md);
 }
-
 .interactive.surface:hover {
   background-color: var(--surface-2);
 }
-
 .interactive.classic:hover {
   background-color: var(--surface-3);
   box-shadow: var(--shadow-lg);
 }
-
-/* --- Colors --- */
 .primary {
   background-color: #131D35;
   border-color: rgba(24, 57, 106, 0.2);
 }
-
 .neutral {
   background-color: var(--color-neutral-1);
   border-color: var(--color-neutral-3);
 }
-
 .danger {
   background-color: var(--color-danger-1);
   border-color: var(--color-danger-3);
 }
-
 .success {
   background-color: #166534;
   border-color: #166534;
 }
-
 .warning {
   background-color: var(--color-warning-1);
   border-color: var(--color-warning-3);
 }
-
 .info {
   background-color: var(--color-info-5);
   border-color: var(--color-info-5);
 }
-
 .dark {
   background-color: #131D35;
   border-color: #1E2D4A;
 }
-
 .deepDark {
   background-color: #0B1120;
   border-color: #1E2D4A;
 }
-
-/* ==============================
-   Dark mode colors
-   ============================== */
-
 :root[data-theme="dark"] .primary,
 :root:not([data-theme]) .primary {
   background-color: #131D35;
   border-color: rgba(24, 57, 106, 0.2);
 }
-
 :root[data-theme="dark"] .neutral,
 :root:not([data-theme]) .neutral {
   background-color: hsla(220, 14%, 50%, 0.08);
   border-color: hsla(220, 14%, 50%, 0.2);
 }
-
 :root[data-theme="dark"] .danger,
 :root:not([data-theme]) .danger {
   background-color: hsla(0, 72%, 51%, 0.1);
   border-color: hsla(0, 72%, 51%, 0.25);
 }
-
 :root[data-theme="dark"] .success,
 :root:not([data-theme]) .success {
   background-color: hsla(142, 71%, 40%, 0.1);
   border-color: #166534;
 }
-
 :root[data-theme="dark"] .warning,
 :root:not([data-theme]) .warning {
   background-color: hsla(38, 92%, 50%, 0.1);
   border-color: hsla(38, 92%, 50%, 0.3);
 }
-
-/* Light mode overrides */
 :root[data-theme="light"] .primary {
   background-color: #FFFFFF;
   border-color: #E2EEFF;
 }
-
 :root[data-theme="light"] .neutral {
   background-color: var(--color-neutral-1);
   border-color: var(--color-neutral-3);
 }
-
 :root[data-theme="light"] .danger {
   background-color: var(--color-danger-1);
   border-color: var(--color-danger-3);
 }
-
 :root[data-theme="light"] .success {
   background-color: var(--color-success-1);
   border-color: hsla(142, 76%, 36%, 0.3);
 }
-
 :root[data-theme="light"] .warning {
   background-color: var(--color-warning-1);
   border-color: var(--color-warning-3);
 }
-
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) .primary {
     background-color: #FFFFFF;
     border-color: #E2EEFF;
   }
-
   :root:not([data-theme]) .neutral {
     background-color: var(--color-neutral-1);
     border-color: var(--color-neutral-3);
   }
-
   :root:not([data-theme]) .danger {
     background-color: var(--color-danger-1);
     border-color: var(--color-danger-3);
   }
-
   :root:not([data-theme]) .success {
     background-color: var(--color-success-1);
     border-color: hsla(142, 76%, 36%, 0.3);
   }
-
   :root:not([data-theme]) .warning {
     background-color: var(--color-warning-1);
     border-color: var(--color-warning-3);
