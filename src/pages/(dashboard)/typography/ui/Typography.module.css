@@ -1,26 +1,31 @@
 .header {
   margin-bottom: var(--space-6);
 }
+
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
   width: 100%;
 }
-.content > * {
+
+.content>* {
   width: 100%;
 }
+
 .headerCard {
   display: flex;
   align-items: center;
   gap: var(--space-3);
   margin-bottom: var(--space-6);
 }
+
 .fontFamilyRadioContainer {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
+
 .buttonContainer {
   display: flex;
   gap: var(--space-4);
@@ -28,65 +33,122 @@
   margin-bottom: var(--space-8);
   flex-wrap: wrap;
 }
+
 .previewOutlineCard {
   border-color: #1E2D4A;
 }
+
 .previewLabel {
   color: var(--surface-text-muted);
 }
+
 .previewCardInner {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   margin-top: var(--space-8);
 }
+
 .secondaryButton {
   transition: all 0.2s ease;
 }
+
 .restoreButton {
   color: var(--surface-text-white);
 }
+
 .exampleText {
   color: var(--surface-text-muted);
 }
+
 .previewBodyText {
   color: var(--surface-text-white);
 }
-.content > * > * + * {
+
+.content>*>*+* {
   margin-top: var(--space-4);
 }
+
 @media (max-width: 768px) {
-    .content {
+  .content {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
+
   .header {
     margin-bottom: var(--space-4);
   }
+
   .headerCard {
     margin-bottom: var(--space-4);
   }
-    .fontFamilyRadioContainer {
+
+  .fontFamilyRadioContainer {
     gap: var(--space-3);
   }
-    .buttonContainer {
+
+  .buttonContainer {
     flex-direction: column;
     gap: var(--space-2);
   }
+
   .buttonContainer button {
     width: 100%;
   }
-    .previewCardInner {
+
+  .previewCardInner {
     margin-top: var(--space-4);
   }
+
   .previewBodyText {
     font-size: 0.95rem;
     line-height: 1.5;
   }
+
   .exampleText {
     font-size: 0.85rem;
   }
 }
+
 section {
   padding-bottom: 100px;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-2);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.modalIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background-color: hsla(0, 72%, 51%, 0.1);
+}
+
+.modalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.modalCancelButton {
+  color: var(--surface-text-muted);
+}
+
+.modalDangerButton {
+  box-shadow: 0 4px 12px hsla(0, 72%, 51%, 0.3);
 }

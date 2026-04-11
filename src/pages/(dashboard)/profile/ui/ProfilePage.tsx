@@ -3,7 +3,7 @@ import { User, RotateCcw, AlertCircle } from 'lucide-react';
 import styles from './ProfilePage.module.css';
 import { useProfile } from '../model/useProfile';
 export function ProfilePage() {
-  const { userName, setUserName, extraSecurity, setExtraSecurity, isResetModalOpen, setIsResetModalOpen, confirmReset } = useProfile();
+  const { userName, setUserName, extraSecurity, setExtraSecurity, isResetModalOpen, setIsResetModalOpen, confirmReset, handleSaveName, handleResetRequest } = useProfile();
   return (
     <div className={styles.container}>
       <div className={styles.headerText}>
@@ -18,11 +18,12 @@ export function ProfilePage() {
             <div className={styles.inputGroup}>
               <span className={styles.inputLabel}>Como gostaria de ser chamado?</span>
               <input type="text" value={userName} onChange={e => setUserName(e.target.value)} className={styles.customInput} />
+              <Button variant="solid" color="primary" onClick={handleSaveName} className={styles.saveNameButton}>Salvar Alteração</Button>
             </div>
           </Card>
           <Card variant="surface" color="primary" className={styles.card}>
             <span className={styles.cardTitle}>Ações do sistema</span>
-            <Button variant="solid" color="danger" leftIcon={<RotateCcw size={18} />} onClick={() => setIsResetModalOpen(true)} className={styles.dangerActionButton}>Restaurar padrões</Button>
+            <Button variant="solid" color="danger" leftIcon={<RotateCcw size={18} />} onClick={handleResetRequest} className={styles.dangerActionButton}>Restaurar padrões</Button>
           </Card>
         </div>
         <div className={styles.rightColumn}>

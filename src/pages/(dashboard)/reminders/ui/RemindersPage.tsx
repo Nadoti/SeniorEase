@@ -7,7 +7,7 @@ export function RemindersPage() {
   const {
     reminders, isFormOpen, isLoadingForm, reminderToDelete, setReminderToDelete,
     title, setTitle, time, setTime, isDaily, setIsDaily,
-    handleOpenForm, handleCancel, handleSave, toggleActive, confirmDelete,
+    handleOpenForm, handleCancel, handleSave, toggleActive, confirmDelete, handleRequestDelete,
   } = useReminders();
   return (
     <div className={styles.container}>
@@ -57,7 +57,7 @@ export function RemindersPage() {
             <Separator />
             <div className={styles.footer}>
               <div className={styles.repeatInfo}><Calendar size={16} /><span>{item.isDaily ? 'Repetir todos os dias' : 'Não repete'}</span></div>
-              <div className={styles.deleteButton} onClick={() => setReminderToDelete(item.id)}><Trash2 size={18} /></div>
+              <div className={styles.deleteButton} onClick={() => handleRequestDelete(item.id)}><Trash2 size={18} /></div>
             </div>
           </div>
         ))}

@@ -1,71 +1,21 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router';
-import { Eye, LayoutDashboard, ListTodo, SlidersHorizontal, ChevronDown, ChevronUp, Type, Space, Palette, View, Speech, Volume2, Focus, Crosshair, Bell, Clock, User } from 'lucide-react';
+import { Link } from 'react-router';
+import { ChevronDown, ChevronUp, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cx } from '@/shared/lib';
+import { useSidebar } from '../model/useSidebar';
 import styles from './Sidebar.module.css';
-const menuItems = [
-  {
-    label: 'Painel Principal',
-    icon: <LayoutDashboard size={20} />,
-    link: '/dashboard/painel',
-    shortcut: 'P'
-  },
-  {
-    label: 'Configurações',
-    icon: <SlidersHorizontal size={20} />,
-    link: '/dashboard/configuracoes',
-    shortcut: 'C',
-    subItems: [
-      { label: 'Tipografia', icon: <Type size={16} />, link: '/dashboard/configuracoes/tipografia', shortcut: '2' },
-      { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia', shortcut: '1' },
-      { label: 'Indicadores de Foco', icon: <Crosshair size={16} />, link: '/dashboard/configuracoes/indicadores-de-foco', shortcut: '3' },
-      { label: 'Filtros de Cor', icon: <View size={16} />, link: '/dashboard/configuracoes/filtros-de-cor', shortcut: '4' },
-      { label: 'Texto para Fala', icon: <Volume2 size={16} />, link: '/dashboard/configuracoes/texto-para-fala', shortcut: '5' },
-    ]
-  },
-  {
-    label: 'Minhas Tarefas',
-    icon: <ListTodo size={20} />,
-    link: '/dashboard/tasks',
-    shortcut: 'T'
-  },
-  {
-    label: 'Lembretes',
-    icon: <Bell size={20} />,
-    link: '/dashboard/lembretes',
-    shortcut: 'L'
-  },
-  {
-    label: 'Histórico',
-    icon: <Clock size={20} />,
-    link: '/dashboard/historico',
-    shortcut: 'H'
-  },
-  {
-    label: 'Meu Perfil',
-    icon: <User size={20} />,
-    link: '/dashboard/perfil',
-    shortcut: 'U'
-  }
-];
+
 interface SidebarProps {
   showShortcuts?: boolean;
 }
+
 export function Sidebar({ showShortcuts = false }: SidebarProps) {
-  const location = useLocation();
-  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
-    'Configurações': location.pathname.startsWith('/dashboard/configuracoes')
-  });
-  const toggleMenu = (label: string) => {
-    setOpenMenus(prev => ({ ...prev, [label]: !prev[label] }));
-  };
+  const { location, openMenus, toggleMenu, handleLogout, menuItems } = useSidebar();
+
   return (
     <aside className={styles.container}>
       <div className={styles.logo}>
-        <div className={styles.logoIcon}>
-          <Eye size={24} color='white' />
-        </div>
+        <div className={styles.logoIcon}></div>
         <span className={styles.logoText}>SeniorEase</span>
       </div>
       <nav className={styles.menu}>
@@ -143,6 +93,14 @@ export function Sidebar({ showShortcuts = false }: SidebarProps) {
           );
         })}
       </nav>
+
+      <div className={styles.bottomSection}>
+        <button className={styles.logoutButton} onClick={handleLogout} title="Sair">
+          <span className={styles.icon}><LogOut size={20} /></span>
+          <span className={`${styles.label} dynamic-text`}>Sair</span>
+          {showShortcuts && <span className={styles.shortcutHint}>ESC</span>}
+        </button>
+      </div>
     </aside>
   );
 }

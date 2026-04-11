@@ -1,83 +1,24 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router';
-import {
-  LayoutDashboard,
-  ListTodo,
-  SlidersHorizontal,
-  Type,
-  Palette,
-  Crosshair,
-  View,
-  Volume2,
-  Bell,
-  Clock,
-  User
-} from 'lucide-react';
+import { Link } from 'react-router';
+import { LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cx } from '@/shared/lib';
+import { useFloatingSidebar } from '../model/useFloatingSidebar';
 import styles from './FloatingSidebar.module.css';
-const subMenuItemsConfig = [
-  { label: 'Tipografia', icon: <Type size={16} />, link: '/dashboard/configuracoes/tipografia', shortcut: '2' },
-  { label: 'Aparência', icon: <Palette size={16} />, link: '/dashboard/configuracoes/aparencia', shortcut: '1' },
-  { label: 'Indicadores de Foco', icon: <Crosshair size={16} />, link: '/dashboard/configuracoes/indicadores-de-foco', shortcut: '3' },
-  { label: 'Filtros de Cor', icon: <View size={16} />, link: '/dashboard/configuracoes/filtros-de-cor', shortcut: '4' },
-  { label: 'Texto para Fala', icon: <Volume2 size={16} />, link: '/dashboard/configuracoes/texto-para-fala', shortcut: '5' }
-];
-const menuItems = [
-  {
-    label: 'Painel Principal',
-    icon: <LayoutDashboard size={20} />,
-    link: '/dashboard/painel',
-    shortcut: 'P'
-  },
-  {
-    label: 'Configurações',
-    icon: <SlidersHorizontal size={20} />,
-    link: '/dashboard/configuracoes',
-    shortcut: 'C',
-    hasSubMenu: true
-  },
-  {
-    label: 'Minhas Tarefas',
-    icon: <ListTodo size={20} />,
-    link: '/dashboard/tasks',
-    shortcut: 'T'
-  },
-  {
-    label: 'Lembretes',
-    icon: <Bell size={20} />,
-    link: '/dashboard/lembretes',
-    shortcut: 'L'
-  },
-  {
-    label: 'Histórico',
-    icon: <Clock size={20} />,
-    link: '/dashboard/historico',
-    shortcut: 'H'
-  },
-  {
-    label: 'Meu Perfil',
-    icon: <User size={20} />,
-    link: '/dashboard/perfil',
-    shortcut: 'U'
-  }
-];
+
 interface FloatingSidebarProps {
   showShortcuts?: boolean;
 }
+
 export function FloatingSidebar({ showShortcuts = false }: FloatingSidebarProps) {
-  const location = useLocation();
-  const [isConfigOpen, setIsConfigOpen] = useState(
-    location.pathname.startsWith('/dashboard/configuracoes')
-  );
-  const handleItemClick = (e: React.MouseEvent, item: typeof menuItems[0]) => {
-    if (item.hasSubMenu) {
-      e.preventDefault();
-      setIsConfigOpen(!isConfigOpen);
-    } else {
-      setIsConfigOpen(false);
-    }
-  };
+  const {
+    menuItems,
+    subMenuItemsConfig,
+    location,
+    isConfigOpen,
+    handleItemClick,
+    handleLogout
+  } = useFloatingSidebar();
+
   return (
     <div className={styles.dockContainer}>
       <AnimatePresence>
@@ -141,6 +82,16 @@ export function FloatingSidebar({ showShortcuts = false }: FloatingSidebarProps)
             );
           })}
         </AnimatePresence>
+        <button
+          className={cx(styles.dockItem, styles.logoutDockItem)}
+          onClick={handleLogout}
+        >
+          <div className={cx(styles.iconWrapper, styles.logoutIconWrapper)}>
+            <LogOut size={20} />
+            {showShortcuts && <div className={styles.shortcutBadge}>ESC</div>}
+          </div>
+          <span className={styles.label} title="Sair">Sair</span>
+        </button>
       </nav>
     </div>
   );

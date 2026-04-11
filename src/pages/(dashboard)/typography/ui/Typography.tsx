@@ -13,6 +13,7 @@ export function TypographyPage() {
     isResetModalOpen,
     setIsResetModalOpen,
     confirmResetDefaults,
+    handleResetRequest,
   } = useTypography();
   return (
     <section style={{ paddingBottom: '64px' }}>
@@ -43,7 +44,7 @@ export function TypographyPage() {
             </div>
           </Card>
           <div className={styles.buttonContainer}>
-            <Button variant="ghost" className={styles.restoreButton} onClick={() => setIsResetModalOpen(true)}>
+            <Button variant="ghost" className={styles.restoreButton} onClick={handleResetRequest}>
               Restaurar padrões
             </Button>
           </div>

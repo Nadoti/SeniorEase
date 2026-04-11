@@ -1,4 +1,5 @@
 @import '../tokens.css';
+
 .switch {
   position: relative;
   display: inline-flex;
@@ -13,14 +14,17 @@
     background-color var(--transition-fast),
     box-shadow var(--transition-fast);
 }
+
 .switch:focus-visible {
   outline: 2px solid var(--color-primary-5);
   outline-offset: 2px;
 }
+
 .switch:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
+
 .thumb {
   display: block;
   background-color: #fff;
@@ -28,118 +32,153 @@
   transition: transform var(--transition-fast);
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.15);
 }
+
 .size1 {
   width: 1.75rem;
   height: 1rem;
   border-radius: var(--radius-full);
 }
+
 .size1 .thumb {
   width: 0.75rem;
   height: 0.75rem;
 }
+
 .size1[data-state="checked"] .thumb {
   transform: translateX(0.625rem);
 }
+
 .size2 {
   width: 2.25rem;
   height: 1.25rem;
   border-radius: var(--radius-full);
 }
+
 .size2 .thumb {
   width: 1rem;
   height: 1rem;
 }
+
 .size2[data-state="checked"] .thumb {
   transform: translateX(0.875rem);
 }
+
 .size3 {
   width: 2.75rem;
   height: 1.5rem;
   border-radius: var(--radius-full);
 }
+
 .size3 .thumb {
   width: 1.25rem;
   height: 1.25rem;
 }
+
 .size3[data-state="checked"] .thumb {
   transform: translateX(1rem);
 }
+
 .surface[data-state="checked"].primary {
   background-color: var(--color-primary-5);
 }
+
 .surface[data-state="checked"].neutral {
   background-color: var(--color-neutral-5);
 }
+
 .surface[data-state="checked"].danger {
   background-color: var(--color-danger-5);
 }
+
 .surface[data-state="checked"].success {
   background-color: var(--color-success-5);
 }
+
 .surface[data-state="checked"].warning {
   background-color: var(--color-warning-5);
 }
+
 .surface[data-state="checked"].info {
   background-color: var(--color-info-5);
 }
+
 .soft {
   background-color: var(--color-neutral-2);
 }
+
 .soft[data-state="checked"].primary {
   background-color: var(--color-primary-2);
 }
+
 .soft[data-state="checked"].neutral {
   background-color: var(--color-neutral-3);
 }
+
 .soft[data-state="checked"].danger {
   background-color: var(--color-danger-2);
 }
+
 .soft[data-state="checked"].success {
   background-color: var(--color-success-2);
 }
+
 .soft[data-state="checked"].warning {
   background-color: var(--color-warning-2);
 }
+
 .soft[data-state="checked"].info {
   background-color: hsla(209, 79%, 54%, 0.15);
 }
+
 .soft[data-state="checked"].primary .thumb {
   background-color: var(--color-primary-5);
 }
+
 .soft[data-state="checked"].danger .thumb {
   background-color: var(--color-danger-5);
 }
+
 .soft[data-state="checked"].success .thumb {
   background-color: var(--color-success-5);
 }
+
 .soft[data-state="checked"].warning .thumb {
   background-color: var(--color-warning-5);
 }
+
 .soft[data-state="checked"].info .thumb {
   background-color: var(--color-info-5);
 }
+
 .classic {
   background-color: var(--surface-3);
   box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.12);
 }
+
 .classic[data-state="checked"].primary {
   background-color: var(--color-primary-5);
 }
+
 .classic[data-state="checked"].neutral {
   background-color: var(--color-neutral-5);
 }
+
 .classic[data-state="checked"].danger {
   background-color: var(--color-danger-5);
 }
+
 .classic[data-state="checked"].success {
   background-color: var(--color-success-5);
 }
+
 .classic[data-state="checked"].warning {
   background-color: var(--color-warning-5);
 }
+
 .classic[data-state="checked"].info {
   background-color: var(--color-info-5);
 }
+
 .input {
   position: absolute;
   width: 1px;
@@ -151,88 +190,114 @@
   white-space: nowrap;
   border-width: 0;
 }
+
 :root[data-theme="dark"] .switch[data-state="unchecked"],
 :root:not([data-theme]) .switch[data-state="unchecked"] {
-  background-color: var(--color-neutral-6);
+  background-color: #4B5563;
+  /* Visible dark gray background */
 }
+
 :root[data-theme="dark"] .switch.surface[data-state="checked"].info,
 :root:not([data-theme]) .switch.surface[data-state="checked"].info {
   background-color: var(--color-info-5);
 }
+
 :root[data-theme="dark"] .soft,
 :root:not([data-theme]) .soft {
   background-color: hsla(220, 14%, 50%, 0.15);
 }
+
 :root[data-theme="dark"] .soft[data-state="checked"].primary,
 :root:not([data-theme]) .soft[data-state="checked"].primary {
   background-color: hsla(230, 70%, 56%, 0.25);
 }
+
 :root[data-theme="dark"] .soft[data-state="checked"].danger,
 :root:not([data-theme]) .soft[data-state="checked"].danger {
   background-color: hsla(0, 72%, 51%, 0.25);
 }
+
 :root[data-theme="dark"] .soft[data-state="checked"].success,
 :root:not([data-theme]) .soft[data-state="checked"].success {
   background-color: hsla(142, 71%, 40%, 0.25);
 }
+
 :root[data-theme="dark"] .soft[data-state="checked"].warning,
 :root:not([data-theme]) .soft[data-state="checked"].warning {
   background-color: hsla(38, 92%, 50%, 0.25);
 }
+
 :root[data-theme="dark"] .soft[data-state="checked"].info,
 :root:not([data-theme]) .soft[data-state="checked"].info {
   background-color: hsla(209, 79%, 54%, 0.25);
 }
+
 :root[data-theme="dark"] .classic,
 :root:not([data-theme]) .classic {
   background-color: var(--color-neutral-7);
 }
+
 :root[data-theme="light"] .switch[data-state="unchecked"] {
   background-color: #E5E7EB;
 }
+
 :root[data-theme="light"] .soft {
   background-color: var(--color-neutral-2);
 }
+
 :root[data-theme="light"] .soft[data-state="checked"].primary {
   background-color: var(--color-primary-2);
 }
+
 :root[data-theme="light"] .soft[data-state="checked"].danger {
   background-color: var(--color-danger-2);
 }
+
 :root[data-theme="light"] .soft[data-state="checked"].success {
   background-color: var(--color-success-2);
 }
+
 :root[data-theme="light"] .soft[data-state="checked"].warning {
   background-color: var(--color-warning-2);
 }
+
 :root[data-theme="light"] .soft[data-state="checked"].info {
   background-color: hsla(209, 79%, 54%, 0.15);
 }
+
 :root[data-theme="light"] .classic {
   background-color: var(--surface-3);
 }
+
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) .switch[data-state="unchecked"] {
     background-color: #E5E7EB;
   }
+
   :root:not([data-theme]) .soft {
     background-color: var(--color-neutral-2);
   }
+
   :root:not([data-theme]) .soft[data-state="checked"].primary {
     background-color: var(--color-primary-2);
   }
+
   :root:not([data-theme]) .soft[data-state="checked"].danger {
     background-color: var(--color-danger-2);
   }
+
   :root:not([data-theme]) .soft[data-state="checked"].success {
     background-color: var(--color-success-2);
   }
+
   :root:not([data-theme]) .soft[data-state="checked"].warning {
     background-color: var(--color-warning-2);
   }
+
   :root:not([data-theme]) .soft[data-state="checked"].info {
     background-color: hsla(209, 79%, 54%, 0.15);
   }
+
   :root:not([data-theme]) .classic {
     background-color: var(--surface-3);
   }

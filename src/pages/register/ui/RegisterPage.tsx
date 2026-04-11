@@ -1,103 +1,101 @@
-import { useState } from 'react';
 import { Link } from 'react-router';
+import { Eye as EyeIcon, EyeOff } from 'lucide-react';
+import { Heading, Text, Button, Card } from '@/shared/ui';
+import { useRegister } from '../model/useRegister';
 import styles from './RegisterPage.module.css';
+
 export function RegisterPage() {
-  const [aceito, setAceito] = useState(false);
+  const {
+    mostrarSenha,
+    setMostrarSenha,
+    handleRegister,
+  } = useRegister();
+
   return (
-    <div className={styles.container}>
-      <div className={styles.formSide}>
-        <div className={styles.logo}>
-          <div className={styles.logoIcon} />
-          <span className={styles.logoNome}>SeniorEase</span>
+    <div className={styles.wrapper}>
+      {/* Top Logo */}
+      <div className={styles.logoContainer}>
+        <div className={styles.logoIcon} />
+        <Text size="3" weight="bold" color="white" className={styles.logoNome}>
+          SeniorEase
+        </Text>
+      </div>
+
+      {/* Main Register Card */}
+      <Card variant="surface" size="3" className={styles.registerCard}>
+        <div className={styles.formHeader}>
+          <Heading size="4" align="center">Cadastre-se</Heading>
+          <Text size="2" color="muted" align="center">
+            Pode ficar tranquilo(a). O SeniorEase é feito para oferecer uma configuração calma e confiante.
+          </Text>
         </div>
-        <div className={styles.formContent}>
-          <h1 className={styles.titulo}>Crie sua conta SeniorEase</h1>
-          <p className={styles.subtitulo}>
-            Configure acesso seguro a lembretes de medicamentos, consultas e atualizações familiares em um lugar acessível.
-          </p>
-          <div className={styles.campos}>
-            <div className={styles.campo}>
-              <label className={styles.label} htmlFor="nome">Nome completo</label>
-              <input
-                id="nome"
-                type="text"
-                placeholder="Digite seu nome completo"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.campo}>
-              <label className={styles.label} htmlFor="email">Endereço de e-mail</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="nome@exemplo.com"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.campo}>
-              <label className={styles.label} htmlFor="senha">Senha</label>
+
+        <form onSubmit={handleRegister} className={styles.campos}>
+          <div className={styles.campo}>
+            <label className={styles.label} htmlFor="nome">
+              <Text weight="medium">Nome Completo</Text>
+            </label>
+            <input
+              id="nome"
+              type="text"
+              placeholder="Digite seu nome completo"
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.campo}>
+            <label className={styles.label} htmlFor="email">
+              <Text weight="medium">Endereço de e-mail</Text>
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="nome@exemplo.com"
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.campo}>
+            <label className={styles.label} htmlFor="senha">
+              <Text weight="medium">Senha</Text>
+            </label>
+            <div className={styles.inputWrapper}>
               <input
                 id="senha"
-                type="password"
+                type={mostrarSenha ? 'text' : 'password'}
                 placeholder="Crie uma senha"
                 className={styles.input}
+                required
               />
-            </div>
-            <div className={styles.campo}>
-              <label className={styles.label} htmlFor="confirmarSenha">Confirmar senha</label>
-              <input
-                id="confirmarSenha"
-                type="password"
-                placeholder="Digite sua senha novamente"
-                className={styles.input}
-              />
-            </div>
-            <p className={styles.dicaSenha}>
-              Use pelo menos 12 caracteres com uma mistura de letras, números e símbolos para maior proteção.
-            </p>
-            <label className={styles.checkLabel}>
-              <input
-                type="checkbox"
-                checked={aceito}
-                onChange={e => setAceito(e.target.checked)}
-                className={styles.checkbox}
-              />
-              Concordo com os Termos de Serviço e Política de Privacidade, e quero receber atualizações acessíveis no meu e-mail.
-            </label>
-            <div className={styles.botoes}>
-              <button type="button" className={styles.btnPrimario}>
-                Criar conta
-              </button>
-              <button type="button" className={styles.btnSecundario}>
-                Precisa de ajuda?
-              </button>
+              <div className={styles.btnMostrarWrapper}>
+                <Button
+                  variant="ghost"
+                  type="button"
+                  size="1"
+                  onClick={() => setMostrarSenha(v => !v)}
+                  aria-label={mostrarSenha ? 'Ocultar senha' : 'Mostrar senha'}
+                >
+                  {mostrarSenha ? <EyeOff size={16} /> : <EyeIcon size={16} />}
+                  <Text size="1" weight="medium">{mostrarSenha ? 'Ocultar' : 'Mostrar'}</Text>
+                </Button>
+              </div>
             </div>
           </div>
-          <p className={styles.rodape}>
-            Já tem uma conta?{' '}
-            <Link to="/entrar" className={styles.linkEntrar}>
-              Entre para continuar.
+
+          <Button type="submit" size="3" color="primary" fullWidth className={styles.submitBtn}>
+            Criar conta
+          </Button>
+
+          <footer className={styles.footer}>
+            <Text size="2" color="muted">Já tem uma conta?</Text>
+            <Link to="/login" className={styles.linkEntrar}>
+              Entrar
             </Link>
-          </p>
-        </div>
-      </div>
-      <div className={styles.infoPainel}>
-        <div className={styles.imagemPlaceholder} />
-        <div className={styles.infoConteudo}>
-          <span className={styles.infoTag}>Integração guiada</span>
-          <h2 className={styles.infoTituloGrande}>
-            Feito para uma configuração calma e confiante.
-          </h2>
-          <p className={styles.infoDescricao}>
-            O SeniorEase mantém as rotinas de saúde essenciais visíveis, legíveis e fáceis de compartilhar com cuidadores de confiança desde o primeiro dia.
-          </p>
-          <ul className={styles.infoLista}>
-            <li>• Texto grande e alto contraste em todas as tarefas diárias</li>
-            <li>• Lembretes compartilhados para familiares e cuidadores</li>
-            <li>• Recuperação de conta segura e opções de suporte claras</li>
-          </ul>
-        </div>
-      </div>
+          </footer>
+        </form>
+      </Card>
     </div>
   );
 }

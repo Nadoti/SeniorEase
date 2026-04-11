@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useAtom } from 'jotai';
+import { securityState } from '@/shared/model/securityState';
 interface Task {
   id: string;
   title: string;
@@ -13,6 +15,7 @@ const INITIAL_TASKS: Task[] = [
   { id: '3', title: 'Ligar para os netos', completed: false, important: false },
 ];
 export function useTasks() {
+  const [extraSecurity] = useAtom(securityState);
   const [tasks, setTasks] = useState<Task[]>(INITIAL_TASKS);
   const [newTaskText, setNewTaskText] = useState('');
   const [newTaskSubtitle, setNewTaskSubtitle] = useState('');
@@ -24,7 +27,17 @@ export function useTasks() {
     if (filter === 'Concluídas') return t.completed;
     return true;
   });
-  const toggleTask = (id: string) => setTasks(ts => ts.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+  const toggleTask = (id: string) => {
+    setTasks(ts => ts.map(t => {
+      if (t.id === id) {
+        const isCompleted = !t.completed;
+        if (isCompleted) toast.success('Tarefa concluída!');
+        else toast.info('Tarefa retomada!');
+        return { ...t, completed: isCompleted };
+      }
+      return t;
+    }));
+  };
   const handleAdd = () => {
     if (!newTaskText.trim()) return;
     setTasks([...tasks, { id: Date.now().toString(), title: newTaskText, subtitle: newTaskSubtitle.trim() || undefined, completed: false, important: isNewTaskImportant }]);
@@ -37,6 +50,15 @@ export function useTasks() {
     if (taskToDelete) {
       setTasks(ts => ts.filter(t => t.id !== taskToDelete));
       setTaskToDelete(null);
+      toast.success('Tarefa excluída com sucesso');
+    }
+  };
+
+  const handleRequestDelete = (id: string) => {
+    if (extraSecurity) {
+      setTaskToDelete(id);
+    } else {
+      setTasks(ts => ts.filter(t => t.id !== id));
       toast.success('Tarefa excluída com sucesso');
     }
   };
@@ -55,6 +77,7 @@ export function useTasks() {
     toggleTask,
     handleAdd,
     handleDeleteConfirm,
+    handleRequestDelete,
   };
 }
 export type { Task };

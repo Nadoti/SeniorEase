@@ -13,7 +13,6 @@ import { useGlobalNarrator } from '@/shared/lib/useGlobalNarrator';
 import { useKeyboardNavigation } from '@/shared/lib/useKeyboardNavigation';
 import { useNavMode } from '@/shared/model/navModeState';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Toaster } from 'sonner';
 import { useEffect } from 'react';
 export function MainLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -104,7 +103,6 @@ export function MainLayout() {
             </filter>
           </defs>
         </svg>
-        <Toaster position="top-right" richColors />
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
-import { useAtomValue } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { keyboardNavState } from '@/shared/model/keyboardNavState';
+import { authState } from '@/shared/model/authState';
 export function useKeyboardNavigation() {
   const enabled = useAtomValue(keyboardNavState);
+  const setIsAuthenticated = useSetAtom(authState);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -18,6 +20,13 @@ export function useKeyboardNavigation() {
         return;
       }
       if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+      if (e.key === 'Escape') {
+        setIsAuthenticated(false);
+        navigate('/login', { replace: true });
+        return;
+      }
+
       const key = e.key.toLowerCase();
       switch (key) {
         case 'p':
@@ -27,7 +36,7 @@ export function useKeyboardNavigation() {
           navigate('/dashboard/configuracoes/aparencia');
           return;
         case 't':
-          navigate('/dashboard/tarefas');
+          navigate('/dashboard/tasks');
           return;
         case 'g':
           navigate('/dashboard/guiada');
@@ -44,8 +53,8 @@ export function useKeyboardNavigation() {
       }
       if (location.pathname.startsWith('/dashboard/configuracoes')) {
         const numberNav: Record<string, string> = {
-          '1': '/dashboard/configuracoes/aparencia',
-          '2': '/dashboard/configuracoes/tipografia',
+          '1': '/dashboard/configuracoes/tipografia',
+          '2': '/dashboard/configuracoes/aparencia',
           '3': '/dashboard/configuracoes/indicadores-de-foco',
           '4': '/dashboard/configuracoes/filtros-de-cor',
           '5': '/dashboard/configuracoes/texto-para-fala',

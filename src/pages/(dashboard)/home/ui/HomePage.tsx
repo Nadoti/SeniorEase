@@ -3,7 +3,12 @@ import { CircleCheck, Palette, Sparkles, Type } from "lucide-react";
 import styles from './HomePage.module.css';
 import { useHome } from '../model/useHome';
 export function HomePage() {
-  const { isDarkMode, setIsDarkMode } = useHome();
+  const {
+    isDarkMode, setIsDarkMode,
+    ttsEnabled, toggleTts,
+    focusEnabled, toggleFocus,
+    themeName, fontSizeText, ttsText, focusText
+  } = useHome();
   return (
     <section className={styles.container}>
       <div className={styles.headerHome}>
@@ -13,22 +18,22 @@ export function HomePage() {
       <div className={styles.cardContainer}>
         <Card className={`${styles.card} ${styles.themeHighlightCard}`}>
           <Palette size={32} color="#FFFFFF" />
-          <Heading size="3" className={styles.themeHighlightTitle}>Escuro</Heading>
+          <Heading size="3" className={styles.themeHighlightTitle}>{themeName}</Heading>
           <Text className={styles.themeHighlightSubtitle} size="2">Tema Atual</Text>
         </Card>
         <Card color="primary" className={styles.card}>
           <Type size={32} color="#2B8CE6" />
-          <Heading size="3" color="white">16px</Heading>
+          <Heading size="3" color="white">{fontSizeText}</Heading>
           <Text color="default" size="2" className={styles.subtitleText}>Tamanho da Fonte</Text>
         </Card>
         <Card color="primary" className={styles.card}>
           <Palette size={32} color="#2B8CE6" />
-          <Heading size="3" color="white">Desativado</Heading>
+          <Heading size="3" color="white">{ttsText}</Heading>
           <Text color="default" size="2" className={styles.subtitleText}>Leitor de Voz</Text>
         </Card>
         <Card color="primary" className={styles.card}>
           <Palette size={32} color="#2B8CE6" />
-          <Heading size="3" color="white">Normal</Heading>
+          <Heading size="3" color="white">{focusText}</Heading>
           <Text color="default" size="2" className={styles.subtitleText}>Indicadores de Foco</Text>
         </Card>
       </div>
@@ -51,14 +56,14 @@ export function HomePage() {
                 <Heading size="1" color="white">Leitor de Voz</Heading>
                 <Text color="default" size="2">Ler conteúdos das páginas em voz alta</Text>
               </span>
-              <Switch color="primary" checked={true} />
+              <Switch color="primary" checked={ttsEnabled} onCheckedChange={toggleTts} />
             </div>
             <div className={styles.cardAcessibilityContent}>
               <span className={styles.cardAcessibilityContentText}>
                 <Heading size="1" color="white">Indicadores de Foco</Heading>
                 <Text color="default" size="2">Destacar visualmente navegação do teclado</Text>
               </span>
-              <Switch color="primary" checked={true} />
+              <Switch color="primary" checked={focusEnabled} onCheckedChange={toggleFocus} />
             </div>
           </div>
         </Card>

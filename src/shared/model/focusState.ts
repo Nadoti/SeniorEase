@@ -1,6 +1,6 @@
 import { atomWithStorage } from 'jotai/utils';
 import { atom } from 'jotai';
-export type FocusStyleType = 'solid' | 'dashed' | 'underline';
+export type FocusStyleType = 'none' | 'solid' | 'dashed' | 'underline';
 export type FocusConfig = {
   style: FocusStyleType;
   color: string;

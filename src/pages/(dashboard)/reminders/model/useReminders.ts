@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useAtom } from 'jotai';
+import { securityState } from '@/shared/model/securityState';
 interface Reminder {
   id: string;
   title: string;
@@ -13,6 +15,7 @@ const MOCK_REMINDERS: Reminder[] = [
   { id: '2', title: 'Fisioterapia', subtitle: 'Sessão na clínica central', time: '14:30', isDaily: false, active: true },
 ];
 export function useReminders() {
+  const [extraSecurity] = useAtom(securityState);
   const [reminders, setReminders] = useState<Reminder[]>(MOCK_REMINDERS);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isLoadingForm, setIsLoadingForm] = useState(false);
@@ -30,10 +33,14 @@ export function useReminders() {
   const clearForm = () => { setTitle(''); setTime(''); setIsDaily(false); };
   const handleCancel = () => { setIsFormOpen(false); clearForm(); };
   const handleSave = () => {
-    if (!title || !time) return;
+    if (!title || !time) {
+      toast.error('Preencha os campos obrigatórios.');
+      return;
+    }
     setReminders([{
       id: Date.now().toString(), title, subtitle: '', time, isDaily, active: true
     }, ...reminders]);
+    toast.success('Lembrete criado com sucesso!');
     handleCancel();
   };
   const toggleActive = (id: string) => {
@@ -43,6 +50,15 @@ export function useReminders() {
     if (reminderToDelete) {
       setReminders(rs => rs.filter(r => r.id !== reminderToDelete));
       setReminderToDelete(null);
+      toast.success('Lembrete excluído com sucesso');
+    }
+  };
+
+  const handleRequestDelete = (id: string) => {
+    if (extraSecurity) {
+      setReminderToDelete(id);
+    } else {
+      setReminders(rs => rs.filter(r => r.id !== id));
       toast.success('Lembrete excluído com sucesso');
     }
   };
@@ -63,6 +79,7 @@ export function useReminders() {
     handleSave,
     toggleActive,
     confirmDelete,
+    handleRequestDelete,
   };
 }
 export type { Reminder };

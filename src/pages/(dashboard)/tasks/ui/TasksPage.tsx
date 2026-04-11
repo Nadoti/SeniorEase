@@ -7,7 +7,7 @@ export function TasksPage() {
   const {
     tasks, newTaskText, setNewTaskText, newTaskSubtitle, setNewTaskSubtitle, filter, setFilter,
     taskToDelete, setTaskToDelete, isNewTaskImportant, setIsNewTaskImportant,
-    toggleTask, handleAdd, handleDeleteConfirm,
+    toggleTask, handleAdd, handleDeleteConfirm, handleRequestDelete,
   } = useTasks();
   return (
     <div className={styles.container}>
@@ -83,7 +83,7 @@ export function TasksPage() {
                 variant="ghost"
                 color="danger"
                 size="3"
-                onClick={() => setTaskToDelete(task.id)}
+                onClick={() => handleRequestDelete(task.id)}
                 title="Excluir tarefa"
               >
                 <Trash2 size={18} />

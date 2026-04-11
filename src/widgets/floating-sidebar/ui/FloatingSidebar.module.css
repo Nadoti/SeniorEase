@@ -1,4 +1,5 @@
 @import '@/shared/ui/tokens.css';
+
 .dockContainer {
   position: absolute;
   bottom: 2rem;
@@ -9,31 +10,36 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-6);
-  }
+}
+
 .dock,
 .subDock {
   display: flex;
   align-items: flex-end;
-    gap: var(--space-1);
+  gap: var(--space-1);
   padding: var(--space-2);
   backdrop-filter: blur(10px);
 }
+
 .dock {
   background-color: transparent;
   border: 1px solid var(--surface-border);
   border-radius: 24px;
   box-shadow: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
 }
+
 .subDockWrapper {
   display: flex;
   justify-content: center;
   width: max-content;
 }
+
 .subDock {
-    background-color: hsla(222, 47%, 14%, 0.7);
-    border: 1px solid hsla(212, 70%, 30%, 0.5);
-    border-radius: 24px;
+  background-color: hsla(222, 47%, 14%, 0.7);
+  border: 1px solid hsla(212, 70%, 30%, 0.5);
+  border-radius: 24px;
 }
+
 .dockItem {
   position: relative;
   display: flex;
@@ -43,7 +49,7 @@
   gap: var(--space-2);
   width: 4.5rem;
   height: 5rem;
-    justify-content: flex-start;
+  justify-content: flex-start;
   padding-top: var(--space-3);
   gap: var(--space-1);
   border-radius: 1.25rem;
@@ -52,11 +58,13 @@
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-origin: bottom center;
 }
+
 .dockItem:not(.active):hover {
   transform: scale(1) translateY(-0.5rem);
   color: var(--surface-text-white);
   z-index: 10;
 }
+
 .iconWrapper {
   position: relative;
   display: flex;
@@ -69,31 +77,37 @@
   transition: all 0.2s ease;
   flex-shrink: 0;
 }
+
 .label {
   font-size: 0.65rem;
   font-weight: 500;
   color: inherit;
   width: 100%;
   text-align: center;
-    white-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 var(--space-1);
 }
+
 .dockItem.active {
   color: #4EADFF;
 }
+
 :global([data-theme="dark"]) .dockItem:not(.active) {
   color: #D1D5DB;
 }
+
 .dockItem.active {
   color: #4EADFF;
 }
+
 .dockItem.active .iconWrapper {
   background-color: #2B8CE6;
   color: white;
   box-shadow: 0 4px 20px hsla(209, 79%, 54%, 0.4);
 }
+
 .activeIndicator {
   position: absolute;
   bottom: 0px;
@@ -101,42 +115,77 @@
   height: 4px;
   border-radius: 50%;
   background-color: var(--color-info-5, #2B8CE6);
-    box-shadow: 0 0 6px rgba(43, 140, 230, 0.6);
+  box-shadow: 0 0 6px rgba(43, 140, 230, 0.6);
 }
+
 .shortcutBadge {
   position: absolute;
   top: -6px;
-  right: -6px;
-  width: 14px;
-  height: 14px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
-  color: var(--surface-bg);
-  border-radius: 50%;
-  font-size: 0.55rem;
+  color: #4B5563;
+  /* Gray-600 */
+  border-radius: 8px;
+  /* pill shape */
+  font-size: 0.6rem;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 5;
   transition: inherit;
 }
+
 :global([data-theme="light"]) .subDock {
   background-color: hsla(0, 0%, 100%, 0.75);
   border: 1px solid var(--surface-border);
 }
+
 :global([data-theme="light"]) .dockItem.active {
   color: var(--color-primary-5);
 }
+
 :global([data-theme="light"]) .dockItem.active .iconWrapper {
   background-color: var(--color-primary-5);
   box-shadow: 0 4px 20px var(--color-primary-alpha);
 }
+
 :global([data-theme="light"]) .activeIndicator {
   background-color: var(--color-primary-5);
   box-shadow: 0 0 6px var(--color-primary-alpha);
 }
+
 :global([data-theme="light"]) .shortcutBadge {
   color: var(--surface-bg);
   background-color: var(--surface-text);
+}
+
+.logoutDockItem {
+  color: var(--color-danger-5) !important;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.logoutDockItem .iconWrapper {
+  color: var(--color-danger-5);
+  background-color: hsla(0, 90%, 71%, 0.1);
+}
+
+.logoutDockItem:hover .iconWrapper {
+  background-color: var(--color-danger-5) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px hsla(0, 90%, 71%, 0.4);
+}
+
+:global([data-theme="light"]) .logoutDockItem .iconWrapper {
+  background-color: hsla(0, 72%, 51%, 0.1);
+}
+
+:global([data-theme="light"]) .logoutDockItem:hover .iconWrapper {
+  box-shadow: 0 4px 20px hsla(0, 72%, 51%, 0.4);
 }
