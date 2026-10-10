@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAtom } from 'jotai';
 import { useNavigate } from 'react-router';
 import { toast } from 'sonner';
-import { authState } from '@/shared/model/authState';
+import { authState } from '@/entities/session';
 
 export function useLogin() {
   const [mostrarSenha, setMostrarSenha] = useState(false);

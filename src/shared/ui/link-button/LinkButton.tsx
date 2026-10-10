@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import type { ReactNode } from 'react'
 import { Link, type LinkProps } from 'react-router'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './LinkButton.module.css'
 export type LinkButtonVariant = 'solid' | 'soft' | 'outline' | 'ghost'
 export type LinkButtonSize = '1' | '2' | '3'

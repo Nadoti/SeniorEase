@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Button.module.css'
 export type ButtonVariant = 'solid' | 'soft' | 'outline' | 'ghost'
 export type ButtonSize = '1' | '2' | '3'

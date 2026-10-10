@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
-import { useAtomValue, useSetAtom } from 'jotai';
-import { keyboardNavState } from '@/shared/model/keyboardNavState';
-import { authState } from '@/shared/model/authState';
+import { useAtomValue } from 'jotai';
+import { keyboardNavState } from '@/entities/user-preferences';
+import { useSignOut } from '@/features/sign-out';
 export function useKeyboardNavigation() {
   const enabled = useAtomValue(keyboardNavState);
-  const setIsAuthenticated = useSetAtom(authState);
+  const signOut = useSignOut();
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -22,8 +22,7 @@ export function useKeyboardNavigation() {
       if (e.ctrlKey || e.metaKey || e.altKey) return;
 
       if (e.key === 'Escape') {
-        setIsAuthenticated(false);
-        navigate('/login', { replace: true });
+        signOut();
         return;
       }
 
@@ -66,5 +65,5 @@ export function useKeyboardNavigation() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [enabled, navigate, location.pathname]);
+  }, [enabled, navigate, location.pathname, signOut]);
 }

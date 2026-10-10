@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './IconButton.module.css'
 export type IconButtonVariant = 'solid' | 'soft' | 'outline' | 'ghost'
 export type IconButtonSize = '1' | '2' | '3'

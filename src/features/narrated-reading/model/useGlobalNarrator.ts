@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { useAtomValue } from 'jotai';
-import { ttsState } from '@/shared/model/ttsState';
+import { ttsState } from '@/entities/user-preferences';
 export function useGlobalNarrator() {
   const tts = useAtomValue(ttsState);
   const speakingRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
+    if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') return;
     const clearHighlight = () => {
       if (speakingRef.current) {
         speakingRef.current.classList.remove('seniorease-narrator-highlight');

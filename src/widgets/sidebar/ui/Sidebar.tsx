@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { ChevronDown, ChevronUp, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { cx } from '@/shared/lib';
+import { cx } from '@/shared/lib/classnames';
 import { useSidebar } from '../model/useSidebar';
 import styles from './Sidebar.module.css';
 

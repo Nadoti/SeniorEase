@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { cx } from '@/shared/lib';
+import { cx } from '@/shared/lib/classnames';
 import { useFloatingSidebar } from '../model/useFloatingSidebar';
 import styles from './FloatingSidebar.module.css';
 

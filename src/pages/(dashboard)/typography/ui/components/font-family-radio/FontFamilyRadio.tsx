@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { typographyState } from '@/shared/model/typographyState';
+import { typographyState } from '@/entities/user-preferences';
 import styles from './FontFamilyRadio.module.css';
 const listFontFamilies = [
   {
@@ -51,7 +51,7 @@ export function FontFamilyRadio() {
   const setSelectedFont = (val: string) => {
     const familyObj = listFontFamilies.find(f => f.value === val);
     if (familyObj) {
-      setTypography((prev: any) => ({ ...prev, fontFamily: familyObj.fontFamily }));
+      setTypography(prev => ({ ...prev, fontFamily: familyObj.fontFamily }));
     }
   };
   return (

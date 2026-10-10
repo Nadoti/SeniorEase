@@ -1,6 +1,6 @@
 import { forwardRef, isValidElement, cloneElement } from 'react'
 import type { HTMLAttributes, ReactElement } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Card.module.css'
 export type CardVariant = 'surface' | 'classic' | 'ghost' | 'outline'
 export type CardSize = '1' | '2' | '3'
@@ -40,6 +40,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       className,
     )
     if (asChild && isValidElement(children)) {
+      // cloneElement forwards the ref; it never reads ref.current.
+      // eslint-disable-next-line react-hooks/refs
       return cloneElement(children as ReactElement<Record<string, unknown>>, {
         ref,
         className: cx(cardClass, (children.props as { className?: string }).className),

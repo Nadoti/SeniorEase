@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { useAtom } from 'jotai';
-import { securityState } from '@/shared/model/securityState';
+import { securityState } from '@/entities/user-preferences';
 export function useProfile() {
   const [userName, setUserName] = useState('João da Silva');
   const [extraSecurity, setExtraSecurity] = useAtom(securityState);

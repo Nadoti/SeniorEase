@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { focusState } from '@/shared/model/focusState';
+import { focusState } from '@/entities/user-preferences';
 import styles from './FocusColorSelector.module.css';
 import { Text } from '@/shared/ui';
 import { Check } from 'lucide-react';

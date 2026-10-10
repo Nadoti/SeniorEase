@@ -1,11 +1,7 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-export type NavMode = 'lateral' | 'flutuante';
-interface NavModeContextType {
-  navMode: NavMode;
-  setNavMode: (mode: NavMode) => void;
-}
-const NavModeContext = createContext<NavModeContextType | undefined>(undefined);
+import { NavModeContext } from '../model/navModeContext';
+import type { NavMode } from '../model/navModeContext';
 export function NavModeProvider({ children }: { children: ReactNode }) {
   const [navMode, setNavMode] = useState<NavMode>(() => {
     if (typeof window !== 'undefined') {
@@ -26,11 +22,4 @@ export function NavModeProvider({ children }: { children: ReactNode }) {
       {children}
     </NavModeContext.Provider>
   );
-}
-export function useNavMode() {
-  const context = useContext(NavModeContext);
-  if (context === undefined) {
-    throw new Error('useNavMode must be used within a NavModeProvider');
-  }
-  return context;
 }

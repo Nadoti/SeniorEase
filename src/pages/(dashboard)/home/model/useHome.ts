@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { ttsState } from '@/shared/model/ttsState';
-import { focusState } from '@/shared/model/focusState';
-import { typographyState } from '@/shared/model/typographyState';
+import { ttsState } from '@/entities/user-preferences';
+import { focusState } from '@/entities/user-preferences';
+import { typographyState } from '@/entities/user-preferences';
 
 export function useHome() {
   const [isDarkMode, setIsDarkMode] = useState(() => {

@@ -1,21 +1,15 @@
 import { useAtom } from 'jotai';
-import { typographyState } from '@/shared/model/typographyState';
+import { typographyState, DEFAULT_TYPOGRAPHY } from '@/entities/user-preferences';
+import type { TypographyConfig } from '@/entities/user-preferences';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { securityState } from '@/shared/model/securityState';
-const DEFAULT_TYPOGRAPHY = {
-  fontFamily: 'Inter, sans-serif',
-  fontSize: 16,
-  fontWeight: 400,
-  lineHeight: 1.5,
-  letterSpacing: 0,
-};
+import { securityState } from '@/entities/user-preferences';
 export function useTypography() {
   const [extraSecurity] = useAtom(securityState);
   const [typography, setTypography] = useAtom(typographyState);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
-  const updateTypo = (key: string, val: number | string) => {
-    setTypography((prev: any) => ({ ...prev, [key]: val }));
+  const updateTypo = <K extends keyof TypographyConfig>(key: K, val: TypographyConfig[K]) => {
+    setTypography(prev => ({ ...prev, [key]: val }));
   };
   const confirmResetDefaults = () => {
     setTypography(DEFAULT_TYPOGRAPHY);

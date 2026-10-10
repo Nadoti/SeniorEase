@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { useAtom } from 'jotai';
-import { securityState } from '@/shared/model/securityState';
+import { securityState } from '@/entities/user-preferences';
 interface Task {
   id: string;
   title: string;

@@ -1,4 +1,4 @@
-@import '../tokens.css';
+@import '../../styles/tokens.css';
 .avatar {
   display: inline-flex;
   align-items: center;

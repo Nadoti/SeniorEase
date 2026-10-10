@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { colorFilterState } from '@/shared/model/colorFilterState';
+import { colorFilterState } from '@/entities/user-preferences';
 export function useColorFilters() {
   const [colorFilter, setColorFilter] = useAtom(colorFilterState);
   return { colorFilter, setColorFilter };

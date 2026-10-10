@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useState } from 'react'
 import type { ButtonHTMLAttributes, ChangeEvent } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Switch.module.css'
 export type SwitchVariant = 'surface' | 'soft' | 'classic'
 export type SwitchSize = '1' | '2' | '3'

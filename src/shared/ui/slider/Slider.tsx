@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useRef, useState } from 'react'
 import type { HTMLAttributes, PointerEvent as ReactPointerEvent } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Slider.module.css'
 export type SliderVariant = 'surface' | 'soft' | 'classic'
 export type SliderSize = '1' | '2' | '3'

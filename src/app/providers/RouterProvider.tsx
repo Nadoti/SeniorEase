@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router';
 import { useAtom } from 'jotai';
-import { authState } from '@/shared/model/authState';
-import { NavModeProvider } from '@/shared/model/navModeState';
-import { MainLayout } from '@/widgets/layout';
+import { authState } from '@/entities/session';
+import { NavModeProvider } from '@/entities/user-preferences';
+import { MainLayout } from '../layouts/MainLayout';
 import { Toaster } from 'sonner';
 import { HomePage } from '@/pages/(dashboard)/home';
 import { AppearancePage } from '@/pages/(dashboard)/appearance';
@@ -15,8 +15,8 @@ import { RemindersPage } from '@/pages/(dashboard)/reminders';
 import { HistoryPage } from '@/pages/(dashboard)/history';
 import { ProfilePage } from '@/pages/(dashboard)/profile';
 import { NotFoundPage } from '@/pages/not-found';
-import { LoginPage } from '@/pages/login/ui/LoginPage';
-import { RegisterPage } from '@/pages/register/ui/RegisterPage';
+import { LoginPage } from '@/pages/login';
+import { RegisterPage } from '@/pages/register';
 
 function RootRedirect() {
   const [isAuthenticated] = useAtom(authState);

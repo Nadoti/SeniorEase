@@ -1,5 +1,5 @@
 import { Avatar, Card, Heading, Separator, Slider, Switch, Text } from "@/shared/ui";
-import { Button } from "@/shared/ui/button/Button";
+import { Button } from "@/shared/ui/button";
 import styles from './TextToSpeech.module.css';
 import { Volume2, FastForward, Square } from "lucide-react";
 import { useTextToSpeech } from '../model/useTextToSpeech';

@@ -1,4 +1,4 @@
-@import '../tokens.css';
+@import '../../styles/tokens.css';
 .separator {
   border: none;
   flex-shrink: 0;

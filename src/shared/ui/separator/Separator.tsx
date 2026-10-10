@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import type { HTMLAttributes } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Separator.module.css'
 export type SeparatorOrientation = 'horizontal' | 'vertical'
 export type SeparatorColor = 'neutral' | 'muted' | 'primary' | 'danger' | 'success' | 'warning'

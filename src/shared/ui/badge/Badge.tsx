@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import type { HTMLAttributes } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Badge.module.css'
 export type BadgeVariant = 'solid' | 'soft' | 'outline' | 'surface'
 export type BadgeSize = '1' | '2' | '3'

@@ -1,6 +1,6 @@
 import { forwardRef, useState } from 'react'
 import type { HTMLAttributes, ReactNode } from 'react'
-import { cx } from '@/shared/lib/cx'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Avatar.module.css'
 export type AvatarVariant = 'solid' | 'soft' | 'outline'
 export type AvatarSize = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import type { HTMLAttributes, ElementType } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './Heading.module.css'
 export type HeadingSize = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 export type HeadingWeight = 'light' | 'regular' | 'medium' | 'semibold' | 'bold' | '600'

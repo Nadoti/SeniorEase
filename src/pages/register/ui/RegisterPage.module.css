@@ -1,4 +1,4 @@
-@import '../../../shared/ui/tokens.css';
+@import '@/shared/styles/tokens.css';
 
 .wrapper {
   display: flex;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { useNavMode } from '@/shared/model/navModeState';
-import { keyboardNavState } from '@/shared/model/keyboardNavState';
+import { useNavMode } from '@/entities/user-preferences';
+import { keyboardNavState } from '@/entities/user-preferences';
 export function useAppearance() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';

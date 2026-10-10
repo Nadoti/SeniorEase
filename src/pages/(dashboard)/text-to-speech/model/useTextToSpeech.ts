@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { ttsState } from '@/shared/model/ttsState';
+import { ttsState } from '@/entities/user-preferences';
+import type { TTSState } from '@/entities/user-preferences';
 const TEXT_TO_READ = "Acessibilidade é a prática de tornar seus sites utilizáveis pelo maior número possível de pessoas. Tradicionalmente pensamos nisso como sendo sobre pessoas com deficiências, mas na verdade beneficia a todos.";
 export function useTextToSpeech() {
   const [audioState, setAudioState] = useState<'idle' | 'starting' | 'playing' | 'stopping'>('idle');
@@ -43,7 +44,7 @@ export function useTextToSpeech() {
         return { children: 'Parar leitura', loadingText: 'Processando...', color: 'danger' as const, variant: 'soft' as const, loading: true, icon: 'stop' as const };
     }
   };
-  const updateTts = (key: string, val: any) => {
+  const updateTts = <K extends keyof TTSState>(key: K, val: TTSState[K]) => {
     setTts(prev => ({ ...prev, [key]: val }));
   };
   return {

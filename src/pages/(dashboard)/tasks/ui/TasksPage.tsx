@@ -1,6 +1,6 @@
 import { Card, Button, Text, Heading, Modal } from '@/shared/ui';
 import { Plus, CheckCircle2, Circle, AlertCircle, Trash2 } from 'lucide-react';
-import { cx } from '@/shared/lib';
+import { cx } from '@/shared/lib/classnames';
 import styles from './TasksPage.module.css';
 import { useTasks } from '../model/useTasks';
 export function TasksPage() {

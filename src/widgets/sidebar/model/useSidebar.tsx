@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
-import { useAtom } from 'jotai';
-import { authState } from '@/shared/model/authState';
+import { useLocation } from 'react-router';
+import { useSignOut } from '@/features/sign-out';
 import { LayoutDashboard, ListTodo, SlidersHorizontal, Type, Palette, View, Volume2, Crosshair, Bell, Clock, User } from 'lucide-react';
 
 const menuItems = [
@@ -52,8 +51,7 @@ const menuItems = [
 
 export function useSidebar() {
   const location = useLocation();
-  const navigate = useNavigate();
-  const [, setIsAuthenticated] = useAtom(authState);
+  const handleLogout = useSignOut();
 
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     'Configurações': location.pathname.startsWith('/dashboard/configuracoes')
@@ -63,10 +61,6 @@ export function useSidebar() {
     setOpenMenus(prev => ({ ...prev, [label]: !prev[label] }));
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    navigate('/login', { replace: true });
-  };
 
   return {
     menuItems,

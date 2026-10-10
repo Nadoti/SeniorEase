@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import type { InputHTMLAttributes, ReactNode } from 'react'
-import { cx } from '@/shared/lib'
+import { cx } from '@/shared/lib/classnames'
 import styles from './RadioCard.module.css'
 export type RadioCardVariant = 'surface' | 'classic' | 'ghost'
 export type RadioCardSize = '1' | '2' | '3'
