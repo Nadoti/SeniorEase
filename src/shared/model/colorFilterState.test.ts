@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { applyColorFilterToDOM } from './colorFilterState';
 describe('colorFilterState DOM side effects', () => {
   it('should remove existing filter and apply deuteranopia filter', () => {

@@ -18,7 +18,7 @@ SeniorEase Web é um dashboard moderno e intuitivo, desenhado com foco total em 
 Siga as instruções abaixo para rodar a aplicação em seu ambiente de desenvolvimento.
 
 ### 1. Pré-requisitos
-Certifique-se de ter o **Node.js** (versão 18+ recomendada) instalado na sua máquina.
+Certifique-se de ter o **Node.js 24 LTS** instalado na sua máquina. O Vite 7 exige Node.js 20.19+ ou 22.12+; Node.js 18 não é compatível.
 - Para verificar sua versão, execute: `node -v`
 
 ### 2. Instalar Dependências
@@ -47,6 +47,31 @@ npm run build
 ```
 
 ---
+
+## Deploy na Vercel
+
+O arquivo `vercel.json` configura o build e o fallback para `index.html`, necessário para abrir ou atualizar diretamente as rotas do React Router.
+
+1. Envie as alterações deste projeto para a branch `main` do repositório conectado à Vercel.
+2. Nas configurações do projeto na Vercel, use:
+   - **Root Directory:** raiz do repositório (pasta que contém `package.json`).
+   - **Framework Preset:** Vite.
+   - **Build Command:** `npm run build`.
+   - **Output Directory:** `dist`.
+   - **Install Command:** `npm ci`.
+   - **Node.js Version:** 24.x.
+3. Aguarde o deploy automático do novo commit ou inicie um novo deploy desse commit no painel.
+4. Após o build concluir, abra a URL fornecida pela Vercel e teste `/login`, `/cadastro` e a atualização de uma rota do dashboard após entrar.
+
+Para validar localmente antes de publicar:
+
+```bash
+npm ci
+npm run build
+npm run test -- --run
+```
+
+Atualmente o projeto não exige variáveis de ambiente nem backend para o deploy. Login e cadastro são demonstrativos, e o estado fica no navegador; publicar o site não cria autenticação real nem um banco de dados.
 
 ## Estrutura do Projeto
 O SeniorEase utiliza a arquitetura baseada nos princípios de FSD (Feature-Sliced Design), focando na separação de reponsabilidades (UI, Models, Shared Components, etc) e garantindo uma base escalável e flexível.
